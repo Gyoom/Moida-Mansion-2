@@ -630,7 +630,6 @@ GameObject:
   m_Component:
   - component: {fileID: 961333945}
   - component: {fileID: 961333944}
-  - component: {fileID: 961333946}
   m_Layer: 0
   m_Name: BaseRoom
   m_TagString: Untagged
@@ -708,19 +707,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 215338894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &961333946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961333943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canBeSearch: 0
 --- !u!1 &1270268266
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,34 +954,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 537392098263263837, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TakeStair
-      objectReference: {fileID: 0}
     - target: {fileID: 1393024717332693575, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 1393024717332693575, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveLeft
-      objectReference: {fileID: 0}
     - target: {fileID: 4086925519397363910, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 4086925519397363910, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveRight
-      objectReference: {fileID: 0}
     - target: {fileID: 5321867012711451707, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 5321867012711451707, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Search
-      objectReference: {fileID: 0}
     - target: {fileID: 7541617390231839569, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_Name
       value: CanvasInGame
