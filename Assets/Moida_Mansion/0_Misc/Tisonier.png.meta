@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tisonier_0: -4485773850449787608
+      Tisonier_1: -5330422713203899678
+      Tisonier_2: -4796113886149407747
+      Tisonier_3: -7957937683711366683
+      Tisonier_4: -934092409747398281
+      Tisonier_5: 2939516126806748858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
