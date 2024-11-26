@@ -954,34 +954,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 537392098263263837, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TakeStair
-      objectReference: {fileID: 0}
     - target: {fileID: 1393024717332693575, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 1393024717332693575, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveLeft
-      objectReference: {fileID: 0}
     - target: {fileID: 4086925519397363910, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 4086925519397363910, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveRight
-      objectReference: {fileID: 0}
     - target: {fileID: 5321867012711451707, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
-    - target: {fileID: 5321867012711451707, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Search
-      objectReference: {fileID: 0}
     - target: {fileID: 7541617390231839569, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_Name
       value: CanvasInGame
