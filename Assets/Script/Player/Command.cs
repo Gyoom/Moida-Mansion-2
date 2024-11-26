@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Command : MonoBehaviour
 {
-    public Actor currentActor;
-
 	private ICommand moveRight;
 	private ICommand moveLeft;
 	private ICommand search;
@@ -20,19 +18,19 @@ public class Command : MonoBehaviour
 
 	public void MoveRight()
 	{
-		moveRight.Execute(currentActor);
+		moveRight.Execute(PlayerController.instance);
 	}
 	public void MoveLeft()
 	{
-		moveLeft.Execute(currentActor);
+		moveLeft.Execute(PlayerController.instance);
 	}
 	public void Search()
 	{
-		search.Execute(currentActor);
+		search.Execute(PlayerController.instance);
 	}
 	public void TakeStair()
 	{
-		takeStair.Execute(currentActor);
+		takeStair.Execute(PlayerController.instance);
 	}
 }
 

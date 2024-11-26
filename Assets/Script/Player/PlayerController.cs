@@ -1,7 +1,19 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : Actor
 {
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else Destroy(gameObject);
+    }
+
     public override void MoveRight()
     {
         Debug.Log($"Move Right !");
