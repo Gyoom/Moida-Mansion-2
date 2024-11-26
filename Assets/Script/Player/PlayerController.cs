@@ -17,6 +17,8 @@ public class PlayerController : Actor
     public override void MoveRight()
     {
         Debug.Log($"Move Right !");
+        
+        //TODO : Draw the room you at, update position on array 
     }
 
     public override void MoveLeft()
