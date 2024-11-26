@@ -27,6 +27,7 @@ namespace Script.Procedural_Generation
         public void SetWhatObjContain(string description, RoomObj OBJ)
         {
             doContain = true;
+            containDescription = description;
             objToGive = OBJ;
         }
 
