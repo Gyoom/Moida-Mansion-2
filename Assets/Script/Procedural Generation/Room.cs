@@ -1,14 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Procedural_Generation
 {
     public class Room : MonoBehaviour
     {
         [SerializeField] private List<RoomObj> m_possibleObjInRoom = new List<RoomObj>();
-        
+        public RoomType Type;
         [HideInInspector] public readonly List<RoomObj> ObjInRoom = new List<RoomObj>();
-
+        [HideInInspector] public bool HasStairsUp;
+        [HideInInspector] public bool HasStairsDown;
+        
         public void DisplayRoom()
         {
             foreach (var roomObj in ObjInRoom)
@@ -29,5 +32,7 @@ namespace Script.Procedural_Generation
         {
             
         }
+
+        public bool HasStairs() => HasStairsUp && HasStairsDown;
     }
 }
