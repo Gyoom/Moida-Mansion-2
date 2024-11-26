@@ -35,6 +35,7 @@ namespace Script.Procedural_Generation
         /// </summary>
         public void SearchOBJ()
         {
+            if(!canBeSearch) return;
             switch (doContain)
             {
                 case true:
