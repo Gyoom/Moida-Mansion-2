@@ -759,7 +759,33 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MiddleDoor_0: -5691944391358507356
+      MiddleDoor_1: -8036652046191903500
+      MiddleDoor_10: -4834995929580894722
+      MiddleDoor_11: -4184179722992522631
+      MiddleDoor_12: -3900072690172219900
+      MiddleDoor_13: -268529569952883454
+      MiddleDoor_14: -5756642225491915619
+      MiddleDoor_15: 3527843225558097460
+      MiddleDoor_16: 5587453585672195545
+      MiddleDoor_17: -8217939033428540294
+      MiddleDoor_18: -5197326037673753689
+      MiddleDoor_19: -506658283750488874
+      MiddleDoor_2: 1371318930666856205
+      MiddleDoor_20: 8500000503729541877
+      MiddleDoor_21: 3133766131474568437
+      MiddleDoor_22: -2437042847178347508
+      MiddleDoor_23: -7231286766043057715
+      MiddleDoor_24: 8679786062941365588
+      MiddleDoor_25: 7653442408803707674
+      MiddleDoor_3: 744410548713287265
+      MiddleDoor_4: 112683538369221645
+      MiddleDoor_5: -6404460876647927244
+      MiddleDoor_6: -4354325213795801197
+      MiddleDoor_7: -8986645432591611690
+      MiddleDoor_8: 7037907847919623947
+      MiddleDoor_9: 4316873740988773443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

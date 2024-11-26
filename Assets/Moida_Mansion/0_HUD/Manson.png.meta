@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Manson_0: 6483481479284154591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

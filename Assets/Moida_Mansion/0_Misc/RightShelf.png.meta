@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RightShelf_0: 3175257425623462125
+      RightShelf_1: 3448674823009085363
+      RightShelf_2: -5490525520111963597
+      RightShelf_3: 1391076165191703608
+      RightShelf_4: -6929878010879606446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

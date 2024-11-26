@@ -484,7 +484,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RightFurniture_0: 7357738449841263284
+      RightFurniture_1: 5423441943643255934
+      RightFurniture_10: -4285637407455237175
+      RightFurniture_11: 1065378004947701147
+      RightFurniture_12: 2602024680464442871
+      RightFurniture_13: 9179189742577950046
+      RightFurniture_14: -576826526387788533
+      RightFurniture_2: -5201632152739434459
+      RightFurniture_3: -8234534964258044561
+      RightFurniture_4: 1899752680795846401
+      RightFurniture_5: 6353633666080219629
+      RightFurniture_6: -1442732249709947591
+      RightFurniture_7: 3082097602760553412
+      RightFurniture_8: -4469182393452201235
+      RightFurniture_9: -6060678017837117056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

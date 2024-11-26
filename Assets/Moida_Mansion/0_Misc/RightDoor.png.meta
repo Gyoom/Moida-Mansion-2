@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RightDoor_0: 2480268939582727705
+      RightDoor_1: -2431292772582439728
+      RightDoor_2: -4649285794774348296
+      RightDoor_3: -1210398696559334309
+      RightDoor_4: 1684082013625257012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

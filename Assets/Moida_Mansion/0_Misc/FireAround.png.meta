@@ -384,7 +384,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FireAround_0: 865183980570361749
+      FireAround_1: -5244389577858479188
+      FireAround_10: -5210687074990275859
+      FireAround_2: 6175693474563918210
+      FireAround_3: -8139907340215088382
+      FireAround_4: 2508388363145431032
+      FireAround_5: 249594625890818376
+      FireAround_6: 4407039787330076878
+      FireAround_7: 8334995625070624622
+      FireAround_8: -6534624864300034026
+      FireAround_9: -1602029564462149144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

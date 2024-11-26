@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Candle_2_0: -2122337956876107591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

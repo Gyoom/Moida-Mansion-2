@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LightBulb_0: -7602872859853857778
+      LightBulb_1: -253294579345257289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -484,7 +484,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clock_0: 4214149858688995037
+      Clock_1: 7792039334551005206
+      Clock_10: -8008461807771751703
+      Clock_11: 6023173198247996758
+      Clock_12: -6055015089370064793
+      Clock_13: -2679740242560020789
+      Clock_14: 1749567179297628532
+      Clock_2: 8606200704858056018
+      Clock_3: -2833443924174910728
+      Clock_4: 8661856177940741680
+      Clock_5: 1587909880103496020
+      Clock_6: -1080258143134175639
+      Clock_7: 2727448449320395306
+      Clock_8: -1750754219065920
+      Clock_9: -1424094127719139722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
