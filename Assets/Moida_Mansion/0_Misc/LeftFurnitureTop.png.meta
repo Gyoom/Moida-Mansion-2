@@ -1,0 +1,1017 @@
+fileFormatVersion: 2
+guid: 5ee81b1fec55fe64fab81d88599020f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 466851660973930647
+    second: LeftFurnitureTop_0
+  - first:
+      213: -5414587945144640101
+    second: LeftFurnitureTop_1
+  - first:
+      213: 8211986248560910918
+    second: LeftFurnitureTop_2
+  - first:
+      213: -6680518730035533030
+    second: LeftFurnitureTop_3
+  - first:
+      213: 1131312699741909438
+    second: LeftFurnitureTop_4
+  - first:
+      213: 7637084356339902118
+    second: LeftFurnitureTop_5
+  - first:
+      213: -4903677928010985635
+    second: LeftFurnitureTop_6
+  - first:
+      213: -6185157537977616613
+    second: LeftFurnitureTop_7
+  - first:
+      213: 8889238650682571619
+    second: LeftFurnitureTop_8
+  - first:
+      213: 6438388344775316144
+    second: LeftFurnitureTop_9
+  - first:
+      213: -2181997809442144060
+    second: LeftFurnitureTop_10
+  - first:
+      213: -2804482434879280899
+    second: LeftFurnitureTop_11
+  - first:
+      213: 5453648422045846196
+    second: LeftFurnitureTop_12
+  - first:
+      213: 237366375631408902
+    second: LeftFurnitureTop_13
+  - first:
+      213: -4357763875511878793
+    second: LeftFurnitureTop_14
+  - first:
+      213: 2574695987918081504
+    second: LeftFurnitureTop_15
+  - first:
+      213: -1705869304193910031
+    second: LeftFurnitureTop_16
+  - first:
+      213: -8355219086824856941
+    second: LeftFurnitureTop_17
+  - first:
+      213: -7471950400959787080
+    second: LeftFurnitureTop_18
+  - first:
+      213: -9201565766177062311
+    second: LeftFurnitureTop_19
+  - first:
+      213: -6468834890342934726
+    second: LeftFurnitureTop_20
+  - first:
+      213: 941926767289035771
+    second: LeftFurnitureTop_21
+  - first:
+      213: -4317012389017125849
+    second: LeftFurnitureTop_22
+  - first:
+      213: -8183757852945481348
+    second: LeftFurnitureTop_23
+  - first:
+      213: 3052972322366871834
+    second: LeftFurnitureTop_24
+  - first:
+      213: -7854951332099247394
+    second: LeftFurnitureTop_25
+  - first:
+      213: -1911266667568722268
+    second: LeftFurnitureTop_26
+  - first:
+      213: -133569315458897305
+    second: LeftFurnitureTop_27
+  - first:
+      213: 3745400265380835776
+    second: LeftFurnitureTop_28
+  - first:
+      213: 1906059875552995585
+    second: LeftFurnitureTop_29
+  - first:
+      213: -6245693736757530915
+    second: LeftFurnitureTop_30
+  - first:
+      213: -1702878149771109217
+    second: LeftFurnitureTop_31
+  - first:
+      213: -130107786873769653
+    second: LeftFurnitureTop_32
+  - first:
+      213: 134373269367814788
+    second: LeftFurnitureTop_33
+  - first:
+      213: -2454215991264447413
+    second: LeftFurnitureTop_34
+  - first:
+      213: -5921615133006363223
+    second: LeftFurnitureTop_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LeftFurnitureTop_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 317
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798f627bc179a7600800000000000000
+      internalID: 466851660973930647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 353
+        width: 46
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d9a8c93f48bd4b0800000000000000
+      internalID: -5414587945144640101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 316
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642adddebf5d6f170800000000000000
+      internalID: 8211986248560910918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 354
+        width: 36
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b63e42c970a43a0800000000000000
+      internalID: -6680518730035533030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 354
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1310e08ea33bf00800000000000000
+      internalID: 1131312699741909438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_5
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 314
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6255352cf5cf960800000000000000
+      internalID: 7637084356339902118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_6
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 354
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5f4bffb7e2a2fbb0800000000000000
+      internalID: -4903677928010985635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_7
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 314
+        width: 15
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17b3055df7e92aa0800000000000000
+      internalID: -6185157537977616613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_8
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 315
+        width: 16
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b7b91a47bec5b70800000000000000
+      internalID: 8889238650682571619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_9
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 331
+        width: 9
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b219586610c95950800000000000000
+      internalID: 6438388344775316144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 276
+        width: 8
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c045839d8cf7b1e0800000000000000
+      internalID: -2181997809442144060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_11
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 276
+        width: 6
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8a232951a7419d0800000000000000
+      internalID: -2804482434879280899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_12
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 276
+        width: 11
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba89ed58504fab40800000000000000
+      internalID: 5453648422045846196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_13
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 276
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fc125067b4b4300800000000000000
+      internalID: 237366375631408902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_14
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 275
+        width: 17
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77bb519f7dc1683c0800000000000000
+      internalID: -4357763875511878793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_15
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 276
+        width: 7
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed0b741c582bb320800000000000000
+      internalID: 2574695987918081504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_16
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 314
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa774ae7e88358e0800000000000000
+      internalID: -1705869304193910031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_17
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 238
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 392ad35228c4c0c80800000000000000
+      internalID: -8355219086824856941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_18
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 251
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf447bc2bc4e4890800000000000000
+      internalID: -7471950400959787080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_19
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 232
+        width: 14
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9520f9900b87d4080800000000000000
+      internalID: -9201565766177062311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 275
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37d47ac0f41a36a0800000000000000
+      internalID: -6468834890342934726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_21
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 238
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfbe1b08765621d00800000000000000
+      internalID: 941926767289035771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_22
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 238
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c7cadca14e614c0800000000000000
+      internalID: -4317012389017125849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_23
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 238
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c710f5797937d6e80800000000000000
+      internalID: -8183757852945481348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_24
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 232
+        width: 7
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19d6cfd6265e5a20800000000000000
+      internalID: 3052972322366871834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_25
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 232
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed23e3a716b9df290800000000000000
+      internalID: -7854951332099247394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_26
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 186
+        width: 7
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae85889711d975e0800000000000000
+      internalID: -1911266667568722268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_27
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 232
+        width: 43
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a2e2f4a67752ef0800000000000000
+      internalID: -133569315458897305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_28
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 196
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1bda782b55af330800000000000000
+      internalID: 3745400265380835776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 230
+        width: 77
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10926faab5fa37a10800000000000000
+      internalID: 1906059875552995585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_30
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 232
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde6fa433a6d259a0800000000000000
+      internalID: -6245693736757530915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_31
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 196
+        width: 11
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c5e1358592e58e0800000000000000
+      internalID: -1702878149771109217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_32
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 232
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4170ec38a3c13ef0800000000000000
+      internalID: -130107786873769653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_33
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 232
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48af9fbc6c36dd100800000000000000
+      internalID: 134373269367814788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_34
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 196
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4479961f8fd0fdd0800000000000000
+      internalID: -2454215991264447413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFurnitureTop_35
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 196
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5049c196232dda0800000000000000
+      internalID: -5921615133006363223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
