@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Script.Procedural_Generation
 {
@@ -11,7 +10,9 @@ namespace Script.Procedural_Generation
         [HideInInspector] public readonly List<RoomObj> ObjInRoom = new List<RoomObj>();
         [HideInInspector] public bool HasStairsUp;
         [HideInInspector] public bool HasStairsDown;
-        
+        [HideInInspector] public bool HasRightDoor;
+        [HideInInspector] public bool HasLeftDoor;
+
         public void DisplayRoom()
         {
             foreach (var roomObj in ObjInRoom)
@@ -28,9 +29,39 @@ namespace Script.Procedural_Generation
             }
         }
 
+        public void AddBothDoors()
+        {
+            HasLeftDoor = true;
+            HasRightDoor = true;
+        }
+
+        public void AddOneRandomDoor(int roomIndexInFloor)
+        {
+            switch (roomIndexInFloor)
+            {
+                case 0:
+                    HasRightDoor = true;
+                    break;
+                case 3:
+                    HasLeftDoor = true;
+                    break;
+                default:
+                {
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        HasLeftDoor = true;
+                    }
+                    else
+                    {
+                        HasRightDoor = true;
+                    }
+                    break;
+                }
+            }
+        }
+
         public void GenerateRoom()
         {
-            
         }
 
         public bool HasStairs() => HasStairsUp && HasStairsDown;
