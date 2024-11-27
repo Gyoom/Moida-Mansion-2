@@ -1,10 +1,13 @@
+using Script;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameManager : MonoBehaviour
+public class HUDManager : MonoBehaviour
 {
+    public static HUDManager Instance;
+
     [SerializeField] private GameObject console;
     
     [Header("Starting")]
@@ -33,26 +36,31 @@ public class GameManager : MonoBehaviour
 
     [Header("Backgrounds")]
     [SerializeField] private GameObject transitionX;
-    private float XposLeft = -11.99f;
-    private float XposRight = 0.56f;
+    private float XposLeft = -12.18f;
+    private float XCenter = -6.05f;
+    private float XposRight = 0.1f;
     [SerializeField] private GameObject transitionY;
-    private float YposTop = 5.48f;
-    private float YposDown = -3.42f;
+    private float YposTop = 5.54f;
+    private float YCenter = 1.06f;
+    private float YposDown = -3.376f;
     [SerializeField] private float transitionSpeed = 1;
     [SerializeField] private float transitionDelay = 0.3f;
 
     [Header("Debug")]
     [SerializeField] private Vector2 debugPos;
     [SerializeField] private GameState gameState = GameState.Starting;
-    [SerializeField] private GameObject mob;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
         // initial state
         //atlas.SetActive(true);
 
-        map.SetActive(false);
+        /*map.SetActive(false);
         key.SetActive(false);
         foreach (Transform code in codeParent.transform)
         {
@@ -80,7 +88,7 @@ public class GameManager : MonoBehaviour
         {
             d.gameObject.SetActive(false);
         }
-        cal.SetActive(false);
+        cal.SetActive(false);*/
 
 
 
@@ -170,10 +178,9 @@ public class GameManager : MonoBehaviour
 
         Vector3 pos = transitionX.transform.localPosition;
         float startX = XposRight;
-        float endX = XposLeft;
+        float endX = XCenter;
 
         float distance = endX - startX;
-        float midDistance = distance / 2; 
 
    
         float deplacement = transitionSpeed;
@@ -196,9 +203,9 @@ public class GameManager : MonoBehaviour
                 timer = 0;
 
 
-                if (Mathf.Abs(moved) >= Mathf.Abs(midDistance))
+                if (Mathf.Abs(moved) >= Mathf.Abs(distance))
                 {
-                    pos.x = midDistance;
+                    pos.x = endX;
                     loop = false;
                 }
 
@@ -207,10 +214,12 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        mob.SetActive(false);
+        // call change room function
 
         loop = true;
         moved = 0;
+        startX = endX;
+        endX = XposLeft;
 
         while (loop)
         {
@@ -223,7 +232,8 @@ public class GameManager : MonoBehaviour
                 pos.x += deplacement * Mathf.Sign(distance);
                 timer = 0;
 
-                if (Mathf.Abs(moved) >= Mathf.Abs(midDistance))
+
+                if (Mathf.Abs(moved) >= Mathf.Abs(distance))
                 {
                     pos.x = endX;
                     loop = false;
