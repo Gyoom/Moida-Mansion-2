@@ -33,6 +33,7 @@ namespace Script.Procedural_Generation
             mansionMatrix[EntranceColumnIndex, 1] = new GameObject("Entrance").AddComponent<Room>();
             mansionMatrix[EntranceColumnIndex, 1].Type = RoomType.Entrance;
             m_alreadyGeneratedRoomType.Add(RoomType.Entrance);
+            Debug.Log("Entrance generated at " + new Vector2Int(EntranceColumnIndex, 1));
         }
 
         private void GenerateOtherRooms(Room[,] mansionMatrix)
@@ -41,15 +42,14 @@ namespace Script.Procedural_Generation
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 int roomTypeIndex = Random.Range(0, 10);
-                mansionMatrix[x, y] = new GameObject().AddComponent<Room>();
-                SetRoomType(ref mansionMatrix[x, y].Type, roomTypeIndex);
+                SetRoomType(ref mansionMatrix[x, y], roomTypeIndex);
                 mansionMatrix[x, y].name = mansionMatrix[x, y].Type.ToString();
             }
         }
 
-        private void SetRoomType(ref RoomType roomType, int index)
+        private void SetRoomType(ref Room room, int index)
         {
-            if (roomType != RoomType.Entrance)
+            if (room?.Type != RoomType.Entrance)
             {
                 RoomType type = (RoomType)index;
 
@@ -63,11 +63,13 @@ namespace Script.Procedural_Generation
                             : 2; // if special room has been placed, set default room
                     }
 
-                    SetRoomType(ref roomType, index);
+                    SetRoomType(ref room, index);
                     return;
                 }
 
-                roomType = type;
+                room = new GameObject().AddComponent<Room>();
+                
+                room.Type = type;
                 if (type != RoomType.DefaultRoom)
                 {
                     m_alreadyGeneratedRoomType.Add(type);
@@ -137,7 +139,18 @@ namespace Script.Procedural_Generation
                 switch (m_isComplexMansion)
                 {
                     case 0:
-                        room.AddBothDoors();
+                        switch (x)
+                        {
+                            case 0:
+                                room.HasRightDoor = true;
+                                break;
+                            case 3:
+                                room.HasLeftDoor = true;
+                                break;
+                            default:
+                                room.AddBothDoors();
+                                break;
+                        }
                         break;
                     case 1: // 1st floor has two stairs, so we can add a wall without door in a random room
                         if (x == randomRoomIndex && y == 0)
@@ -146,7 +159,18 @@ namespace Script.Procedural_Generation
                         }
                         else
                         {
-                            room.AddBothDoors();
+                            switch (x)
+                            {
+                                case 0:
+                                    room.HasRightDoor = true;
+                                    break;
+                                case 3:
+                                    room.HasLeftDoor = true;
+                                    break;
+                                default:
+                                    room.AddBothDoors();
+                                    break;
+                            }
                         }
                         break;
                     case 2: // Same for 3rd floor
@@ -156,7 +180,18 @@ namespace Script.Procedural_Generation
                         }
                         else
                         {
-                            room.AddBothDoors();
+                            switch (x)
+                            {
+                                case 0:
+                                    room.HasRightDoor = true;
+                                    break;
+                                case 3:
+                                    room.HasLeftDoor = true;
+                                    break;
+                                default:
+                                    room.AddBothDoors();
+                                    break;
+                            }
                         }
                         break;
                 }
