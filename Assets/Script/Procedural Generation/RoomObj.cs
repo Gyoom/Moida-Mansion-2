@@ -1,68 +1,51 @@
-using System;
 using UnityEngine;
 
 namespace Script.Procedural_Generation
 {
     public class RoomObj : MonoBehaviour
     {
-        //TODO faire une variable "content" si jamais l'obj contient qqchose
-        
-        //TODO faire une variable pour savoir si il faut un obj pour intéragir avec cette objet
-
         // Search
-        [SerializeField] private bool canBeSearch;
+        [SerializeField] private bool m_canBeSearch;
         
         // Contain
-        private bool doContain = false;
-        private string containDescription; 
-        private RoomObj objToGive;
+        private bool m_doContain;
+        private string m_containDescription;
+        public bool CanContainKid;
+        private InteractiveObj m_objToGive;
 
-        
         public bool GetCanBeSearch()
         {
-            return canBeSearch;
+            return m_canBeSearch;
         }
-        
-        public void SetWhatObjContain(string description, RoomObj OBJ)
+
+        // Set on room initialisation 
+        public void SetWhatObjContain(string description, InteractiveObj obj)
         {
-            doContain = true;
-            containDescription = description;
-            objToGive = OBJ;
+            m_doContain = true;
+            m_containDescription = description;
+            m_objToGive = obj;
         }
-        
+
+        /// <summary>
+        /// Call when obj is inspected 
+        /// </summary>
         public void SearchOBJ()
         {
-            if(!canBeSearch) return; // Just security
+            if(!m_canBeSearch) return; // Just security
             gameObject.SetActive(true);
             
-            switch (doContain)
+            switch (m_doContain)
             {
                 case true:
-                    Debug.Log($"{gameObject.name} contain {containDescription}");
+                    Debug.Log($"{gameObject.name} contain {m_containDescription}");
                     
-                    if(objToGive == null)break;
-                    Debug.Log($"You receive {objToGive}");
+                    if(m_objToGive == null)break;
+                    Debug.Log($"You receive {m_objToGive}");
                     break;
                 
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
                     break;
-            }
-        }
-
-        private void Update()
-        {
-            
-        }
-        
-        private float blinkInterval = 0.5f; 
-        private float nextBlinkTime = 0f; 
-        private void SearchBlinkingOBJ()
-        {
-            if (Time.time >= nextBlinkTime)
-            {
-                gameObject.SetActive(!gameObject.activeSelf);
-                nextBlinkTime = Time.time + blinkInterval;
             }
         }
     }
