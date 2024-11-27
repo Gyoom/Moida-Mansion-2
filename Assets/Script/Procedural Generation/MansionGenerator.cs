@@ -30,7 +30,7 @@ namespace Script.Procedural_Generation
         private void GenerateEntrance(Room[,] mansionMatrix)
         {
             EntranceColumnIndex = Random.Range(0, 4);
-           // mansionMatrix[EntranceColumnIndex, 1] = new GameObject();
+            mansionMatrix[EntranceColumnIndex, 1] = new GameObject("Entrance").AddComponent<Room>();
             mansionMatrix[EntranceColumnIndex, 1].Type = RoomType.Entrance;
             m_alreadyGeneratedRoomType.Add(RoomType.Entrance);
         }
@@ -41,7 +41,9 @@ namespace Script.Procedural_Generation
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 int roomTypeIndex = Random.Range(0, 10);
+                mansionMatrix[x, y] = new GameObject().AddComponent<Room>();
                 SetRoomType(ref mansionMatrix[x, y].Type, roomTypeIndex);
+                mansionMatrix[x, y].name = mansionMatrix[x, y].Type.ToString();
             }
         }
 
@@ -56,7 +58,7 @@ namespace Script.Procedural_Generation
                     index++;
                     if (index > 9)
                     {
-                        index = m_alreadyGeneratedRoomType.Count == 8
+                        index = m_alreadyGeneratedRoomType.Count == 9
                             ? 0
                             : 2; // if special room has been placed, set default room
                     }
