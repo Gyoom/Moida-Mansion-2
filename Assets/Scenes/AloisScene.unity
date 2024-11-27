@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &4368797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -265,7 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &17101536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -366,7 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &66717008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -638,7 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &110926027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -739,7 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &140576593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -930,7 +935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &179124006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1031,7 +1037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &183874295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1375,7 +1382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &226155812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1555,7 +1563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &231000968
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1656,7 +1665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &231258169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1757,7 +1767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &275363669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1858,7 +1869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &282447327
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1959,7 +1971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &314084084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2184,7 +2197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &338131336
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2384,7 +2398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &393700080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2485,7 +2500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &395515302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2673,7 +2689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &416094338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2998,7 +3015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &450228177
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3099,7 +3117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &469473817
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3287,7 +3306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &479291117
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3562,7 +3582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &517658150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3755,7 +3776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &547562895
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3943,7 +3965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &550416875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4044,7 +4067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &553813144
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4145,7 +4169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 1
 --- !u!212 &556298026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4246,7 +4271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &565738007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4347,7 +4373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &567933976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4448,7 +4475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &570619150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4780,7 +4808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &619304627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4968,7 +4997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &647900301
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5069,7 +5099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &667152305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5170,7 +5201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &713212645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5271,7 +5303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &722601624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5372,7 +5405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 1
 --- !u!212 &728592428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5560,7 +5594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &748770166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5661,7 +5696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &759356378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5762,7 +5798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &767661158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5950,7 +5987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 1
 --- !u!212 &794536369
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6051,7 +6089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &804530440
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6152,7 +6191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &854387173
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6340,7 +6380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &868679301
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6528,7 +6569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &930024060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6629,7 +6671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &936306321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6730,7 +6773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &951312178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6831,7 +6875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &951957457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6987,7 +7032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!1 &975110534
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,7 +7166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &981130349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7221,7 +7268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &988744598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7722,7 +7770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1091251567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7910,7 +7959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1106130756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8011,7 +8061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1139586913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8112,7 +8163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1145491454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8300,7 +8352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1202362350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8456,7 +8509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!1 &1235294550
 GameObject:
   m_ObjectHideFlags: 0
@@ -8589,7 +8643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1252576004
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8690,7 +8745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1256886130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8791,7 +8847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1263023852
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8892,7 +8949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1318701235
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8993,7 +9051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1320548624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9094,7 +9153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1329683600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9195,7 +9255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1335742880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9296,7 +9357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1347893426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9397,7 +9459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1364161727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9498,7 +9561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1370038960
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9599,7 +9663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1390024776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9700,7 +9765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1402236585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9801,7 +9867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1414359833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9902,7 +9969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1439509907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10014,7 +10082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1463616972
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10115,7 +10184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1465014975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10227,7 +10297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1470353926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10328,7 +10399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1479711387
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10429,7 +10501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1495657050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10566,7 +10639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1513715369
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10667,7 +10741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1515667616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10976,7 +11051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1554710890
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11149,7 +11225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1612924245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11265,7 +11342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1629018285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11366,7 +11444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1632458237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11467,7 +11546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1681401785
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11568,7 +11648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1700276199
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11756,7 +11837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1712619172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11944,7 +12026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1736721770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12135,7 +12218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1761688025
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12269,7 +12353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1766694988
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12370,7 +12455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1767502085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12471,7 +12557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1769563656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12572,7 +12659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1771690166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12673,7 +12761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1776865728
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12774,7 +12863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1813677048
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13049,7 +13139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1839519448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13291,7 +13382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1842508459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13392,7 +13484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1856628436
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13493,7 +13586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1860544432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13681,7 +13775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1875499777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13904,7 +13999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1884970605
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14214,7 +14310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1964538693
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14315,7 +14412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &1965588374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14416,7 +14514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &1979993746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14604,7 +14703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &2014407904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14792,7 +14892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &2018668266
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15070,7 +15171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &2032179048
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15226,7 +15328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!1 &2078559413
 GameObject:
   m_ObjectHideFlags: 0
@@ -15272,7 +15375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &2078559416
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15373,7 +15477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &2082504701
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15474,7 +15579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &2084115381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15575,7 +15681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 0
+  m_canBeSearch: 0
+  CanContainKid: 0
 --- !u!212 &2093020741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15676,7 +15783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeSearch: 1
+  m_canBeSearch: 1
+  CanContainKid: 0
 --- !u!212 &2130430987
 SpriteRenderer:
   m_ObjectHideFlags: 0
