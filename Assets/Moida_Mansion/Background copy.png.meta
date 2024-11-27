@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 854e6166aee57484885654cfebaa6f81
+guid: 513ae1853d2df4846824005d7de35f7c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3409355852552586325
-    second: Mansion_FULL_0
+      213: 6275434202254920155
+    second: Background copy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mansion_FULL_0
+      name: Background copy_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 36
-        width: 16
-        height: 12
+        x: 0
+        y: 0
+        width: 624
+        height: 870
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 554cb489517705f20800000000000000
-      internalID: 3409355852552586325
+      spriteID: bd9cdb48822d61750800000000000000
+      internalID: 6275434202254920155
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 64369011cfbd8f846be96770f3e9a777
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Mansion_FULL_0: 3409355852552586325
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
