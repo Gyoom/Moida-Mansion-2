@@ -1,8 +1,7 @@
 using Script;
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class HUDManager : MonoBehaviour
 {
@@ -98,9 +97,7 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            StartCoroutine(ToMansion());
-        }
+
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(TransitionToLeft());
@@ -108,7 +105,7 @@ public class HUDManager : MonoBehaviour
     }
 
 
-    // Game state Transitions
+    // Game state Transitions ------------------------------------------------------------------------
 
     IEnumerator ToOutside() {
  
@@ -143,7 +140,7 @@ public class HUDManager : MonoBehaviour
         gameState = GameState.Mansion;
     }
 
-    // HUD Update 
+    // HUD Update ---------------------------------------------------------------------------------------------
 
     public void UpdateMap(bool state, Vector2 pos) {
 
@@ -171,7 +168,101 @@ public class HUDManager : MonoBehaviour
             }
     }
 
-    // Room change update
+    public void updateInputs() {
+        Script.Procedural_Generation.Room r = MansionManager.Instance.CurrentPlayerRoom();
+
+        if (r.HasLeftDoor) {
+            arrowLeft.SetActive(true);
+        }
+        else {
+            arrowLeft.SetActive(false);
+        }
+
+        if (r.HasRightDoor)
+        {
+            arrowRight.SetActive(true);
+        }
+        else
+        {
+            arrowRight.SetActive(false);
+        }
+
+        if (r.HasStairsDown)
+        {
+            downStairs.SetActive(true);
+        }
+        else
+        {
+            downStairs.SetActive(false);
+        }
+
+        if (r.HasStairsUp)
+        {
+            upStairs.SetActive(true);
+        }
+        else
+        {
+            upStairs.SetActive(false);
+        }
+    }
+
+    public void addCode() {
+        if (!codeParent.transform.GetChild(0).gameObject.activeSelf) 
+        {
+            codeParent.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if (!codeParent.transform.GetChild(1).gameObject.activeSelf) 
+        {
+            codeParent.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (!codeParent.transform.GetChild(2).gameObject.activeSelf)
+        {
+            codeParent.transform.GetChild(2).gameObject.SetActive(true);
+        }
+    }
+
+    public void removeCode()
+    {
+        if (codeParent.transform.GetChild(2).gameObject.activeSelf)
+        {
+            codeParent.transform.GetChild(2).gameObject.SetActive(false);
+        }
+        if (codeParent.transform.GetChild(1).gameObject.activeSelf)
+        {
+            codeParent.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        if (codeParent.transform.GetChild(0).gameObject.activeSelf)
+        {
+            codeParent.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    public void hasKey(bool has)
+    {
+        key.SetActive(has);
+    }
+
+    public void hasDot(bool has)
+    {
+        dot.SetActive(has);
+    }
+
+    public void hasAce(bool has)
+    {
+        ace.SetActive(has);
+    }
+
+    public void hasBek(bool has)
+    {
+        bek.SetActive(has);
+    }
+
+    public void hasCal(bool has)
+    {
+        cal.SetActive(has);
+    }
+
+    // Room change update -----------------------------------------------------------------------------------
 
     IEnumerator TransitionToLeft()
     {
