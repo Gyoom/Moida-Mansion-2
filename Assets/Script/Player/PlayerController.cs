@@ -6,9 +6,6 @@ using UnityEngine;
 public class PlayerController : Actor
 {
     public static PlayerController instance;
-    
-    [SerializeField] private Vector2 playerPos = Vector2.one;
-    [SerializeField] private bool isGoingUp = false;
 
     private bool isSearching;
     private float timeToWait;
@@ -29,9 +26,7 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        //if(playerPos.x >= 4) return;
-        Debug.Log($"Move Right !");
-        //playerPos += Vector2.right;
+        Debug.Log($"Try Move Right !");
         
         //TODO : Draw the room you at, update position on array 
         
@@ -42,16 +37,14 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        //if(playerPos.x <= 0) return;
-        Debug.Log($"MoveLeft !");
-        //playerPos += -Vector2.right;
+        Debug.Log($"Try MoveLeft !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
     }
 
     public override void Search()
     {
-        Debug.Log($"Search !");
+        Debug.Log($"Try Search !");
         isSearching = true;
         timeToWait = maxTimeToWait;
         
@@ -68,8 +61,7 @@ public class PlayerController : Actor
         
         // TODO : get the position of where it lead 
 
-        Debug.Log($"TakeStair !");
-        /*playerPos += isGoingUp ? Vector2.up : -Vector2.up;*/
+        Debug.Log($"Try TakeStair !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
     }
