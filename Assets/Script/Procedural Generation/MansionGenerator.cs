@@ -47,17 +47,17 @@ namespace Script.Procedural_Generation
             for (var x = 0; x < mansionMatrix.GetLength(0); x++)
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
-                int roomTypeIndex = Random.Range(0, 10);
+                int roomTypeIndex = Random.Range(0, 11);
                 Room room = mansionMatrix[x, y] = new GameObject().AddComponent<Room>();
-                room.name = room.Type.ToString();
                 SetRoomType(ref room, roomTypeIndex);
+                room.name = room.Type.ToString();
                 room.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)room.Type].PossibleObjInRoom);
             }
         }
 
         private void SetRoomType(ref Room room, int index)
         {
-            if (room?.Type == RoomType.Entrance) return;
+            if (room.Type == RoomType.Entrance) return;
             
             RoomType type = (RoomType)index;
 
@@ -66,9 +66,7 @@ namespace Script.Procedural_Generation
                 index++;
                 if (index > 10)
                 {
-                    index = m_alreadyGeneratedRoomType.Count == 10
-                        ? 0
-                        : 2; // if special room has been placed, set default room
+                    index = m_alreadyGeneratedRoomType.Count == 10 ? 0 : 1; // if special room has been placed, set default room
                 }
 
                 SetRoomType(ref room, index);
@@ -215,16 +213,16 @@ namespace Script.Procedural_Generation
 
     public enum RoomType
     {
-        Bedroom,
-        DefaultRoom, // Room without name
-        Dressing,
-        Entrance,
-        Kitchen,
-        Laboratory,
-        Library,
-        Storage,
-        Study,
-        Toilet,
-        VoidRoom,
+        Bedroom = 0,
+        DefaultRoom = 1, // Room without name
+        Dressing = 2,
+        Entrance = 3,
+        Kitchen = 4,
+        Laboratory = 5,
+        Library = 6,
+        Storage = 7,
+        Study = 8,
+        Toilet = 9,
+        VoidRoom = 10,
     }
 }
