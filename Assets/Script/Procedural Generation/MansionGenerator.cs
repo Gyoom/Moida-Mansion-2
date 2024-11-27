@@ -14,6 +14,8 @@ namespace Script.Procedural_Generation
         /// </summary>
         private int m_isComplexMansion;
 
+        private const int NumberOfKids = 3;
+
         public void GenerateMansion(Room[,] mansionMatrix)
         {
             GenerateEntrance(mansionMatrix);
@@ -23,8 +25,10 @@ namespace Script.Procedural_Generation
 
             foreach (var room in mansionMatrix)
             {
-                room.Generate();
+                room.Initialize();
             }
+
+            GenerateKids();
         }
 
         private void GenerateEntrance(Room[,] mansionMatrix)
@@ -44,40 +48,37 @@ namespace Script.Procedural_Generation
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 int roomTypeIndex = Random.Range(0, 10);
-                Room room = mansionMatrix[x, y];
-                SetRoomType(ref room, roomTypeIndex);
+                Room room = mansionMatrix[x, y] = new GameObject().AddComponent<Room>();
                 room.name = room.Type.ToString();
+                SetRoomType(ref room, roomTypeIndex);
                 room.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)room.Type].PossibleObjInRoom);
             }
         }
 
         private void SetRoomType(ref Room room, int index)
         {
-            if (room?.Type != RoomType.Entrance)
+            if (room?.Type == RoomType.Entrance) return;
+            
+            RoomType type = (RoomType)index;
+
+            if (m_alreadyGeneratedRoomType.Contains(type))
             {
-                RoomType type = (RoomType)index;
-
-                if (m_alreadyGeneratedRoomType.Contains(type))
+                index++;
+                if (index > 10)
                 {
-                    index++;
-                    if (index > 10)
-                    {
-                        index = m_alreadyGeneratedRoomType.Count == 10
-                            ? 0
-                            : 2; // if special room has been placed, set default room
-                    }
-
-                    SetRoomType(ref room, index);
-                    return;
+                    index = m_alreadyGeneratedRoomType.Count == 10
+                        ? 0
+                        : 2; // if special room has been placed, set default room
                 }
 
-                room = new GameObject().AddComponent<Room>();
-
-                room.Type = type;
-                if (type != RoomType.DefaultRoom)
-                {
-                    m_alreadyGeneratedRoomType.Add(type);
-                }
+                SetRoomType(ref room, index);
+                return;
+            }
+                
+            room.Type = type;
+            if (type != RoomType.DefaultRoom)
+            {
+                m_alreadyGeneratedRoomType.Add(type);
             }
         }
 
@@ -198,6 +199,14 @@ namespace Script.Procedural_Generation
 
                         break;
                 }
+            }
+        }
+
+        private void GenerateKids()
+        {
+            for (int i = 0; i < NumberOfKids; i++)
+            {
+                
             }
         }
     }

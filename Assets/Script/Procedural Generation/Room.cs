@@ -59,7 +59,7 @@ namespace Script.Procedural_Generation
             }
         }
 
-        public void Generate()
+        public void Initialize()
         {
             if (HasLeftDoor)
             {
