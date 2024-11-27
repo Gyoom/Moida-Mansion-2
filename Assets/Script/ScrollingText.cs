@@ -45,9 +45,11 @@ public class ScrollingText : MonoBehaviour
         }
     }
 
-    public void UpdateClones() { 
+    public void UpdateClones(string newText) { 
         RectTransform firstTrans = _textTransforms.First.Value;
         _textTransforms.RemoveFirst();
+
+        firstTrans.gameObject.GetComponent<TextMeshPro>().text = newText;
 
         foreach (RectTransform rectTrans in _textTransforms) { 
             Destroy(rectTrans.gameObject);

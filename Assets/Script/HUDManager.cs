@@ -30,7 +30,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject cal;
 
     [Header("Texting")]
-    [SerializeField] private ScrollingText scrollingTextScript;
+    [SerializeField] private GameObject scrollingText;
     [SerializeField] private GameObject staticText;
 
     [Header("Backgrounds")]
@@ -100,7 +100,7 @@ public class HUDManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            StartCoroutine(TransitionToLeft());
+            DisplayScrollingText("Hello    /t", 5);
         }
     }
 
@@ -260,6 +260,19 @@ public class HUDManager : MonoBehaviour
     public void hasCal(bool has)
     {
         cal.SetActive(has);
+    }
+
+    public void DisplayScrollingText(string text, float duration) {
+        scrollingText.SetActive(true);
+        scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
+        StartCoroutine(stopScrolling(duration));
+    }
+
+    private IEnumerator stopScrolling(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        scrollingText.SetActive(false);
     }
 
     // Room change update -----------------------------------------------------------------------------------
