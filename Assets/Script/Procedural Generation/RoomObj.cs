@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Script.Procedural_Generation
@@ -46,6 +47,24 @@ namespace Script.Procedural_Generation
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
                     break;
+            }
+        }
+
+        private void Update()
+        {
+            SearchBlinkingOBJ();
+        }
+
+        [SerializeField] private bool isBlinking;
+        private float blinkInterval = 0.2f; 
+        private float nextBlinkTime = 0f; 
+        private void SearchBlinkingOBJ()
+        {
+            if(!isBlinking) return;
+            if (Time.time >= nextBlinkTime)
+            {
+                gameObject.SetActive(!gameObject.activeSelf);
+                nextBlinkTime = Time.time + blinkInterval;
             }
         }
     }
