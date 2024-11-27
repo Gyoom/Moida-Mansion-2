@@ -37,6 +37,7 @@ namespace Script.Procedural_Generation
         public void SearchOBJ()
         {
             if(!canBeSearch) return; // Just security
+            gameObject.SetActive(true);
             
             switch (doContain)
             {
