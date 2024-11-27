@@ -9,7 +9,7 @@ namespace Script.Procedural_Generation
         [SerializeField] private bool m_canBeSearch;
         
         // Contain
-        private bool m_doContain;
+        public bool DoContain { get; private set; }
         private string m_containDescription;
         public bool CanContainKid;
         private InteractiveObj m_objToGive;
@@ -22,7 +22,7 @@ namespace Script.Procedural_Generation
         // Set on room initialisation 
         public void SetWhatObjContain(string description, InteractiveObj obj)
         {
-            m_doContain = true;
+            DoContain = true;
             m_containDescription = description;
             m_objToGive = obj;
         }
@@ -35,7 +35,7 @@ namespace Script.Procedural_Generation
             if(!m_canBeSearch) return; // Just security
             gameObject.SetActive(true);
             
-            switch (m_doContain)
+            switch (DoContain)
             {
                 case true:
                     Debug.Log($"{gameObject.name} contain {m_containDescription}");
