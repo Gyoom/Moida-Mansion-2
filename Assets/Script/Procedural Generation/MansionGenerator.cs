@@ -206,6 +206,8 @@ namespace Script.Procedural_Generation
         {
             for (int i = 0; i < NumberOfKids; i++)
             {
+                Vector2Int kidPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
+                
                 
             }
         }
