@@ -53,7 +53,7 @@ namespace Script
             CurrentPlayerRoom().DisplayRoom();
         }
 
-        private Room CurrentPlayerRoom()
+        public Room CurrentPlayerRoom()
         {
             return m_mansionMatrix[m_playerPosInMansion.x, m_playerPosInMansion.y];
         }

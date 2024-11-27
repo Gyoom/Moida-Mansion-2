@@ -1174,6 +1174,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &199571908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199571909}
+  - component: {fileID: 199571910}
+  m_Layer: 0
+  m_Name: Monster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &199571909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199571908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.387348, y: 1.2423146, z: 0.0042261914}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199571910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199571908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2206910b00e98db48baebc57ea108974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &215338892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,55 +5037,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &706865053
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 706865055}
-  - component: {fileID: 706865054}
-  m_Layer: 0
-  m_Name: testSearch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &706865054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706865053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ab16c21c697204cb4a39b3296e32ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objToSearch:
-  - {fileID: 1612924244}
-  - {fileID: 2041809316}
-  - {fileID: 1347893425}
-  - {fileID: 1479711386}
---- !u!4 &706865055
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706865053}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38649336, y: -0.3921706, z: -0.008484686}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713212642
 GameObject:
   m_ObjectHideFlags: 0
@@ -13110,6 +13105,14 @@ MonoBehaviour:
     - {fileID: 556298025}
     - {fileID: 647900300}
     - {fileID: 1842508458}
+  - RoomName: Library
+    PossibleObjInRoom:
+    - {fileID: 1226856636}
+    - {fileID: 1554710889}
+    - {fileID: 1329683599}
+    - {fileID: 728592427}
+    - {fileID: 794536368}
+    - {fileID: 647900300}
   - RoomName: Storage
     PossibleObjInRoom:
     - {fileID: 1329683599}
@@ -13140,14 +13143,6 @@ MonoBehaviour:
     - {fileID: 936306320}
   - RoomName: Void
     PossibleObjInRoom: []
-  - RoomName: Library
-    PossibleObjInRoom:
-    - {fileID: 1226856636}
-    - {fileID: 1554710889}
-    - {fileID: 1329683599}
-    - {fileID: 728592427}
-    - {fileID: 794536368}
-    - {fileID: 647900300}
 --- !u!4 &1842180386
 Transform:
   m_ObjectHideFlags: 0
@@ -16035,6 +16030,7 @@ SceneRoots:
   - {fileID: 416465167}
   - {fileID: 6114038949279263435}
   - {fileID: 301325465523693769}
+  - {fileID: 199571909}
   - {fileID: 605495402}
   - {fileID: 6938203414607337939}
   - {fileID: 215338894}
@@ -16042,5 +16038,4 @@ SceneRoots:
   - {fileID: 228464762}
   - {fileID: 1026566512}
   - {fileID: 1883353217}
-  - {fileID: 706865055}
   - {fileID: 1842180386}
