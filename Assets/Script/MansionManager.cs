@@ -10,7 +10,11 @@ namespace Script
 
         private Room[,] m_mansionMatrix = new Room[4, 3];
         
+        [Space]
         public List<RoomObj> CommonRoomObj = new List<RoomObj>();
+
+        [Space]
+        public List<RoomData> RoomsData = new List<RoomData>();
 
         private void Awake()
         {
@@ -22,6 +26,18 @@ namespace Script
             MansionGenerator generator = new MansionGenerator();
             generator.GenerateMansion(m_mansionMatrix);
             m_mansionMatrix[generator.EntranceColumnIndex, 1].DisplayRoom(); // Display Entrance
+        }
+
+        public void MovePlayerInMansion(PlayerMove move)
+        {
+            
+        }
+
+        public enum PlayerMove
+        {
+            ToLeft,
+            ToRight,
+            TakeStairs
         }
     }
 }

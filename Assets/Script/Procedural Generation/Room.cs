@@ -5,7 +5,6 @@ namespace Script.Procedural_Generation
 {
     public class Room : MonoBehaviour
     {
-        [SerializeField] private List<RoomObj> m_possibleObjInRoom = new List<RoomObj>();
         public RoomType Type;
         [HideInInspector] public readonly List<RoomObj> ObjInRoom = new List<RoomObj>();
         [HideInInspector] public bool HasStairsUp;
