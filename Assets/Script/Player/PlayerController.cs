@@ -1,4 +1,5 @@
 using System;
+using Script;
 using Script.Procedural_Generation;
 using UnityEngine;
 
@@ -28,20 +29,24 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        if(playerPos.x >= 4) return;
+       /* if(playerPos.x >= 4) return;
         Debug.Log($"Move Right !");
-        playerPos += Vector2.right;
+        playerPos += Vector2.right;*/
         
         //TODO : Draw the room you at, update position on array 
+        
+        MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToRight);
     }
 
     public override void MoveLeft()
     {
         isSearching = false;
         
-        if(playerPos.x <= 0) return;
+        /*if(playerPos.x <= 0) return;
         Debug.Log($"MoveLeft !");
-        playerPos += -Vector2.right;
+        playerPos += -Vector2.right;*/
+        
+        MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
     }
 
     public override void Search()
@@ -61,10 +66,12 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        if (playerPos.y is <= 0 or >= 3) return;
+        // TODO : get the position of where it lead 
 
-        Debug.Log($"TakeStair !");
-        playerPos += isGoingUp ? Vector2.up : -Vector2.up;
+        /*Debug.Log($"TakeStair !");
+        playerPos += isGoingUp ? Vector2.up : -Vector2.up;*/
+        
+        MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
     }
 
 
