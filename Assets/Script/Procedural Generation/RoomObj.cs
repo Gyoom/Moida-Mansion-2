@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Script.Procedural_Generation
@@ -12,28 +13,23 @@ namespace Script.Procedural_Generation
         [SerializeField] private bool canBeSearch;
         
         // Contain
-        private bool doContain = false; // is OBJ contain Something
-        private string containDescription; // description of what it contains
+        private bool doContain = false;
+        private string containDescription; 
         private RoomObj objToGive;
 
-
-        // Value of canBeSearch
+        
         public bool GetCanBeSearch()
         {
             return canBeSearch;
         }
-
-        // Set on room initialisation 
+        
         public void SetWhatObjContain(string description, RoomObj OBJ)
         {
             doContain = true;
             containDescription = description;
             objToGive = OBJ;
         }
-
-        /// <summary>
-        /// Call when obj is inspected 
-        /// </summary>
+        
         public void SearchOBJ()
         {
             if(!canBeSearch) return; // Just security
@@ -51,6 +47,22 @@ namespace Script.Procedural_Generation
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
                     break;
+            }
+        }
+
+        private void Update()
+        {
+            
+        }
+        
+        private float blinkInterval = 0.5f; 
+        private float nextBlinkTime = 0f; 
+        private void SearchBlinkingOBJ()
+        {
+            if (Time.time >= nextBlinkTime)
+            {
+                gameObject.SetActive(!gameObject.activeSelf);
+                nextBlinkTime = Time.time + blinkInterval;
             }
         }
     }
