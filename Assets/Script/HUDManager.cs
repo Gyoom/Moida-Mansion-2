@@ -145,30 +145,30 @@ public class HUDManager : MonoBehaviour
 
     // HUD Update 
 
-    void UpdateMap(bool state, Vector2 pos) {
+    public void UpdateMap(bool state, Vector2 pos) {
 
-        if (state)
-        {
-            map.SetActive(true);
+            if (state)
+            {
+                map.SetActive(true);
 
-            for (int y = 0; y < 3; y++) {
-                for (int x = 0; x < 4; x++)
-                {
-                    int index = y * 4 + x;
-                    if (y == pos.y && x == pos.x)
+                for (int y = 0; y < 3; y++) {
+                    for (int x = 0; x < 4; x++)
                     {
-                        map.transform.GetChild(index).gameObject.SetActive(true);
-                    }
-                    else
-                    {
-                        map.transform.GetChild(index).gameObject.SetActive(false);
+                        int index = y * 4 + x;
+                        if (y == pos.y && x == pos.x)
+                        {
+                            map.transform.GetChild(index).gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            map.transform.GetChild(index).gameObject.SetActive(false);
+                        }
                     }
                 }
             }
-        }
-        else { 
-            map.SetActive(false);
-        }
+            else { 
+                map.SetActive(false);
+            }
     }
 
     // Room change update
