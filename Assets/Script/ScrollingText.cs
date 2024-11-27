@@ -39,7 +39,7 @@ public class ScrollingText : MonoBehaviour
 
         if (moveTimer >= moveDelay)
         {
-            Debug.Log("1");
+            //Debug.Log("1");
             MoveTransforms();
             moveTimer = 0;
         }
