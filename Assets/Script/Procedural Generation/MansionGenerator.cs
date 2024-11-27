@@ -217,7 +217,7 @@ namespace Script.Procedural_Generation
         {  
             foreach (var roomObj in room.ObjInRoom)
             {
-                if (roomObj.CanContainKid)
+                if (roomObj.CanContainKid && !roomObj.DoContain)
                 {
                     roomObj.SetWhatObjContain("Enfant récupéré", new InteractiveObj { IsKid = true });
                     return true;
