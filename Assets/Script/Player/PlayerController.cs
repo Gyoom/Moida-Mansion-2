@@ -31,6 +31,7 @@ public class PlayerController : Actor
         //TODO : Draw the room you at, update position on array 
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToRight);
+        SoundManager.Instance.SpawnAudio3D(transform.position, 1);
     }
 
     public override void MoveLeft()
