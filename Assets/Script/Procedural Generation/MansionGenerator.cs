@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Script.Procedural_Generation
@@ -29,6 +30,7 @@ namespace Script.Procedural_Generation
         private void GenerateEntrance(Room[,] mansionMatrix)
         {
             EntranceColumnIndex = Random.Range(0, 4);
+           // mansionMatrix[EntranceColumnIndex, 1] = new GameObject();
             mansionMatrix[EntranceColumnIndex, 1].Type = RoomType.Entrance;
             m_alreadyGeneratedRoomType.Add(RoomType.Entrance);
         }
