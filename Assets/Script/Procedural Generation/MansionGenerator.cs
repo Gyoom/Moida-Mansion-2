@@ -28,7 +28,7 @@ namespace Script.Procedural_Generation
                 room.Initialize();
             }
 
-            GenerateKids();
+            GenerateKids(mansionMatrix);
         }
 
         private void GenerateEntrance(Room[,] mansionMatrix)
@@ -203,14 +203,28 @@ namespace Script.Procedural_Generation
             }
         }
 
-        private void GenerateKids()
+        private void GenerateKids(Room[,] mansionMatrix)
         {
             for (int i = 0; i < NumberOfKids; i++)
             {
                 Vector2Int kidPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
-                
-                
+
+                if (!PutKidIntoContainer(mansionMatrix[kidPos.x, kidPos.y])) i--;
             }
+        }
+
+        private bool PutKidIntoContainer(Room room)
+        {  
+            foreach (var roomObj in room.ObjInRoom)
+            {
+                if (roomObj.CanContainKid)
+                {
+                    roomObj.SetWhatObjContain("Enfant récupéré", new InteractiveObj { IsKid = true });
+                    return true;
+                }
+            }
+
+            return false; // Did not succeed (no valid container in that room)
         }
     }
 

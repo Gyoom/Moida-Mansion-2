@@ -4,31 +4,26 @@ namespace Script.Procedural_Generation
 {
     public class RoomObj : MonoBehaviour
     {
-        //TODO faire une variable "content" si jamais l'obj contient qqchose
-        
-        //TODO faire une variable pour savoir si il faut un obj pour intéragir avec cette objet
-
         // Search
-        [SerializeField] private bool canBeSearch;
+        [SerializeField] private bool m_canBeSearch;
         
         // Contain
-        private bool doContain = false; // is OBJ contain Something
-        private string containDescription; // description of what it contains
-        private RoomObj objToGive;
+        private bool m_doContain;
+        private string m_containDescription;
+        public bool CanContainKid;
+        private InteractiveObj m_objToGive;
 
-
-        // Value of canBeSearch
         public bool GetCanBeSearch()
         {
-            return canBeSearch;
+            return m_canBeSearch;
         }
 
         // Set on room initialisation 
-        public void SetWhatObjContain(string description, RoomObj OBJ)
+        public void SetWhatObjContain(string description, InteractiveObj obj)
         {
-            doContain = true;
-            containDescription = description;
-            objToGive = OBJ;
+            m_doContain = true;
+            m_containDescription = description;
+            m_objToGive = obj;
         }
 
         /// <summary>
@@ -36,16 +31,16 @@ namespace Script.Procedural_Generation
         /// </summary>
         public void SearchOBJ()
         {
-            if(!canBeSearch) return; // Just security
+            if(!m_canBeSearch) return; // Just security
             gameObject.SetActive(true);
             
-            switch (doContain)
+            switch (m_doContain)
             {
                 case true:
-                    Debug.Log($"{gameObject.name} contain {containDescription}");
+                    Debug.Log($"{gameObject.name} contain {m_containDescription}");
                     
-                    if(objToGive == null)break;
-                    Debug.Log($"You receive {objToGive}");
+                    if(m_objToGive == null)break;
+                    Debug.Log($"You receive {m_objToGive}");
                     break;
                 
                 default:
