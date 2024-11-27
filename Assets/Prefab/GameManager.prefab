@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8035219176325495025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2810053245323547055}
+  - component: {fileID: 3936240566871453157}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2810053245323547055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035219176325495025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61697674, y: 1.6853986, z: 0.06962914}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3936240566871453157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035219176325495025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0507971db8a0e7a4ea46cab81a345333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  console: {fileID: 0}
+  atlas: {fileID: 0}
+  fadeDuration: 1
+  map: {fileID: 0}
+  key: {fileID: 0}
+  codeParent: {fileID: 0}
+  arrowLeft: {fileID: 0}
+  upStairs: {fileID: 0}
+  search: {fileID: 0}
+  downStairs: {fileID: 0}
+  arrowRight: {fileID: 0}
+  dot: {fileID: 0}
+  ace: {fileID: 0}
+  bek: {fileID: 0}
+  cal: {fileID: 0}
+  scrollingTextScript: {fileID: 0}
+  staticText: {fileID: 0}
+  transitionX: {fileID: 0}
+  transitionY: {fileID: 0}
+  transitionSpeed: 1.5
+  transitionDelay: 0.2
+  debugPos: {x: 3, y: 2}
+  gameState: 0
+  mob: {fileID: 0}
