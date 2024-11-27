@@ -79,34 +79,28 @@ namespace Script.Procedural_Generation
 
         private void GenerateStairs(Room[,] mansionMatrix)
         {
-            GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsUp = true;
-            GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsDown = true;
+            GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos1).HasStairsUp = true;
+            mansionMatrix[roomPos1.x, roomPos1.y +1].HasStairsDown = true;
+            
+            GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos2).HasStairsDown = true;
+            mansionMatrix[roomPos2.x, roomPos2.y -1].HasStairsUp = true;
 
             m_isComplexMansion = Random.Range(0, 3);
 
             switch (m_isComplexMansion)
             {
                 case 1:
-                    GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsDown = true;
+                    GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos3).HasStairsDown = true;
+                    mansionMatrix[roomPos3.x, roomPos3.y -1].HasStairsUp = true;
                     break;
                 case 2:
-                    GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsUp = true;
+                    GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos4).HasStairsUp = true;
+                    mansionMatrix[roomPos4.x, roomPos4.y +1].HasStairsDown = true;
                     break;
-            }
-
-            for (var x = 0; x < 4; x++)
-            {
-                var room = mansionMatrix[x, 1];
-
-                if (room.HasStairs())
-                {
-                    if (room.HasStairsDown) mansionMatrix[x, 0].HasStairsUp = true;
-                    else mansionMatrix[x, 2].HasStairsDown = true;
-                }
             }
         }
 
-        private Room GetRoomWithoutStairsOnFloor(int floorIndex, Room[,] mansionMatrix)
+        private Room GetRoomWithoutStairsOnFloor(int floorIndex, Room[,] mansionMatrix, out Vector2Int roomPos)
         {
             int startValue = Random.Range(0, 4);
 
@@ -120,10 +114,12 @@ namespace Script.Procedural_Generation
 
                 if (!room.HasStairs() && room.Type != RoomType.Entrance)
                 {
+                    roomPos = new Vector2Int(index, floorIndex);
                     return room;
                 }
             }
 
+            roomPos = new Vector2Int(0, floorIndex);
             return null;
         }
 
