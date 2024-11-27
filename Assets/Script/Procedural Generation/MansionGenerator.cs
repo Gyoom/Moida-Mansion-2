@@ -5,15 +5,21 @@ namespace Script.Procedural_Generation
 {
     public class MansionGenerator
     {
-        private Room[,] m_mansionMatrix = new Room[4, 3];
+        private readonly Room[,] m_mansionMatrix = new Room[4, 3];
         private int m_entranceColumnIndex;
-        private List<RoomType> m_alreadyGeneratedRoomType = new List<RoomType>();
+        private readonly List<RoomType> m_alreadyGeneratedRoomType = new List<RoomType>();
+
+        /// <summary>
+        /// 0 means false, 1 means two stairs on 1st floor, 2 means two stairs on 3rd floor
+        /// </summary>
+        private int m_isComplexMansion; 
 
         public void GenerateMansion()
         {
             GenerateEntrance();
             GenerateOtherRooms();
             GenerateStairs();
+            GenerateDoors();
         }
 
         private void GenerateEntrance()
@@ -65,12 +71,16 @@ namespace Script.Procedural_Generation
         {
             GetRoomWithoutStairsOnFloor(1).HasStairsUp = true;
             GetRoomWithoutStairsOnFloor(1).HasStairsDown = true;
-            
-            switch (Random.Range(0, 3)) // Randomly choose if there is a 3rd stair or not, if so, it's either up or down
+
+            m_isComplexMansion = Random.Range(0, 3);
+
+            switch (m_isComplexMansion)
             {
-                case 1: GetRoomWithoutStairsOnFloor(1).HasStairsUp = true;
+                case 1:
+                    GetRoomWithoutStairsOnFloor(1).HasStairsDown = true;
                     break;
-                case 2: GetRoomWithoutStairsOnFloor(1).HasStairsDown = true;
+                case 2:
+                    GetRoomWithoutStairsOnFloor(1).HasStairsUp = true;
                     break;
             }
 
@@ -105,6 +115,44 @@ namespace Script.Procedural_Generation
             }
 
             return null;
+        }
+
+        private void GenerateDoors()
+        {
+            int randomRoomIndex = Random.Range(0, 4); 
+            
+            for (var x = 0; x < m_mansionMatrix.GetLength(0); x++)
+            for (var y = 0; y < m_mansionMatrix.GetLength(1); y++)
+            {
+                var room = m_mansionMatrix[x, y];
+                
+                switch (m_isComplexMansion)
+                {
+                    case 0:
+                        room.AddBothDoors();
+                        break;
+                    case 1: // 1st floor has two stairs, so we can add a wall without door in a random room
+                        if (x == randomRoomIndex && y == 0)
+                        {
+                            room.AddOneRandomDoor(randomRoomIndex);
+                        }
+                        else
+                        {
+                            room.AddBothDoors();
+                        }
+                        break;
+                    case 2: // Same for 3rd floor
+                        if (x == randomRoomIndex && y == 2) 
+                        {
+                            room.AddOneRandomDoor(randomRoomIndex);
+                        }
+                        else
+                        {
+                            room.AddBothDoors();
+                        }
+                        break;
+                }
+            }
         }
     }
 
