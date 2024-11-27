@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class ScrollingText : MonoBehaviour
 {
+    [SerializeField]
     [Range(0f, 30f)]
     public float scrollSpeed = 2;
 
@@ -11,10 +13,15 @@ public class ScrollingText : MonoBehaviour
     [Min(1)]
     int _maxClones = 15;
 
+    [SerializeField]
+    float moveDelay;
+
     float _textPreferredWidth;
     readonly LinkedList<RectTransform> _textTransforms = new();
 
+    public TextMeshProUGUI TextMesh => _textTransforms.First.Value.GetComponent<TextMeshProUGUI>();
 
+    float moveTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -22,18 +29,39 @@ public class ScrollingText : MonoBehaviour
         _textTransforms.AddFirst((RectTransform)transform.GetChild(0));
         _textPreferredWidth = _textTransforms.First.Value.GetComponent<TextMeshProUGUI>().preferredWidth;
 
-        CreateClone();
+        CreateClones();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveTransforms();
+        moveTimer += Time.deltaTime;
+
+        if (moveTimer >= moveDelay)
+        {
+            Debug.Log("1");
+            MoveTransforms();
+            moveTimer = 0;
+        }
+    }
+
+    public void UpdateClones() { 
+        RectTransform firstTrans = _textTransforms.First.Value;
+        _textTransforms.RemoveFirst();
+
+        foreach (RectTransform rectTrans in _textTransforms) { 
+            Destroy(rectTrans.gameObject);
+        }
+        _textTransforms.Clear();
+
+        _textTransforms.AddFirst(firstTrans);
+        _textPreferredWidth = firstTrans.GetComponent<TextMeshProUGUI>().preferredWidth;
+        CreateClones();
     }
 
     void MoveTransforms()
     { 
-        float distance = scrollSpeed * 30 * Time.deltaTime;
+        float distance = scrollSpeed * 1200 * Time.deltaTime;
 
         foreach (RectTransform transform in _textTransforms) { 
             Vector3 newPos = transform.localPosition;
@@ -48,7 +76,6 @@ public class ScrollingText : MonoBehaviour
     void CheckIfLeftMostTransformLeftMask() { 
         RectTransform rectTransform = _textTransforms.First.Value;
 
-        Debug.Log(rectTransform.localPosition.x);
 
         if (rectTransform.localPosition.x + _textPreferredWidth <= 0)
         {
@@ -56,7 +83,7 @@ public class ScrollingText : MonoBehaviour
         }
     }
 
-    void CreateClone() {
+    void CreateClones() {
         int clones = CalculateNecessaryClones();
 
         for (int i = 1; i <= clones; i++) {
