@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Script.Procedural_Generation
 {
-    [CreateAssetMenu(fileName = "RoomData", menuName = "ScriptableObjects/RoomData", order = 1)] 
-    public class RoomData : ScriptableObject
+    [Serializable]
+    public class RoomData
     {
-        [SerializeField] private List<RoomObj> m_possibleObjInRoom = new List<RoomObj>();
+        public string RoomName;
+        public List<RoomObj> PossibleObjInRoom = new List<RoomObj>();
     }
 }

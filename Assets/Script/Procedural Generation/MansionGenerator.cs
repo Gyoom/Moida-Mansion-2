@@ -12,7 +12,7 @@ namespace Script.Procedural_Generation
         /// <summary>
         /// 0 means false, 1 means two stairs on 1st floor, 2 means two stairs on 3rd floor
         /// </summary>
-        private int m_isComplexMansion; 
+        private int m_isComplexMansion;
 
         public void GenerateMansion(Room[,] mansionMatrix)
         {
@@ -30,8 +30,10 @@ namespace Script.Procedural_Generation
         private void GenerateEntrance(Room[,] mansionMatrix)
         {
             EntranceColumnIndex = Random.Range(0, 4);
-            mansionMatrix[EntranceColumnIndex, 1] = new GameObject("Entrance").AddComponent<Room>();
-            mansionMatrix[EntranceColumnIndex, 1].Type = RoomType.Entrance;
+            Room entrance = new GameObject("Entrance").AddComponent<Room>();
+            entrance.Type = RoomType.Entrance;
+            entrance.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)entrance.Type].PossibleObjInRoom);
+            mansionMatrix[EntranceColumnIndex, 1] = entrance;
             m_alreadyGeneratedRoomType.Add(RoomType.Entrance);
             Debug.Log("Entrance generated at " + new Vector2Int(EntranceColumnIndex, 1));
         }
@@ -42,8 +44,10 @@ namespace Script.Procedural_Generation
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 int roomTypeIndex = Random.Range(0, 10);
-                SetRoomType(ref mansionMatrix[x, y], roomTypeIndex);
-                mansionMatrix[x, y].name = mansionMatrix[x, y].Type.ToString();
+                Room room = mansionMatrix[x, y];
+                SetRoomType(ref room, roomTypeIndex);
+                room.name = room.Type.ToString();
+                room.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)room.Type].PossibleObjInRoom);
             }
         }
 
@@ -56,9 +60,9 @@ namespace Script.Procedural_Generation
                 if (m_alreadyGeneratedRoomType.Contains(type))
                 {
                     index++;
-                    if (index > 9)
+                    if (index > 10)
                     {
-                        index = m_alreadyGeneratedRoomType.Count == 9
+                        index = m_alreadyGeneratedRoomType.Count == 10
                             ? 0
                             : 2; // if special room has been placed, set default room
                     }
@@ -68,7 +72,7 @@ namespace Script.Procedural_Generation
                 }
 
                 room = new GameObject().AddComponent<Room>();
-                
+
                 room.Type = type;
                 if (type != RoomType.DefaultRoom)
                 {
@@ -80,10 +84,10 @@ namespace Script.Procedural_Generation
         private void GenerateStairs(Room[,] mansionMatrix)
         {
             GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos1).HasStairsUp = true;
-            mansionMatrix[roomPos1.x, roomPos1.y +1].HasStairsDown = true;
-            
+            mansionMatrix[roomPos1.x, roomPos1.y + 1].HasStairsDown = true;
+
             GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos2).HasStairsDown = true;
-            mansionMatrix[roomPos2.x, roomPos2.y -1].HasStairsUp = true;
+            mansionMatrix[roomPos2.x, roomPos2.y - 1].HasStairsUp = true;
 
             m_isComplexMansion = Random.Range(0, 3);
 
@@ -91,11 +95,11 @@ namespace Script.Procedural_Generation
             {
                 case 1:
                     GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos3).HasStairsDown = true;
-                    mansionMatrix[roomPos3.x, roomPos3.y -1].HasStairsUp = true;
+                    mansionMatrix[roomPos3.x, roomPos3.y - 1].HasStairsUp = true;
                     break;
                 case 2:
                     GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos4).HasStairsUp = true;
-                    mansionMatrix[roomPos4.x, roomPos4.y +1].HasStairsDown = true;
+                    mansionMatrix[roomPos4.x, roomPos4.y + 1].HasStairsDown = true;
                     break;
             }
         }
@@ -110,7 +114,7 @@ namespace Script.Procedural_Generation
 
                 if (index > 3) index = i - 4;
 
-                var room = mansionMatrix[index, floorIndex];
+                Room room = mansionMatrix[index, floorIndex];
 
                 if (!room.HasStairs() && room.Type != RoomType.Entrance)
                 {
@@ -125,13 +129,13 @@ namespace Script.Procedural_Generation
 
         private void GenerateDoors(Room[,] mansionMatrix)
         {
-            int randomRoomIndex = Random.Range(0, 4); 
-            
+            int randomRoomIndex = Random.Range(0, 4);
+
             for (var x = 0; x < mansionMatrix.GetLength(0); x++)
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 var room = mansionMatrix[x, y];
-                
+
                 switch (m_isComplexMansion)
                 {
                     case 0:
@@ -147,6 +151,7 @@ namespace Script.Procedural_Generation
                                 room.AddBothDoors();
                                 break;
                         }
+
                         break;
                     case 1: // 1st floor has two stairs, so we can add a wall without door in a random room
                         if (x == randomRoomIndex && y == 0)
@@ -168,9 +173,10 @@ namespace Script.Procedural_Generation
                                     break;
                             }
                         }
+
                         break;
                     case 2: // Same for 3rd floor
-                        if (x == randomRoomIndex && y == 2) 
+                        if (x == randomRoomIndex && y == 2)
                         {
                             room.AddOneRandomDoor(randomRoomIndex);
                         }
@@ -189,6 +195,7 @@ namespace Script.Procedural_Generation
                                     break;
                             }
                         }
+
                         break;
                 }
             }
@@ -197,15 +204,16 @@ namespace Script.Procedural_Generation
 
     public enum RoomType
     {
-        DefaultRoom = 0, // Room without name
-        Entrance = 1,
-        Storage = 2,
-        Librairy = 3,
-        Bedroom = 4,
-        Study = 5,
-        Toilet = 6,
-        Dressing = 7,
-        Laboratory = 8,
-        VoidRoom = 9,
+        Bedroom,
+        DefaultRoom, // Room without name
+        Dressing,
+        Entrance,
+        Kitchen,
+        Laboratory,
+        Library,
+        Storage,
+        Study,
+        Toilet,
+        VoidRoom,
     }
 }
