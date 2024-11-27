@@ -29,9 +29,9 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-       /* if(playerPos.x >= 4) return;
+        //if(playerPos.x >= 4) return;
         Debug.Log($"Move Right !");
-        playerPos += Vector2.right;*/
+        //playerPos += Vector2.right;
         
         //TODO : Draw the room you at, update position on array 
         
@@ -42,9 +42,9 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        /*if(playerPos.x <= 0) return;
+        //if(playerPos.x <= 0) return;
         Debug.Log($"MoveLeft !");
-        playerPos += -Vector2.right;*/
+        //playerPos += -Vector2.right;
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
     }
@@ -68,8 +68,8 @@ public class PlayerController : Actor
         
         // TODO : get the position of where it lead 
 
-        /*Debug.Log($"TakeStair !");
-        playerPos += isGoingUp ? Vector2.up : -Vector2.up;*/
+        Debug.Log($"TakeStair !");
+        /*playerPos += isGoingUp ? Vector2.up : -Vector2.up;*/
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
     }
