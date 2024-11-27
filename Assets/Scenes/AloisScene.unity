@@ -13105,6 +13105,14 @@ MonoBehaviour:
     - {fileID: 556298025}
     - {fileID: 647900300}
     - {fileID: 1842508458}
+  - RoomName: Library
+    PossibleObjInRoom:
+    - {fileID: 1226856636}
+    - {fileID: 1554710889}
+    - {fileID: 1329683599}
+    - {fileID: 728592427}
+    - {fileID: 794536368}
+    - {fileID: 647900300}
   - RoomName: Storage
     PossibleObjInRoom:
     - {fileID: 1329683599}
@@ -13135,14 +13143,6 @@ MonoBehaviour:
     - {fileID: 936306320}
   - RoomName: Void
     PossibleObjInRoom: []
-  - RoomName: Library
-    PossibleObjInRoom:
-    - {fileID: 1226856636}
-    - {fileID: 1554710889}
-    - {fileID: 1329683599}
-    - {fileID: 728592427}
-    - {fileID: 794536368}
-    - {fileID: 647900300}
 --- !u!4 &1842180386
 Transform:
   m_ObjectHideFlags: 0
