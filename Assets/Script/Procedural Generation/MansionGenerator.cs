@@ -5,8 +5,7 @@ namespace Script.Procedural_Generation
 {
     public class MansionGenerator
     {
-        private readonly Room[,] m_mansionMatrix = new Room[4, 3];
-        private int m_entranceColumnIndex;
+        public int EntranceColumnIndex { get; private set; }
         private readonly List<RoomType> m_alreadyGeneratedRoomType = new List<RoomType>();
 
         /// <summary>
@@ -14,28 +13,33 @@ namespace Script.Procedural_Generation
         /// </summary>
         private int m_isComplexMansion; 
 
-        public void GenerateMansion()
+        public void GenerateMansion(Room[,] mansionMatrix)
         {
-            GenerateEntrance();
-            GenerateOtherRooms();
-            GenerateStairs();
-            GenerateDoors();
+            GenerateEntrance(mansionMatrix);
+            GenerateOtherRooms(mansionMatrix);
+            GenerateStairs(mansionMatrix);
+            GenerateDoors(mansionMatrix);
+
+            foreach (var room in mansionMatrix)
+            {
+                room.Generate();
+            }
         }
 
-        private void GenerateEntrance()
+        private void GenerateEntrance(Room[,] mansionMatrix)
         {
-            m_entranceColumnIndex = Random.Range(0, 4);
-            m_mansionMatrix[m_entranceColumnIndex, 1].Type = RoomType.Entrance;
+            EntranceColumnIndex = Random.Range(0, 4);
+            mansionMatrix[EntranceColumnIndex, 1].Type = RoomType.Entrance;
             m_alreadyGeneratedRoomType.Add(RoomType.Entrance);
         }
 
-        private void GenerateOtherRooms()
+        private void GenerateOtherRooms(Room[,] mansionMatrix)
         {
-            for (var x = 0; x < m_mansionMatrix.GetLength(0); x++)
-            for (var y = 0; y < m_mansionMatrix.GetLength(1); y++)
+            for (var x = 0; x < mansionMatrix.GetLength(0); x++)
+            for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 int roomTypeIndex = Random.Range(0, 10);
-                SetRoomType(ref m_mansionMatrix[x, y].Type, roomTypeIndex);
+                SetRoomType(ref mansionMatrix[x, y].Type, roomTypeIndex);
             }
         }
 
@@ -67,36 +71,36 @@ namespace Script.Procedural_Generation
             }
         }
 
-        private void GenerateStairs()
+        private void GenerateStairs(Room[,] mansionMatrix)
         {
-            GetRoomWithoutStairsOnFloor(1).HasStairsUp = true;
-            GetRoomWithoutStairsOnFloor(1).HasStairsDown = true;
+            GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsUp = true;
+            GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsDown = true;
 
             m_isComplexMansion = Random.Range(0, 3);
 
             switch (m_isComplexMansion)
             {
                 case 1:
-                    GetRoomWithoutStairsOnFloor(1).HasStairsDown = true;
+                    GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsDown = true;
                     break;
                 case 2:
-                    GetRoomWithoutStairsOnFloor(1).HasStairsUp = true;
+                    GetRoomWithoutStairsOnFloor(1, mansionMatrix).HasStairsUp = true;
                     break;
             }
 
             for (var x = 0; x < 4; x++)
             {
-                var room = m_mansionMatrix[x, 1];
+                var room = mansionMatrix[x, 1];
 
                 if (room.HasStairs())
                 {
-                    if (room.HasStairsDown) m_mansionMatrix[x, 0].HasStairsUp = true;
-                    else m_mansionMatrix[x, 2].HasStairsDown = true;
+                    if (room.HasStairsDown) mansionMatrix[x, 0].HasStairsUp = true;
+                    else mansionMatrix[x, 2].HasStairsDown = true;
                 }
             }
         }
 
-        private Room GetRoomWithoutStairsOnFloor(int floorIndex)
+        private Room GetRoomWithoutStairsOnFloor(int floorIndex, Room[,] mansionMatrix)
         {
             int startValue = Random.Range(0, 4);
 
@@ -106,7 +110,7 @@ namespace Script.Procedural_Generation
 
                 if (index > 3) index = i - 4;
 
-                var room = m_mansionMatrix[index, floorIndex];
+                var room = mansionMatrix[index, floorIndex];
 
                 if (!room.HasStairs() && room.Type != RoomType.Entrance)
                 {
@@ -117,14 +121,14 @@ namespace Script.Procedural_Generation
             return null;
         }
 
-        private void GenerateDoors()
+        private void GenerateDoors(Room[,] mansionMatrix)
         {
             int randomRoomIndex = Random.Range(0, 4); 
             
-            for (var x = 0; x < m_mansionMatrix.GetLength(0); x++)
-            for (var y = 0; y < m_mansionMatrix.GetLength(1); y++)
+            for (var x = 0; x < mansionMatrix.GetLength(0); x++)
+            for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
-                var room = m_mansionMatrix[x, y];
+                var room = mansionMatrix[x, y];
                 
                 switch (m_isComplexMansion)
                 {

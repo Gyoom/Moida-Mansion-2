@@ -60,8 +60,26 @@ namespace Script.Procedural_Generation
             }
         }
 
-        public void GenerateRoom()
+        public void Generate()
         {
+            if (HasLeftDoor)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[0]);
+            }
+
+            if (HasRightDoor)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[1]);
+            }
+            
+            if (HasStairsDown)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[2]);
+            }
+            else if (HasStairsUp)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[3]);
+            }
         }
 
         public bool HasStairs() => HasStairsUp && HasStairsDown;
