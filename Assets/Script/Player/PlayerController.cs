@@ -26,7 +26,7 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        Debug.Log($"Move Right !");
+        Debug.Log($"Try Move Right !");
         
         //TODO : Draw the room you at, update position on array 
         
@@ -37,14 +37,14 @@ public class PlayerController : Actor
     {
         isSearching = false;
         
-        Debug.Log($"MoveLeft !");
+        Debug.Log($"Try MoveLeft !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
     }
 
     public override void Search()
     {
-        Debug.Log($"Search !");
+        Debug.Log($"Try Search !");
         isSearching = true;
         timeToWait = maxTimeToWait;
         
@@ -61,7 +61,7 @@ public class PlayerController : Actor
         
         // TODO : get the position of where it lead 
 
-        Debug.Log($"TakeStair !");
+        Debug.Log($"Try TakeStair !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
     }
