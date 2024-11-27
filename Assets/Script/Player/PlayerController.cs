@@ -69,7 +69,7 @@ public class PlayerController : Actor
         timeToWaitMonster = maxTimeToWaitMonster;
         
         if(objToSearch != null)
-            objToSearch.gameObject.SetActive(true); // security to ensure its enable (blink)
+            objToSearch.gameObject.SetActive(true); // security to ensure blink
         
         
         foreach (var obj in MansionManager.Instance.CurrentPlayerRoom().ObjInRoom)
@@ -122,7 +122,7 @@ public class PlayerController : Actor
         monsterAppear = true;
     }
 
-    private float blinkInterval = 0.5f; 
+    private float blinkInterval = 0.2f; 
     private float nextBlinkTime = 0f; 
     private void SearchBlinkingOBJ()
     {
