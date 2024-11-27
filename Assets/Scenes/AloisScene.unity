@@ -5959,6 +5959,7 @@ MonoBehaviour:
   - {fileID: 1390024775}
   - {fileID: 1766694987}
   - {fileID: 1860544431}
+  RoomsData: []
 --- !u!4 &1842180386
 Transform:
   m_ObjectHideFlags: 0
@@ -7436,10 +7437,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
+    - target: {fileID: 1306868583800021674, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1393024717332693575, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
+    - target: {fileID: 2166367700697851950, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789680338360752221, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4086925519397363910, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7448,6 +7461,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1463258495}
+    - target: {fileID: 5760422242376640687, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7541617390231839569, guid: aa1136f9437cdea4fb4b6d6a453e929a, type: 3}
       propertyPath: m_Name
       value: CanvasInGame
