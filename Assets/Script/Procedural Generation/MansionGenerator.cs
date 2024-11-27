@@ -48,10 +48,13 @@ namespace Script.Procedural_Generation
             for (var y = 0; y < mansionMatrix.GetLength(1); y++)
             {
                 int roomTypeIndex = Random.Range(0, 11);
-                Room room = mansionMatrix[x, y] = new GameObject().AddComponent<Room>();
-                SetRoomType(ref room, roomTypeIndex);
-                room.name = room.Type.ToString();
-                room.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)room.Type].PossibleObjInRoom);
+                if (mansionMatrix[x, y] == null)
+                {
+                    Room room = mansionMatrix[x, y] = new GameObject().AddComponent<Room>();
+                    SetRoomType(ref room, roomTypeIndex);
+                    room.name = room.Type.ToString();
+                    room.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)room.Type].PossibleObjInRoom);
+                }
             }
         }
 
