@@ -36,18 +36,20 @@ namespace Script.Procedural_Generation
         /// </summary>
         public void SearchOBJ()
         {
-            if(!canBeSearch) return;
+            if(!canBeSearch) return; // Just security
+            gameObject.SetActive(true);
+            
             switch (doContain)
             {
                 case true:
-                    Debug.Log($"it contain {containDescription}");
+                    Debug.Log($"{gameObject.name} contain {containDescription}");
                     
                     if(objToGive == null)break;
                     Debug.Log($"You receive {objToGive}");
                     break;
                 
                 default:
-                    Debug.Log("Nothing");
+                    Debug.Log($"{gameObject.name} contain Nothing");
                     break;
             }
         }

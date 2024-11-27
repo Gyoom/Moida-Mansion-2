@@ -5,7 +5,6 @@ namespace Script.Procedural_Generation
 {
     public class Room : MonoBehaviour
     {
-        [SerializeField] private List<RoomObj> m_possibleObjInRoom = new List<RoomObj>();
         public RoomType Type;
         [HideInInspector] public readonly List<RoomObj> ObjInRoom = new List<RoomObj>();
         [HideInInspector] public bool HasStairsUp;
@@ -60,8 +59,28 @@ namespace Script.Procedural_Generation
             }
         }
 
-        public void GenerateRoom()
+        public void Generate()
         {
+            if (HasLeftDoor)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[0]);
+            }
+
+            if (HasRightDoor)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[1]);
+            }
+            
+            if (HasStairsDown)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[2]);
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[3]);
+            }
+            else if (HasStairsUp)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[2]);
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[4]);
+            }
         }
 
         public bool HasStairs() => HasStairsUp && HasStairsDown;
