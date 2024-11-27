@@ -11,7 +11,7 @@ public class PlayerController : Actor
 
     private bool isSearching;
     private float timeToWait;
-    private int maxTimeToWait = 2;
+    private int maxTimeToWait = 5;
 
     private RoomObj objToSearch;
     
@@ -49,7 +49,10 @@ public class PlayerController : Actor
         Debug.Log($"Search !");
         isSearching = true;
         timeToWait = maxTimeToWait;
-
+        
+        if(objToSearch != null)
+            objToSearch.gameObject.SetActive(true); // security to ensure its enable (blink)
+        
         objToSearch = SearchTest.instance.GetAObjToSearch();
         
     }
@@ -74,11 +77,22 @@ public class PlayerController : Actor
     {
         if(!isSearching) return;
         timeToWait -= Time.deltaTime;
-        
-        
+
+        SearchBlinkingOBJ();
         if (!(timeToWait <= 0)) return;
         
         objToSearch.SearchOBJ();
         isSearching = false;
+    }
+
+    private float blinkInterval = 0.5f; 
+    private float nextBlinkTime = 0f; 
+    private void SearchBlinkingOBJ()
+    {
+        if (Time.time >= nextBlinkTime)
+        {
+            objToSearch.gameObject.SetActive(!objToSearch.gameObject.activeSelf);
+            nextBlinkTime = Time.time + blinkInterval;
+        }
     }
 }
