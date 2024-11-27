@@ -21,6 +21,6 @@ public class Monster : MonoBehaviour
         // TODO : Get the player room location 
         // TODO : Spawn in a random possible monster location 
         
-        //Debug.Log($"Monster just appear in room {MansionManager.Instance.}");
+        Debug.Log($"Monster just appear in room {MansionManager.Instance.CurrentPlayerRoom()}");
     }
 }
