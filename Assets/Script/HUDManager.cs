@@ -1,6 +1,8 @@
 using Script;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 public class HUDManager : MonoBehaviour
@@ -100,7 +102,7 @@ public class HUDManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            DisplayScrollingText("Hello    /t", 5);
+            DisplayStaticText("Hello    \t", 15);
         }
     }
 
@@ -262,22 +264,29 @@ public class HUDManager : MonoBehaviour
         cal.SetActive(has);
     }
 
-    public void DisplayScrollingText(string text, float duration) {
-        scrollingText.SetActive(true);
-        scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
-        StartCoroutine(stopScrolling(duration));
-    }
-
-    private IEnumerator stopScrolling(float duration)
+    private IEnumerator stopScrolling(GameObject text, float duration)
     {
         yield return new WaitForSeconds(duration);
 
-        scrollingText.SetActive(false);
+        text.SetActive(false);
+    }
+
+    public void DisplayScrollingText(string text, float duration) {
+        scrollingText.SetActive(true);
+        scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
+        StartCoroutine(stopScrolling(scrollingText, duration));
+    }
+
+    public void DisplayStaticText(string text, float duration)
+    {
+        staticText.SetActive(true);
+        staticText.GetComponent<TextMeshProUGUI>().text = text;
+        StartCoroutine(stopScrolling(staticText, duration));
     }
 
     // Room change update -----------------------------------------------------------------------------------
 
-    IEnumerator TransitionToLeft()
+    IEnumerator Transition()
     {
 
         Vector3 pos = transitionX.transform.localPosition;
