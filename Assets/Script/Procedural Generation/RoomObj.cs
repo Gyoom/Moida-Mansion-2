@@ -19,7 +19,7 @@ namespace Script.Procedural_Generation
         private float blinkInterval = 0.2f;
 
         // Child Blinking
-        [SerializeField] public RoomObj child { get; private set; }
+        public RoomObj child;
 
 
         public SpriteRenderer sprite { get; private set; }
