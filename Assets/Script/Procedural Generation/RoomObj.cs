@@ -34,8 +34,16 @@ namespace Script.Procedural_Generation
         }
 
         public void SetSpriteVisible()
-        { 
-            sprite.enabled = true;
+        {
+            if (sprite != null)
+            {
+                sprite.enabled = true;
+            }
+        }
+
+        public void SetGameObjectActive(bool value)
+        {
+            gameObject.SetActive(value);
         }
 
         public void SetObjBlinking()
