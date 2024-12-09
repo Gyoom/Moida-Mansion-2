@@ -74,12 +74,12 @@ namespace Script.Procedural_Generation
             if (HasStairsDown)
             {
                 ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[2]);
-                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[3]);
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[4]);
             }
             else if (HasStairsUp)
             {
                 ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[2]);
-                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[4]);
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[3]);
             }
         }
 
