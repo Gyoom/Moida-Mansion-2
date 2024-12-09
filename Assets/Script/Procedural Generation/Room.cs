@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Procedural_Generation
 {
@@ -9,8 +10,8 @@ namespace Script.Procedural_Generation
         [HideInInspector] public readonly List<RoomObj> ObjInRoom = new List<RoomObj>();
         [HideInInspector] public bool HasStairsUp;
         [HideInInspector] public bool HasStairsDown;
-        [HideInInspector] public bool HasRightDoor;
-        [HideInInspector] public bool HasLeftDoor;
+        [HideInInspector] public Door RightDoor;
+        [HideInInspector] public Door LeftDoor;
 
         public void DisplayRoom()
         {
@@ -36,8 +37,8 @@ namespace Script.Procedural_Generation
 
         public void AddBothDoors()
         {
-            HasLeftDoor = true;
-            HasRightDoor = true;
+            LeftDoor = new Door();
+            RightDoor = new Door();
         }
 
         public void AddOneRandomDoor(int roomIndexInFloor)
@@ -45,20 +46,20 @@ namespace Script.Procedural_Generation
             switch (roomIndexInFloor)
             {
                 case 0:
-                    HasRightDoor = true;
+                    RightDoor = new Door();
                     break;
                 case 3:
-                    HasLeftDoor = true;
+                    LeftDoor = new Door();
                     break;
                 default:
                 {
                     if (Random.Range(0, 2) == 0)
                     {
-                        HasLeftDoor = true;
+                        LeftDoor = new Door();
                     }
                     else
                     {
-                        HasRightDoor = true;
+                        RightDoor = new Door();
                     }
                     break;
                 }
@@ -67,12 +68,12 @@ namespace Script.Procedural_Generation
 
         public void Initialize()
         {
-            if (HasLeftDoor)
+            if (LeftDoor != null)
             {
                 ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[0]);
             }
 
-            if (HasRightDoor)
+            if (RightDoor != null)
             {
                 ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[1]);
             }
