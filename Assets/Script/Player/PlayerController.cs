@@ -109,7 +109,7 @@ public class PlayerController : Actor
         if (!startInput)
         {
             MansionManager.Instance.StartGame();
-            ChangeStartingInput();
+            ChangeStartingInput(true);
             OnStartGeneration?.Invoke();
         }
         else
@@ -125,9 +125,9 @@ public class PlayerController : Actor
         }
     }
 
-    private void ChangeStartingInput()
+    public void ChangeStartingInput(bool value)
     {
-        startInput = true;
+        startInput = value;
     }
 
 
