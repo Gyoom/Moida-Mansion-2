@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlayerController : Actor
 {
     public static PlayerController instance;
+    
+    public bool startInput { get; private set; }
 
     // Step
     public int stepAmount { get; private set; }
@@ -33,6 +35,8 @@ public class PlayerController : Actor
 
     public override void MoveRight()
     {
+        if(!startInput) return;
+        
         stepAmount++;
         isSearching = false;
         
@@ -46,6 +50,8 @@ public class PlayerController : Actor
 
     public override void MoveLeft()
     {
+        if(!startInput) return;
+        
         stepAmount++;
         isSearching = false;
         
@@ -62,6 +68,8 @@ public class PlayerController : Actor
     
     public override void Search()
     {
+        if(!startInput) return;
+        
         Debug.Log($"Try Search !");
         isSearching = true;
         searchAmount++;
@@ -92,14 +100,27 @@ public class PlayerController : Actor
 
     public override void TakeStair()
     {
-        isSearching = false;
-        stepAmount++;
+        if (!startInput)
+        {
+            MansionManager.Instance.StartGame();
+            ChangeStartingInput();
+        }
+        else
+        {
+            isSearching = false;
+            stepAmount++;
 
-        Debug.Log($"Try TakeStair !");
+            Debug.Log($"Try TakeStair !");
         
-        MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
-        allObjsToSearch.Clear();
-        OnPlayerMove?.Invoke();
+            MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
+            allObjsToSearch.Clear();
+            OnPlayerMove?.Invoke();
+        }
+    }
+
+    private void ChangeStartingInput()
+    {
+        startInput = true;
     }
 
 

@@ -1,3 +1,4 @@
+using System;
 using Script;
 using System.Collections;
 using TMPro;
@@ -44,6 +45,8 @@ public class HUDManager : MonoBehaviour
     private float YposDown = -3.376f;
     [SerializeField] private float transitionSpeed = 1;
     [SerializeField] private float transitionDelay = 0.3f;
+
+    public Action OnMoveTransition; 
 
     //[Header("Debug")]
     //[SerializeField] private Vector2 debugPos;
@@ -260,7 +263,7 @@ public class HUDManager : MonoBehaviour
 
     // Room change update -----------------------------------------------------------------------------------
 
-    IEnumerator Transition(Dir dir)
+    public IEnumerator Transition(Dir dir)
     {
         if (dir == Dir.right || dir == Dir.left)
         {
@@ -322,6 +325,8 @@ public class HUDManager : MonoBehaviour
         }
 
         // call change room function
+        OnMoveTransition?.Invoke();
+        OnMoveTransition = null;
 
 
 
@@ -406,6 +411,8 @@ public class HUDManager : MonoBehaviour
         }
 
         // call change room function
+        OnMoveTransition?.Invoke();
+        OnMoveTransition = null;
 
         loop = true;
         moved = 0;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Script.Procedural_Generation;
 using UnityEngine;
 
@@ -24,7 +25,12 @@ namespace Script
             Instance = this;
         }
 
-        private void Start()
+        public void Start()
+        {
+            //   StartGame();
+        }
+
+        public void StartGame()
         {
             MansionGenerator generator = new MansionGenerator();
             generator.GenerateMansion(m_mansionMatrix);
@@ -38,6 +44,7 @@ namespace Script
         public void MovePlayerInMansion(PlayerMove move)
         {
             CurrentPlayerRoom().HideRoom();
+            HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
 
             switch (move)
             {
@@ -51,8 +58,7 @@ namespace Script
                     TakeStairs();
                     break;
             }
-            
-            CurrentPlayerRoom().DisplayRoom();
+
             HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
             HUDManager.Instance.updateInputs();
         }
@@ -68,6 +74,7 @@ namespace Script
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x - 1, m_playerPosInMansion.y);
                 LogPlayerPos();
+                HUDManager.Instance.Transition(Dir.left);
             }
         }
 
@@ -77,6 +84,7 @@ namespace Script
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x + 1, m_playerPosInMansion.y);
                 LogPlayerPos();
+                HUDManager.Instance.Transition(Dir.right);
             }
         }
 
@@ -91,11 +99,13 @@ namespace Script
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y -1);
                 LogPlayerPos();
+                HUDManager.Instance.Transition(Dir.down);
             }
             else if (CurrentPlayerRoom().HasStairsUp)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y +1);
                 LogPlayerPos();
+                HUDManager.Instance.Transition(Dir.top);
             }
         }
         
