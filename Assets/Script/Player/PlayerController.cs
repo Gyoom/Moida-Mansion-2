@@ -9,6 +9,7 @@ public class PlayerController : Actor
     public static PlayerController instance;
     
     public bool startInput { get; private set; }
+    public Action OnStartGeneration;
 
     // Step
     public int stepAmount { get; private set; }
@@ -104,6 +105,7 @@ public class PlayerController : Actor
         {
             MansionManager.Instance.StartGame();
             ChangeStartingInput();
+            OnStartGeneration?.Invoke();
         }
         else
         {
