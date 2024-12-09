@@ -235,7 +235,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -1700,7 +1700,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -1709,7 +1709,71 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      outside_0: -4420781712680604251
+      outside_1: 49636420498249401
+      outside_10: 1270754036233150121
+      outside_11: 373160905587024697
+      outside_12: 878383716249525807
+      outside_13: -3915009212303169145
+      outside_14: 7279228597634237346
+      outside_15: 6781915423654897766
+      outside_16: -2876789319758192082
+      outside_17: -8365037757626908415
+      outside_18: 3078083171481001833
+      outside_19: -5016337292052124148
+      outside_2: 3345104967112980269
+      outside_20: -643851006021211844
+      outside_21: 1774454455449348288
+      outside_22: -3317994092650872629
+      outside_23: 233911118108648223
+      outside_24: -4570876870155675656
+      outside_25: 4759257921745646164
+      outside_26: -6823567829378059404
+      outside_27: -3507304515200029717
+      outside_28: 6214755967157264358
+      outside_29: -3959029754525331181
+      outside_3: -8166560988785266386
+      outside_30: 7000939555168093222
+      outside_31: -4392105235858078625
+      outside_32: -3281395310733160101
+      outside_33: -1090499482701498209
+      outside_34: -6173238068711175255
+      outside_35: 4716682574407233318
+      outside_36: 6806007241276498400
+      outside_37: -1599587214927587660
+      outside_38: -4727032903912917522
+      outside_39: 6726494591519249543
+      outside_4: 668085165876248341
+      outside_40: 1697282779408965922
+      outside_41: 8549061886150995858
+      outside_42: 2099432081110022361
+      outside_43: -6620422905704051254
+      outside_44: 1386397020128826986
+      outside_45: -2754323164688166415
+      outside_46: 3500619878226362609
+      outside_47: -985099857029816442
+      outside_48: -6616366646689437210
+      outside_49: 8663714039772383693
+      outside_5: 7448093964624488320
+      outside_50: 2350893314323727992
+      outside_51: 3611086890482470896
+      outside_52: -8284602020704091924
+      outside_53: -8283589288970600657
+      outside_54: 1874855587592561343
+      outside_55: -286584718520995775
+      outside_56: -7499267196851941568
+      outside_57: -8052923964773527772
+      outside_58: 3432670465250184886
+      outside_59: 7188554474991216189
+      outside_6: 6854961030724020257
+      outside_60: -751922989801550908
+      outside_61: 8634180152165340515
+      outside_62: 6523821043855371531
+      outside_63: 5816780161842512695
+      outside_7: -4330307822023193192
+      outside_8: 3266471548449317020
+      outside_9: -3459801910540878644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
