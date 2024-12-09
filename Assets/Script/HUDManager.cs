@@ -47,9 +47,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private float transitionSpeed = 1;
     [SerializeField] private float transitionDelay = 0.3f;
 
-    [Header("Debug")]
-    [SerializeField] private Vector2 debugPos;
-    [SerializeField] private GameState gameState = GameState.Starting;
+    //[Header("Debug")]
+    //[SerializeField] private Vector2 debugPos;
+    //[SerializeField] private GameState gameState = GameState.Starting;
 
     private void Awake()
     {
@@ -108,7 +108,8 @@ public class HUDManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            DisplayScrollingText("Hello    \t", 10, childs.bek);
+            StartCoroutine(Transition(Dir.left));
+            //DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }
     }
@@ -135,7 +136,7 @@ public class HUDManager : MonoBehaviour
         }
         atlas.SetActive(false);
 
-        gameState = GameState.Outside;
+        //gameState = GameState.Outside;
     }
 
     // HUD Update ---------------------------------------------------------------------------------------------
@@ -300,27 +301,47 @@ public class HUDManager : MonoBehaviour
 
     // Room change update -----------------------------------------------------------------------------------
 
-    IEnumerator Transition()
+    IEnumerator Transition(Dir dir)
     {
+        if (dir == Dir.right || dir == Dir.left)
+        {
+            yield return StartCoroutine(TransitionX(dir));
 
-        Vector3 pos = transitionX.transform.localPosition;
-        float startX = XposRight;
-        float endX = XCenter;
+        }
+        else {
+            yield return StartCoroutine(TransitionY(dir));
+        }
+    }
 
-        float distance = endX - startX;
+    private IEnumerator TransitionX(Dir dir) {
+        GameObject transitionScreen = transitionX;
+        Vector3 pos = transitionScreen.transform.localPosition;
+        float startPosX = 0;
+        float centerPosX = XCenter;
+        float endPosX = 0;
 
-   
+        if (dir == Dir.right)
+        {
+            startPosX = XposRight;
+            endPosX = XposLeft;
+        }
+        else
+        {
+            startPosX = XposLeft;
+            endPosX = XposRight;
+        }
+
         float deplacement = transitionSpeed;
         bool loop = true;
         float timer = 0;
         float moved = 0;
 
-        pos.x = startX;
-        transitionX.transform.localPosition = pos;
+        transitionScreen.transform.localPosition = pos;
+        float distance = centerPosX - startPosX;
+        pos.x = startPosX;
 
         while (loop)
         {
-
             timer += Time.deltaTime;
             if (timer >= transitionDelay)
             {
@@ -332,11 +353,11 @@ public class HUDManager : MonoBehaviour
 
                 if (Mathf.Abs(moved) >= Mathf.Abs(distance))
                 {
-                    pos.x = endX;
+                    pos.x = centerPosX;
                     loop = false;
                 }
 
-                transitionX.transform.localPosition = pos;
+                transitionScreen.transform.localPosition = pos;
             }
             yield return null;
         }
@@ -345,8 +366,8 @@ public class HUDManager : MonoBehaviour
 
         loop = true;
         moved = 0;
-        startX = endX;
-        endX = XposLeft;
+        distance = endPosX - centerPosX;
+        pos.x = centerPosX;
 
         while (loop)
         {
@@ -362,11 +383,93 @@ public class HUDManager : MonoBehaviour
 
                 if (Mathf.Abs(moved) >= Mathf.Abs(distance))
                 {
-                    pos.x = endX;
+                    pos.x = endPosX;
                     loop = false;
                 }
 
-                transitionX.transform.localPosition = pos;
+                transitionScreen.transform.localPosition = pos;
+            }
+            yield return null;
+        }
+    }
+
+    private IEnumerator TransitionY(Dir dir)
+    {
+        GameObject transitionScreen = transitionY;
+        Vector3 pos = transitionScreen.transform.localPosition;
+        float startPosY = 0;
+        float centerPosY = YCenter;
+        float endPosY = 0;
+
+        if (dir == Dir.top)
+        {
+            startPosY = YposTop;
+            endPosY = YposDown;
+        }
+        else
+        {
+            startPosY = YposDown;
+            endPosY = YposTop;
+        }
+
+        float deplacement = transitionSpeed;
+        bool loop = true;
+        float timer = 0;
+        float moved = 0;
+
+        transitionScreen.transform.localPosition = pos;
+        float distance = centerPosY - startPosY;
+        pos.y = startPosY;
+
+        while (loop)
+        {
+            timer += Time.deltaTime;
+            if (timer >= transitionDelay)
+            {
+
+                moved += deplacement * Mathf.Sign(distance);
+                pos.y += deplacement * Mathf.Sign(distance);
+                timer = 0;
+
+
+                if (Mathf.Abs(moved) >= Mathf.Abs(distance))
+                {
+                    pos.y = centerPosY;
+                    loop = false;
+                }
+
+                transitionScreen.transform.localPosition = pos;
+            }
+            yield return null;
+        }
+
+        // call change room function
+
+        loop = true;
+        moved = 0;
+        distance = endPosY - centerPosY;
+        pos.y = centerPosY;
+
+
+        while (loop)
+        {
+
+            timer += Time.deltaTime;
+            if (timer >= transitionDelay)
+            {
+
+                moved += deplacement * Mathf.Sign(distance);
+                pos.y += deplacement * Mathf.Sign(distance);
+                timer = 0;
+
+
+                if (Mathf.Abs(moved) >= Mathf.Abs(distance))
+                {
+                    pos.y = endPosY;
+                    loop = false;
+                }
+
+                transitionScreen.transform.localPosition = pos;
             }
             yield return null;
         }
@@ -404,4 +507,12 @@ public enum childs
     bek,
     cal,
     none
+}
+
+public enum Dir
+{
+    top,
+    down,
+    left,
+    right
 }
