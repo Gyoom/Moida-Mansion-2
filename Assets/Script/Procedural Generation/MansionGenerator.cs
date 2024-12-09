@@ -61,7 +61,7 @@ namespace Script.Procedural_Generation
         private void SetRoomType(ref Room room, int index)
         {
             if (room.Type == RoomType.Entrance) return;
-            
+
             RoomType type = (RoomType)index;
 
             if (m_alreadyGeneratedRoomType.Contains(type))
@@ -69,13 +69,15 @@ namespace Script.Procedural_Generation
                 index++;
                 if (index > 10)
                 {
-                    index = m_alreadyGeneratedRoomType.Count == 10 ? 0 : 1; // if special room has been placed, set default room
+                    index = m_alreadyGeneratedRoomType.Count == 10
+                        ? 0
+                        : 1; // if special room has been placed, set default room
                 }
 
                 SetRoomType(ref room, index);
                 return;
             }
-                
+
             room.Type = type;
             if (type != RoomType.DefaultRoom)
             {
@@ -87,7 +89,7 @@ namespace Script.Procedural_Generation
         {
             GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos1).HasStairsUp = true;
             mansionMatrix[roomPos1.x, roomPos1.y + 1].HasStairsDown = true;
-            
+
             GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos2).HasStairsDown = true;
             mansionMatrix[roomPos2.x, roomPos2.y - 1].HasStairsUp = true;
 
@@ -98,7 +100,7 @@ namespace Script.Procedural_Generation
                 case 1:
                     Room room = GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos3);
                     Room roomBelow = mansionMatrix[roomPos3.x, roomPos3.y - 1];
-                    
+
                     room.HasStairsDown = true;
                     roomBelow.HasStairsUp = true;
                     break;
@@ -115,6 +117,7 @@ namespace Script.Procedural_Generation
         private Room GetRoomWithoutStairsInCollum(int floorIndex, Room[,] mansionMatrix, out Vector2Int roomPos)
         {
             int startValue = Random.Range(0, 4);
+            roomPos = new Vector2Int(0, floorIndex);
 
             for (int i = startValue; i < startValue + 4; i++)
             {
@@ -123,35 +126,30 @@ namespace Script.Procedural_Generation
                 if (index > 3) index = i - 4;
 
                 Room room = mansionMatrix[index, floorIndex];
-                Room roomOver = null;
-                Room roomBelow = null;
-                
-                if (floorIndex < 2) roomOver = mansionMatrix[index, floorIndex + 1];
-                if (floorIndex > 0) roomBelow = mansionMatrix[index, floorIndex - 1];
-                
-                if (!room.HasStairs() && room.Type != RoomType.Entrance)
+                roomPos = new Vector2Int(i, floorIndex);
+                Room roomOver;
+                Room roomBelow;
+
+                if (room.Type != RoomType.Entrance && !room.HasStairs())
                 {
-                    if (roomBelow != null)
+                    if (floorIndex < 2)
                     {
-                        if (!roomBelow.HasStairs())
-                        {
-                            roomPos = new Vector2Int(index, floorIndex);
-                            return room;
-                        } 
+                        roomOver = mansionMatrix[index, floorIndex + 1];
+
+                        if (roomOver.HasStairs()) continue;
                     }
 
-                    if (roomOver != null)
+                    if (floorIndex > 0)
                     {
-                        if (!roomOver.HasStairs())
-                        {
-                            roomPos = new Vector2Int(index, floorIndex);
-                            return room;
-                        }   
+                        roomBelow = mansionMatrix[index, floorIndex - 1];
+
+                        if (roomBelow.HasStairs()) continue;
                     }
+
+                    return room;
                 }
             }
 
-            roomPos = new Vector2Int(0, floorIndex);
             return null;
         }
 
@@ -240,7 +238,7 @@ namespace Script.Procedural_Generation
         }
 
         private bool PutKidIntoContainer(Room room)
-        {  
+        {
             foreach (var roomObj in room.ObjInRoom)
             {
                 if (roomObj.CanContainKid && !roomObj.DoContain)
