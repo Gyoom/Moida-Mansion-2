@@ -67,6 +67,7 @@ public class Monster : MonoBehaviour
     private void DisplayMonster()
     {
         if(possibleOBJ.Count != 0) possibleOBJ.Clear();
+        if(MansionManager.Instance.CurrentPlayerRoom().Type == RoomType.Void) return;
         
         possibleOBJ.AddRange(MansionManager.Instance.RoomsData[(int)MansionManager.Instance.CurrentPlayerRoom().Type].PossibleMonsterInRoom);
         
