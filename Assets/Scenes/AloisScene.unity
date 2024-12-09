@@ -16532,10 +16532,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026566511}
     - target: {fileID: 771678315063785368, guid: 616649a0fd9cf084b8689e961a050399, type: 3}
-      propertyPath: active
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 771678315063785368, guid: 616649a0fd9cf084b8689e961a050399, type: 3}
       propertyPath: mainRoom
       value: 
       objectReference: {fileID: 1026566511}
@@ -16729,6 +16725,10 @@ PrefabInstance:
       propertyPath: arrowLeft
       value: 
       objectReference: {fileID: 1087916163}
+    - target: {fileID: 3936240566871453157, guid: 7e737fa8842d9eb4d98463959473233b, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1962145190}
     - target: {fileID: 3936240566871453157, guid: 7e737fa8842d9eb4d98463959473233b, type: 3}
       propertyPath: arrowRight
       value: 

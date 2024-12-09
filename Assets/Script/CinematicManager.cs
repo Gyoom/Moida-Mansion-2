@@ -1,3 +1,4 @@
+using Script;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,9 +24,23 @@ public class CinematicManager : MonoBehaviour
 
     private HUDManager hud;
     private bool loop = true;
+    // coroutine
+    private IEnumerator IntroCoroutine;
+    private IEnumerator IntroAtlasCoroutine;
+    private IEnumerator IntroMonsterCoroutine;
+    private IEnumerator IntroBlinkCoroutine;
 
     private void Awake() { 
         Instance = this;
+    }
+
+    void Start() {
+        IntroCoroutine = Intro();
+        IntroAtlasCoroutine = AtlasFading();
+        IntroMonsterCoroutine = MonsterDisplay();
+        IntroBlinkCoroutine = BlinkHUD();
+
+        StartCoroutine(IntroCoroutine);
     }
 
 
@@ -33,8 +48,9 @@ public class CinematicManager : MonoBehaviour
     /// Intro
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    IEnumerator Start()
+    IEnumerator Intro()
     {
+
         if (!active) yield break;
 
         mainRoom.SetActive(false);
@@ -45,14 +61,14 @@ public class CinematicManager : MonoBehaviour
         
         hud.atlas.SetActive(true);
 
-        yield return StartCoroutine(AtlasFading());
+        yield return StartCoroutine(IntroAtlasCoroutine);
 
         hud.DisplayStaticText("BEWARE OF", 2f, childs.none);
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText("MOIDA MANSION", 2f, childs.none);
         introRooms.SetActive(true);
-        StartCoroutine(MonsterDisplay());
+        StartCoroutine(IntroMonsterCoroutine);
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText("BY", 2f, childs.none);
@@ -66,7 +82,7 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
         
-        StartCoroutine(BlinkHUD());
+        StartCoroutine(IntroBlinkCoroutine);
     }
 
     IEnumerator AtlasFading()
@@ -134,11 +150,14 @@ public class CinematicManager : MonoBehaviour
     private void onStartGame() {
 
         loop = false;
-        StopCoroutine(BlinkHUD());
-        StopCoroutine(MonsterDisplay());
-        StopCoroutine(Start());
+        StopCoroutine(IntroAtlasCoroutine);
+        StopCoroutine(IntroMonsterCoroutine);
+        StopCoroutine(IntroBlinkCoroutine);
+        StopCoroutine(IntroCoroutine);
 
+        Debug.Log("Stop");
         hud.scrollingText.SetActive(false);
+        hud.staticText.SetActive(false);
         introRooms.SetActive(false);
         mainRoom.SetActive(true);
 
@@ -203,6 +222,27 @@ public class CinematicManager : MonoBehaviour
         loop = true;
         StartCoroutine(ArrowBlink());
         OnOutroFinish?.Invoke();
+
+        yield return new WaitForSeconds(2f);
+
+        Script.Procedural_Generation.Room[,] rooms = MansionManager.Instance.MansionMatrix;
+        introRooms.SetActive(false);
+        mainRoom.SetActive(true);
+
+        while (true) {
+
+            for (int j = 0; j < 4; j++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+
+                    rooms[j, i].DisplayRoom();
+                    yield return new WaitForSeconds(5f);
+                    rooms[j, i].HideRoom();
+                }
+            }
+           
+        }
 
 
     }
