@@ -35,7 +35,7 @@ namespace Script.Procedural_Generation
             sprite.enabled = true;
         }
 
-        public void SetObjIsBlinking()
+        public void SetObjBlinking()
         {
             isBlinking = true;
         }
