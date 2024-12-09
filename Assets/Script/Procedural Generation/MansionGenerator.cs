@@ -85,10 +85,10 @@ namespace Script.Procedural_Generation
 
         private void GenerateStairs(Room[,] mansionMatrix)
         {
-            GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos1).HasStairsUp = true;
+            GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos1).HasStairsUp = true;
             mansionMatrix[roomPos1.x, roomPos1.y + 1].HasStairsDown = true;
-
-            GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos2).HasStairsDown = true;
+            
+            GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos2).HasStairsDown = true;
             mansionMatrix[roomPos2.x, roomPos2.y - 1].HasStairsUp = true;
 
             m_isComplexMansion = Random.Range(0, 3);
@@ -96,17 +96,23 @@ namespace Script.Procedural_Generation
             switch (m_isComplexMansion)
             {
                 case 1:
-                    GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos3).HasStairsDown = true;
-                    mansionMatrix[roomPos3.x, roomPos3.y - 1].HasStairsUp = true;
+                    Room room = GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos3);
+                    Room roomBelow = mansionMatrix[roomPos3.x, roomPos3.y - 1];
+                    
+                    room.HasStairsDown = true;
+                    roomBelow.HasStairsUp = true;
                     break;
                 case 2:
-                    GetRoomWithoutStairsOnFloor(1, mansionMatrix, out Vector2Int roomPos4).HasStairsUp = true;
-                    mansionMatrix[roomPos4.x, roomPos4.y + 1].HasStairsDown = true;
+                    Room room4 = GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos4);
+                    Room roomOver = mansionMatrix[roomPos4.x, roomPos4.y + 1];
+
+                    room4.HasStairsUp = true;
+                    roomOver.HasStairsDown = true;
                     break;
             }
         }
 
-        private Room GetRoomWithoutStairsOnFloor(int floorIndex, Room[,] mansionMatrix, out Vector2Int roomPos)
+        private Room GetRoomWithoutStairsInCollum(int floorIndex, Room[,] mansionMatrix, out Vector2Int roomPos)
         {
             int startValue = Random.Range(0, 4);
 
@@ -117,11 +123,31 @@ namespace Script.Procedural_Generation
                 if (index > 3) index = i - 4;
 
                 Room room = mansionMatrix[index, floorIndex];
-
+                Room roomOver = null;
+                Room roomBelow = null;
+                
+                if (floorIndex < 2) roomOver = mansionMatrix[index, floorIndex + 1];
+                if (floorIndex > 0) roomBelow = mansionMatrix[index, floorIndex - 1];
+                
                 if (!room.HasStairs() && room.Type != RoomType.Entrance)
                 {
-                    roomPos = new Vector2Int(index, floorIndex);
-                    return room;
+                    if (roomBelow != null)
+                    {
+                        if (!roomBelow.HasStairs())
+                        {
+                            roomPos = new Vector2Int(index, floorIndex);
+                            return room;
+                        } 
+                    }
+
+                    if (roomOver != null)
+                    {
+                        if (!roomOver.HasStairs())
+                        {
+                            roomPos = new Vector2Int(index, floorIndex);
+                            return room;
+                        }   
+                    }
                 }
             }
 
@@ -144,10 +170,10 @@ namespace Script.Procedural_Generation
                         switch (x)
                         {
                             case 0:
-                                room.HasRightDoor = true;
+                                room.RightDoor = new Door();
                                 break;
                             case 3:
-                                room.HasLeftDoor = true;
+                                room.LeftDoor = new Door();
                                 break;
                             default:
                                 room.AddBothDoors();
@@ -165,10 +191,10 @@ namespace Script.Procedural_Generation
                             switch (x)
                             {
                                 case 0:
-                                    room.HasRightDoor = true;
+                                    room.RightDoor = new Door();
                                     break;
                                 case 3:
-                                    room.HasLeftDoor = true;
+                                    room.LeftDoor = new Door();
                                     break;
                                 default:
                                     room.AddBothDoors();
@@ -187,10 +213,10 @@ namespace Script.Procedural_Generation
                             switch (x)
                             {
                                 case 0:
-                                    room.HasRightDoor = true;
+                                    room.RightDoor = new Door();
                                     break;
                                 case 3:
-                                    room.HasLeftDoor = true;
+                                    room.LeftDoor = new Door();
                                     break;
                                 default:
                                     room.AddBothDoors();

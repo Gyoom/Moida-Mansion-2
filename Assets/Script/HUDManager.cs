@@ -133,24 +133,8 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateInputs(Script.Procedural_Generation.Room currentRoom)
     {
-        if (currentRoom.HasLeftDoor)
-        {
-            arrowLeft.SetActive(true);
-        }
-        else
-        {
-            arrowLeft.SetActive(false);
-        }
-
-        if (currentRoom.HasRightDoor)
-        {
-            arrowRight.SetActive(true);
-        }
-        else
-        {
-            arrowRight.SetActive(false);
-        }
-
+        arrowLeft.SetActive(currentRoom.LeftDoor != null);
+        arrowRight.SetActive(currentRoom.RightDoor != null);
         downStairs.SetActive(currentRoom.HasStairsUp);
         upStairs.SetActive(currentRoom.HasStairsDown);
     }

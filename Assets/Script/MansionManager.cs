@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Script.Procedural_Generation;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace Script
     {
         public static MansionManager Instance;
 
-        private Room[,] m_mansionMatrix = new Room[4, 3];
+        public Room[,] MansionMatrix = new Room[4, 3];
 
         // Serialized for debug
         [SerializeField] private Vector2Int m_playerPosInMansion;
@@ -26,8 +25,8 @@ namespace Script
         public void StartGame()
         {
             MansionGenerator generator = new MansionGenerator();
-            generator.GenerateMansion(m_mansionMatrix);
-            m_mansionMatrix[generator.EntranceColumnIndex, 1].DisplayRoom(); // Display Entrance
+            generator.GenerateMansion(MansionMatrix);
+            MansionMatrix[generator.EntranceColumnIndex, 1].DisplayRoom(); // Display Entrance
             m_playerPosInMansion = new Vector2Int(generator.EntranceColumnIndex, 1);
             Debug.Log("Currently in: " + CurrentPlayerRoom());
             HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
@@ -57,12 +56,12 @@ namespace Script
 
         public Room CurrentPlayerRoom()
         {
-            return m_mansionMatrix[m_playerPosInMansion.x, m_playerPosInMansion.y];
+            return MansionMatrix[m_playerPosInMansion.x, m_playerPosInMansion.y];
         }
 
         private void MovePlayerToTheLeft()
         {
-            if (CurrentPlayerRoom().HasLeftDoor)
+            if (CurrentPlayerRoom().LeftDoor != null)
             {
                 CurrentPlayerRoom().HideRoom();
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x - 1, m_playerPosInMansion.y);
@@ -74,7 +73,7 @@ namespace Script
 
         private void MovePlayerToTheRight()
         {
-            if (CurrentPlayerRoom().HasRightDoor)
+            if (CurrentPlayerRoom().RightDoor != null)
             {
                 CurrentPlayerRoom().HideRoom();
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x + 1, m_playerPosInMansion.y);
