@@ -13,21 +13,14 @@ namespace Script
 
         // Serialized for debug
         [SerializeField] private Vector2Int m_playerPosInMansion;
-        
-        [Space]
-        public List<RoomObj> CommonRoomObj = new List<RoomObj>();
 
-        [Space]
-        public List<RoomData> RoomsData = new List<RoomData>();
+        [Space] public List<RoomObj> CommonRoomObj = new List<RoomObj>();
+
+        [Space] public List<RoomData> RoomsData = new List<RoomData>();
 
         private void Awake()
         {
             Instance = this;
-        }
-
-        public void Start()
-        {
-            //   StartGame();
         }
 
         public void StartGame()
@@ -44,7 +37,6 @@ namespace Script
         public void MovePlayerInMansion(PlayerMove move)
         {
             CurrentPlayerRoom().HideRoom();
-            HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
 
             switch (move)
             {
@@ -73,8 +65,9 @@ namespace Script
             if (CurrentPlayerRoom().HasLeftDoor)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x - 1, m_playerPosInMansion.y);
+                HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
-                HUDManager.Instance.Transition(Dir.left);
+                StartCoroutine(HUDManager.Instance.Transition(Dir.left));
             }
         }
 
@@ -83,8 +76,9 @@ namespace Script
             if (CurrentPlayerRoom().HasRightDoor)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x + 1, m_playerPosInMansion.y);
+                HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
-                HUDManager.Instance.Transition(Dir.right);
+                StartCoroutine(HUDManager.Instance.Transition(Dir.right));
             }
         }
 
@@ -97,18 +91,20 @@ namespace Script
         {
             if (CurrentPlayerRoom().HasStairsDown)
             {
-                m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y -1);
+                m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y - 1);
+                HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
-                HUDManager.Instance.Transition(Dir.down);
+                StartCoroutine(HUDManager.Instance.Transition(Dir.down));
             }
             else if (CurrentPlayerRoom().HasStairsUp)
             {
-                m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y +1);
+                m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y + 1);
+                HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
-                HUDManager.Instance.Transition(Dir.top);
+                StartCoroutine(HUDManager.Instance.Transition(Dir.top));
             }
         }
-        
+
         public enum PlayerMove
         {
             ToLeft,
