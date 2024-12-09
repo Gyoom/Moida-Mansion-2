@@ -10,17 +10,15 @@ public class PlayerController : Actor
 
     // Step
     public int stepAmount { get; private set; }
+    public Action OnPlayerMove;
     
     // Search
+    public Action OnSearchBegin;
+    public Action OnSearchEnded;
     public int searchAmount { get; private set; }
     private bool isSearching;
     private float timeToWait;
     private int maxTimeToWait = 5;
-    
-    // Monster
-    private bool monsterAppear;
-    private float timeToWaitMonster;
-    private int maxTimeToWaitMonster = 2;
 
     private RoomObj objToSearch;
     
@@ -43,6 +41,7 @@ public class PlayerController : Actor
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToRight);
 //        SoundManager.Instance.SpawnAudio3D(transform.position, 1);
         allObjsToSearch.Clear();
+        OnPlayerMove?.Invoke();
     }
 
     public override void MoveLeft()
@@ -54,6 +53,7 @@ public class PlayerController : Actor
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
         allObjsToSearch.Clear();
+        OnPlayerMove?.Invoke();
     }
 
     
@@ -66,7 +66,7 @@ public class PlayerController : Actor
         isSearching = true;
         searchAmount++;
         timeToWait = maxTimeToWait;
-        timeToWaitMonster = maxTimeToWaitMonster;
+        OnSearchBegin?.Invoke();
         
         if(objToSearch != null && allObjsToSearch.Count != 0)
             objToSearch.sprite.enabled = true; // security to ensure blink
@@ -99,13 +99,13 @@ public class PlayerController : Actor
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
         allObjsToSearch.Clear();
+        OnPlayerMove?.Invoke();
     }
 
 
     public void Update()
     {
         SearchWaitLogic();
-        MonsterLogic();
     }
 
     private void SearchWaitLogic()
@@ -118,7 +118,7 @@ public class PlayerController : Actor
         
         objToSearch.SearchOBJ();
         isSearching = false;
-        monsterAppear = true;
+        OnSearchEnded?.Invoke();
     }
 
     private float blinkInterval = 0.2f; 
@@ -131,15 +131,5 @@ public class PlayerController : Actor
             nextBlinkTime = Time.time + blinkInterval;
         }
         //else objToSearch.sprite.enabled = true;
-    }
-
-    private void MonsterLogic()
-    {
-        if(!monsterAppear) return;
-        timeToWaitMonster -= Time.deltaTime;
-        if (!(timeToWaitMonster <= 0)) return;
-
-        monsterAppear = false;
-        Monster.Instance.MonsterAppear();
     }
 }
