@@ -56,12 +56,13 @@ public class HUDManager : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    IEnumerator Start()
     {
         // initial state
-        //atlas.SetActive(true);
+        atlas.SetActive(true);
 
-        /*map.SetActive(false);
+        
+        map.SetActive(false);
         key.SetActive(false);
         foreach (Transform code in codeParent.transform)
         {
@@ -89,11 +90,16 @@ public class HUDManager : MonoBehaviour
         {
             d.gameObject.SetActive(false);
         }
-        cal.SetActive(false);*/
+        cal.SetActive(false);
+        
+        
+        yield return StartCoroutine(ToOutside());
+        
 
+        ace.SetActive(true);
+        bek.SetActive(true);
+        cal.SetActive(true);
 
-
-        StartCoroutine(ToOutside());
     }
 
 
@@ -102,7 +108,13 @@ public class HUDManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            DisplayStaticText("Hello    \t", 15);
+            DisplayScrollingText("Hello    \t", 10, childs.bek);
+            //DisplayStaticText("Hello    \t", 15);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine(ToMansion());
         }
     }
 
@@ -137,7 +149,6 @@ public class HUDManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         UpdateMap(true, debugPos);
-        search.SetActive(true);
 
         gameState = GameState.Mansion;
     }
@@ -264,24 +275,42 @@ public class HUDManager : MonoBehaviour
         cal.SetActive(has);
     }
 
-    private IEnumerator stopScrolling(GameObject text, float duration)
+    private IEnumerator stopScrolling(GameObject text, float duration, childs child)
     {
         yield return new WaitForSeconds(duration);
 
         text.SetActive(false);
+
+        GameObject childObject = GetChildObject(child);
+        if (childObject != null)
+        {
+            for (int i = 0; i < childObject.transform.childCount; i++)
+            {
+                childObject.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
     }
 
-    public void DisplayScrollingText(string text, float duration) {
+    public void DisplayScrollingText(string text, float duration, childs child) {
         scrollingText.SetActive(true);
         scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
-        StartCoroutine(stopScrolling(scrollingText, duration));
+  
+        StartCoroutine(stopScrolling(scrollingText, duration, child));
+
+        GameObject childObject = GetChildObject(child);
+        if (childObject != null) {
+            for (int i = 0; i < childObject.transform.childCount; i++)
+            {
+                childObject.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
 
-    public void DisplayStaticText(string text, float duration)
+    public void DisplayStaticText(string text, float duration, childs child)
     {
         staticText.SetActive(true);
         staticText.GetComponent<TextMeshProUGUI>().text = text;
-        StartCoroutine(stopScrolling(staticText, duration));
+        StartCoroutine(stopScrolling(staticText, duration, child));
     }
 
     // Room change update -----------------------------------------------------------------------------------
@@ -356,14 +385,38 @@ public class HUDManager : MonoBehaviour
             }
             yield return null;
         }
+    }
 
+    private GameObject GetChildObject(childs child)
+    {
+        if (child == childs.bek) {
+            return bek;
+        }
+
+        if (child == childs.ace) {
+            return ace;
+        }
+
+        if (child == childs.cal) {
+            return cal;
+        }
+
+        return null;
     }
 }
 
-enum GameState
+public enum GameState
 {
     Starting,
     Outside,
     Mansion,
     Ending
+}
+
+public enum childs
+{
+    ace,
+    bek,
+    cal,
+    none
 }
