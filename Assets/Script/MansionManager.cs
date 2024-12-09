@@ -67,7 +67,7 @@ namespace Script
             if (CurrentPlayerRoom().HasLeftDoor)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x - 1, m_playerPosInMansion.y);
-                Debug.Log("Moved to " + CurrentPlayerRoom());
+                LogPlayerPos();
             }
         }
 
@@ -76,21 +76,26 @@ namespace Script
             if (CurrentPlayerRoom().HasRightDoor)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x + 1, m_playerPosInMansion.y);
-                Debug.Log("Moved to " + CurrentPlayerRoom());
+                LogPlayerPos();
             }
         }
 
+        private void LogPlayerPos()
+        {
+            Debug.Log($"Moved to {CurrentPlayerRoom()}, new player pos : {m_playerPosInMansion}");
+        }
+        
         private void TakeStairs()
         {
             if (CurrentPlayerRoom().HasStairsDown)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y -1);
-                Debug.Log("Moved to " + CurrentPlayerRoom());
+                LogPlayerPos();
             }
             else if (CurrentPlayerRoom().HasStairsUp)
             {
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y +1);
-                Debug.Log("Moved to " + CurrentPlayerRoom());
+                LogPlayerPos();
             }
         }
         
