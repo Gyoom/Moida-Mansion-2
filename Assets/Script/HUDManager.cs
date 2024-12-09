@@ -31,8 +31,8 @@ public class HUDManager : MonoBehaviour
     public GameObject cal;
 
     [Header("Texting")]
-    [SerializeField] private GameObject scrollingText;
-    [SerializeField] private GameObject staticText;
+    public  GameObject scrollingText;
+    public GameObject staticText;
 
     [Header("Backgrounds")]
     [SerializeField] private GameObject transitionX;
@@ -258,7 +258,8 @@ public class HUDManager : MonoBehaviour
     {
         staticText.SetActive(true);
         staticText.GetComponent<TextMeshProUGUI>().text = text;
-        StartCoroutine(stopScrolling(staticText, duration, child));
+        if (duration > 0)
+            StartCoroutine(stopScrolling(staticText, duration, child));
     }
 
     // Room change update -----------------------------------------------------------------------------------

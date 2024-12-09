@@ -8,15 +8,23 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] bool active = false;
 
     [Header("Intro")]
+    [SerializeField] private GameObject room;
     [SerializeField] private float atlasFadeDuration = 1f;
+    [SerializeField] private GameObject introRooms;
+    [SerializeField] private float blinkSpeed = 0.5f;
 
     private HUDManager hud;
+    private bool loop = true;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     IEnumerator Start()
     {
         if (!active) yield break;
+
+        room.SetActive(false);
+
+        PlayerController.instance.OnStartGeneration += onStartGame;
 
         hud = HUDManager.Instance;
         
@@ -25,30 +33,31 @@ public class CinematicManager : MonoBehaviour
         yield return StartCoroutine(AtlasFading());
 
         hud.DisplayStaticText("BEWARE OF", 2f, childs.none);
-
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText("MOIDA MANSION", 2f, childs.none);
-
-        // display intro place
-
+        introRooms.SetActive(true);
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText("BY", 2f, childs.none);
-
         yield return new WaitForSeconds(2f);
 
-        hud.DisplayScrollingText("GUILL - PIERRE - ALOIS - \t", 4f, childs.none);
-
-        yield return new WaitForSeconds(4f);
+        hud.DisplayScrollingText("GUILL - PIERRE - ALOIS - \t", 3f, childs.none);
+        yield return new WaitForSeconds(3f);
 
         hud.DisplayStaticText("1.0.0", 2f, childs.none);
-
         yield return new WaitForSeconds(2f);
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
-        
-        hud.upStairs.SetActive(true);
+
+        do
+        {
+            hud.upStairs.SetActive(!hud.upStairs.activeSelf);
+
+            yield return new WaitForSeconds(blinkSpeed);
+        } while (loop); 
+
+
     }
 
     IEnumerator AtlasFading()
@@ -72,5 +81,10 @@ public class CinematicManager : MonoBehaviour
         hud.atlas.SetActive(false);
     }
 
-
+    private void onStartGame() { 
+        hud.scrollingText.SetActive(false);
+        introRooms.SetActive(false);
+        room.SetActive(true);
+        loop = false;
+    }
 }
