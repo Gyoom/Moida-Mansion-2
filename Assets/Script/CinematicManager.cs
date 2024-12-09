@@ -37,8 +37,6 @@ public class CinematicManager : MonoBehaviour
     {
         if (!active) yield break;
 
-        PlayerController.instance.canInput = false;
-
         mainRoom.SetActive(false);
 
         PlayerController.instance.OnStartGeneration += onStartGame;
@@ -65,8 +63,6 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayStaticText("1.0.0", 2f, childs.none);
         yield return new WaitForSeconds(2f);
-
-        PlayerController.instance.canInput = true;
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
         
@@ -136,7 +132,12 @@ public class CinematicManager : MonoBehaviour
     }
 
     private void onStartGame() {
+
         loop = false;
+        StopCoroutine(BlinkHUD());
+        StopCoroutine(MonsterDisplay());
+        StopCoroutine(Start());
+
         hud.scrollingText.SetActive(false);
         introRooms.SetActive(false);
         mainRoom.SetActive(true);
