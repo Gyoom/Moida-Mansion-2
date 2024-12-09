@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script;
 using Script.Procedural_Generation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Actor
 {
@@ -26,6 +27,7 @@ public class PlayerController : Actor
     private int maxTimeToWait = 5;
 
     private RoomObj objToSearch;
+    private bool resetScene;
     
     private void Awake()
     {
@@ -36,8 +38,18 @@ public class PlayerController : Actor
         else Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        CinematicManager.Instance.OnOutroFinish += (() => resetScene = true);
+    }
+
     public override void MoveRight()
     {
+        if (resetScene)
+        {
+            SceneManager.LoadScene(0);
+            return;
+        }
         if(!startInput) return;
         
         stepAmount++;
@@ -125,6 +137,7 @@ public class PlayerController : Actor
         }
     }
 
+    
     public void ChangeStartingInput(bool value)
     {
         startInput = value;
