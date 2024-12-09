@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
+
 
 public class CinematicManager : MonoBehaviour
 {
+    public static CinematicManager Instance;
+
     [SerializeField] bool active = false;
     [SerializeField] private GameObject mainRoom;
 
@@ -16,14 +18,26 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private float monsterSpeed = 1f;
     [SerializeField] private List<GameObject> monster;
 
+    [Header("Outro")]
+    public Action OnOutroFinish;
+
     private HUDManager hud;
     private bool loop = true;
 
+    private void Awake() { 
+        Instance = this;
+    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Intro
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     IEnumerator Start()
     {
         if (!active) yield break;
+
+        PlayerController.instance.canInput = false;
 
         mainRoom.SetActive(false);
 
@@ -51,6 +65,8 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayStaticText("1.0.0", 2f, childs.none);
         yield return new WaitForSeconds(2f);
+
+        PlayerController.instance.canInput = true;
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
         
@@ -80,6 +96,7 @@ public class CinematicManager : MonoBehaviour
 
     IEnumerator MonsterDisplay()
     {
+        yield return new WaitForSeconds(monsterSpeed);
         int previousIndex = 0;
         bool display = true;
         do
@@ -118,10 +135,95 @@ public class CinematicManager : MonoBehaviour
 
     }
 
-    private void onStartGame() { 
+    private void onStartGame() {
+        loop = false;
         hud.scrollingText.SetActive(false);
         introRooms.SetActive(false);
         mainRoom.SetActive(true);
-        loop = false;
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Outro
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public IEnumerator ExitMansion() {
+        PlayerController.instance.canInput = false;
+
+        hud.map.SetActive(false);
+        hud.key.SetActive(false);
+        hud.codeParent.SetActive(false);
+        hud.arrowLeft.SetActive(false);
+        hud.arrowRight.SetActive(false);
+        hud.search.SetActive(false);
+        hud.downStairs.SetActive(false);
+        hud.upStairs.SetActive(false);
+
+        hud.bek.SetActive(true);
+        hud.cal.SetActive(true);
+        hud.ace.SetActive(true);
+        hud.dot.SetActive(true);
+
+
+        mainRoom.SetActive(false);
+        introRooms.SetActive(true);
+
+        hud.DisplayStaticText("YOU ESCAPED !", 2f, childs.none);
+        yield return new WaitForSeconds(2f);
+
+        hud.DisplayStaticText("RESCUED ALL!", 3f, childs.none);
+        yield return StartCoroutine(InventoryBlink(3f));
+        
+
+        hud.DisplayStaticText(
+             "MOVES : " + PlayerController.instance.stepAmount, 
+             2f, 
+             childs.none
+        );
+        yield return new WaitForSeconds(2f);
+
+        hud.DisplayStaticText(
+             "SEARCHES : " + PlayerController.instance.searchAmount,
+             2f,
+             childs.none
+        );
+        yield return new WaitForSeconds(2f);
+
+        hud.DisplayStaticText(
+             "ATTACKED : ??",
+             2f,
+             childs.none
+        );
+        yield return new WaitForSeconds(2f);
+
+        hud.inventory.SetActive(false);
+
+        hud.DisplayStaticText("CONGRATS!", -1f, childs.none);
+        loop = true;
+        StartCoroutine(ArrowBlink());
+        OnOutroFinish?.Invoke();
+
+
+    }
+
+    IEnumerator InventoryBlink(float totalDuration) {
+        float blinkDuration = totalDuration / 6;
+
+        for (int i = 0; i < 6; i++)
+        {
+            hud.inventory.SetActive(!hud.inventory.activeSelf);
+            yield return new WaitForSeconds(blinkDuration);
+        }
+    }
+
+    IEnumerator ArrowBlink()
+    {
+        do
+        {
+            hud.arrowRight.SetActive(!hud.arrowRight.activeSelf);
+
+            yield return new WaitForSeconds(blinkSpeed);
+        } while (loop);
+
     }
 }

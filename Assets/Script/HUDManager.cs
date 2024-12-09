@@ -13,8 +13,6 @@ public class HUDManager : MonoBehaviour
     [Header("Starting")]
 
     public GameObject atlas;
-
-    [SerializeField] private float fadeDuration = 1f;
     
     [Header("Mansion - HUD")]
     public GameObject map;
@@ -25,6 +23,7 @@ public class HUDManager : MonoBehaviour
     public GameObject search;
     public GameObject downStairs;
     public GameObject arrowRight;
+    public GameObject inventory;
     public GameObject dot;
     public GameObject ace;
     public GameObject bek;
@@ -94,9 +93,7 @@ public class HUDManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            StartCoroutine(Transition(Dir.left));
-            //DisplayScrollingText("Hello    \t", 10, childs.bek);
-            //DisplayStaticText("Hello    \t", 15);
+            StartCoroutine(CinematicManager.Instance.ExitMansion());
         }
     }
 
