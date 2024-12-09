@@ -342,6 +342,7 @@ public class HUDManager : MonoBehaviour
         transitionScreen.transform.localPosition = pos;
         float distance = centerPosX - startPosX;
         pos.x = startPosX;
+        PlayerController.instance.canInput = false;
 
         while (loop)
         {
@@ -396,6 +397,7 @@ public class HUDManager : MonoBehaviour
             }
             yield return null;
         }
+        PlayerController.instance.canInput = true;
     }
 
     private IEnumerator TransitionY(Dir dir)

@@ -10,6 +10,8 @@ public class PlayerController : Actor
     
     public bool startInput { get; private set; }
     public Action OnStartGeneration;
+    
+    public bool canInput = true;
 
     // Step
     public int stepAmount { get; private set; }
@@ -52,6 +54,7 @@ public class PlayerController : Actor
     public override void MoveLeft()
     {
         if(!startInput) return;
+        if(!canInput) return;
         
         stepAmount++;
         isSearching = false;
@@ -70,6 +73,7 @@ public class PlayerController : Actor
     public override void Search()
     {
         if(!startInput) return;
+        if(!canInput) return;
         
         Debug.Log($"Try Search !");
         isSearching = true;
@@ -101,6 +105,7 @@ public class PlayerController : Actor
 
     public override void TakeStair()
     {
+        if(!canInput) return;
         if (!startInput)
         {
             MansionManager.Instance.StartGame();
