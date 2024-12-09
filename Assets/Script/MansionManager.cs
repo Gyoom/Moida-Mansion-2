@@ -31,11 +31,13 @@ namespace Script
             m_playerPosInMansion = new Vector2Int(generator.EntranceColumnIndex, 1);
             Debug.Log("Currently in: " + CurrentPlayerRoom());
             HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
-            HUDManager.Instance.updateInputs();
+            HUDManager.Instance.UpdateInputs(CurrentPlayerRoom());
         }
 
         public void MovePlayerInMansion(PlayerMove move)
         {
+            HUDManager.Instance.DisplayStaticText(string.Empty, -1, childs.none);
+            
             switch (move)
             {
                 case PlayerMove.ToLeft:
@@ -50,7 +52,7 @@ namespace Script
             }
 
             HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
-            HUDManager.Instance.updateInputs();
+            HUDManager.Instance.UpdateInputs(CurrentPlayerRoom());
         }
 
         public Room CurrentPlayerRoom()

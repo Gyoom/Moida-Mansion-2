@@ -9,13 +9,12 @@ public class HUDManager : MonoBehaviour
     public static HUDManager Instance;
 
     [SerializeField] private GameObject console;
-    
-    [Header("Starting")]
 
-    public GameObject atlas;
-    
-    [Header("Mansion - HUD")]
-    public GameObject map;
+    [Header("Starting")] public GameObject atlas;
+
+    [SerializeField] private float fadeDuration = 1f;
+
+    [Header("Mansion - HUD")] public GameObject map;
     public GameObject key;
     public GameObject codeParent;
     public GameObject arrowLeft;
@@ -23,18 +22,17 @@ public class HUDManager : MonoBehaviour
     public GameObject search;
     public GameObject downStairs;
     public GameObject arrowRight;
-    public GameObject inventory;
     public GameObject dot;
     public GameObject ace;
     public GameObject bek;
     public GameObject cal;
 
-    [Header("Texting")]
-    public  GameObject scrollingText;
+    [Header("Texting")] public GameObject scrollingText;
     public GameObject staticText;
 
-    [Header("Backgrounds")]
-    [SerializeField] private GameObject transitionX;
+    [Header("Backgrounds")] [SerializeField]
+    private GameObject transitionX;
+
     private float XposLeft = -12.18f;
     private float XCenter = -6.05f;
     private float XposRight = 0.1f;
@@ -45,7 +43,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private float transitionSpeed = 1;
     [SerializeField] private float transitionDelay = 0.3f;
 
-    public Action OnMoveTransition; 
+    public Action OnMoveTransition;
 
     //[Header("Debug")]
     //[SerializeField] private Vector2 debugPos;
@@ -62,80 +60,89 @@ public class HUDManager : MonoBehaviour
         {
             code.gameObject.SetActive(false);
         }
+
         arrowLeft.SetActive(false);
         upStairs.SetActive(false);
         search.SetActive(false);
         downStairs.SetActive(false);
         arrowRight.SetActive(false);
         dot.SetActive(false);
-        
-        foreach (Transform d in ace.transform) { 
+
+        foreach (Transform d in ace.transform)
+        {
             d.gameObject.SetActive(false);
         }
+
         ace.SetActive(false);
-        
+
         foreach (Transform d in bek.transform)
         {
             d.gameObject.SetActive(false);
         }
+
         bek.SetActive(false);
 
         foreach (Transform d in cal.transform)
         {
             d.gameObject.SetActive(false);
         }
+
         cal.SetActive(false);
     }
 
 
     void Update()
     {
-
         if (Input.GetMouseButtonDown(1))
         {
-            StartCoroutine(CinematicManager.Instance.ExitMansion());
+            StartCoroutine(Transition(Dir.left));
+            //DisplayScrollingText("Hello    \t", 10, childs.bek);
+            //DisplayStaticText("Hello    \t", 15);
         }
     }
 
     // HUD Update ---------------------------------------------------------------------------------------------
 
-    public void UpdateMap(bool state, Vector2 pos) {
+    public void UpdateMap(bool state, Vector2 pos)
+    {
+        if (state)
+        {
+            map.SetActive(true);
 
-            if (state)
+            for (int y = 0; y < 3; y++)
             {
-                map.SetActive(true);
-
-                for (int y = 0; y < 3; y++) {
-                    for (int x = 0; x < 4; x++)
+                for (int x = 0; x < 4; x++)
+                {
+                    int index = y * 4 + x;
+                    if (y == pos.y && x == pos.x)
                     {
-                        int index = y * 4 + x;
-                        if (y == pos.y && x == pos.x)
-                        {
-                            map.transform.GetChild(index).gameObject.SetActive(true);
-                        }
-                        else
-                        {
-                            map.transform.GetChild(index).gameObject.SetActive(false);
-                        }
+                        map.transform.GetChild(index).gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        map.transform.GetChild(index).gameObject.SetActive(false);
                     }
                 }
             }
-            else { 
-                map.SetActive(false);
-            }
+        }
+        else
+        {
+            map.SetActive(false);
+        }
     }
 
-    public void updateInputs() {
-        Script.Procedural_Generation.Room r = MansionManager.Instance.CurrentPlayerRoom();
-
-        if (r.HasLeftDoor) {
+    public void UpdateInputs(Script.Procedural_Generation.Room currentRoom)
+    {
+        if (currentRoom.HasLeftDoor)
+        {
             arrowLeft.SetActive(true);
         }
-        else {
+        else
+        {
             arrowLeft.SetActive(false);
         }
 
-        if (r.HasRightDoor)
+        if (currentRoom.HasRightDoor)
         {
             arrowRight.SetActive(true);
         }
@@ -144,34 +151,22 @@ public class HUDManager : MonoBehaviour
             arrowRight.SetActive(false);
         }
 
-        if (r.HasStairsDown)
-        {
-            downStairs.SetActive(true);
-        }
-        else
-        {
-            downStairs.SetActive(false);
-        }
-
-        if (r.HasStairsUp)
-        {
-            upStairs.SetActive(true);
-        }
-        else
-        {
-            upStairs.SetActive(false);
-        }
+        downStairs.SetActive(currentRoom.HasStairsUp);
+        upStairs.SetActive(currentRoom.HasStairsDown);
     }
 
-    public void addCode() {
-        if (!codeParent.transform.GetChild(0).gameObject.activeSelf) 
+    public void addCode()
+    {
+        if (!codeParent.transform.GetChild(0).gameObject.activeSelf)
         {
             codeParent.transform.GetChild(0).gameObject.SetActive(true);
         }
-        if (!codeParent.transform.GetChild(1).gameObject.activeSelf) 
+
+        if (!codeParent.transform.GetChild(1).gameObject.activeSelf)
         {
             codeParent.transform.GetChild(1).gameObject.SetActive(true);
         }
+
         if (!codeParent.transform.GetChild(2).gameObject.activeSelf)
         {
             codeParent.transform.GetChild(2).gameObject.SetActive(true);
@@ -184,10 +179,12 @@ public class HUDManager : MonoBehaviour
         {
             codeParent.transform.GetChild(2).gameObject.SetActive(false);
         }
+
         if (codeParent.transform.GetChild(1).gameObject.activeSelf)
         {
             codeParent.transform.GetChild(1).gameObject.SetActive(false);
         }
+
         if (codeParent.transform.GetChild(0).gameObject.activeSelf)
         {
             codeParent.transform.GetChild(0).gameObject.SetActive(false);
@@ -235,15 +232,17 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    public void DisplayScrollingText(string text, float duration, childs child) {
+    public void DisplayScrollingText(string text, float duration, childs child)
+    {
         scrollingText.SetActive(true);
         scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
-  
+
         if (duration > 0)
             StartCoroutine(stopScrolling(scrollingText, duration, child));
 
         GameObject childObject = GetChildObject(child);
-        if (childObject != null) {
+        if (childObject != null)
+        {
             for (int i = 0; i < childObject.transform.childCount; i++)
             {
                 childObject.transform.GetChild(i).gameObject.SetActive(true);
@@ -266,14 +265,15 @@ public class HUDManager : MonoBehaviour
         if (dir == Dir.right || dir == Dir.left)
         {
             yield return StartCoroutine(TransitionX(dir));
-
         }
-        else {
+        else
+        {
             yield return StartCoroutine(TransitionY(dir));
         }
     }
 
-    private IEnumerator TransitionX(Dir dir) {
+    private IEnumerator TransitionX(Dir dir)
+    {
         GameObject transitionScreen = transitionX;
         Vector3 pos = transitionScreen.transform.localPosition;
         float startPosX = 0;
@@ -306,7 +306,6 @@ public class HUDManager : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= transitionDelay)
             {
-
                 moved += deplacement * Mathf.Sign(distance);
                 pos.x += deplacement * Mathf.Sign(distance);
                 timer = 0;
@@ -320,14 +319,13 @@ public class HUDManager : MonoBehaviour
 
                 transitionScreen.transform.localPosition = pos;
             }
+
             yield return null;
         }
 
         // call change room function
         OnMoveTransition?.Invoke();
         OnMoveTransition = null;
-
-
 
 
         loop = true;
@@ -337,11 +335,9 @@ public class HUDManager : MonoBehaviour
 
         while (loop)
         {
-
             timer += Time.deltaTime;
             if (timer >= transitionDelay)
             {
-
                 moved += deplacement * Mathf.Sign(distance);
                 pos.x += deplacement * Mathf.Sign(distance);
                 timer = 0;
@@ -355,8 +351,10 @@ public class HUDManager : MonoBehaviour
 
                 transitionScreen.transform.localPosition = pos;
             }
+
             yield return null;
         }
+
         PlayerController.instance.canInput = true;
     }
 
@@ -393,7 +391,6 @@ public class HUDManager : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= transitionDelay)
             {
-
                 moved += deplacement * Mathf.Sign(distance);
                 pos.y += deplacement * Mathf.Sign(distance);
                 timer = 0;
@@ -407,6 +404,7 @@ public class HUDManager : MonoBehaviour
 
                 transitionScreen.transform.localPosition = pos;
             }
+
             yield return null;
         }
 
@@ -422,11 +420,9 @@ public class HUDManager : MonoBehaviour
 
         while (loop)
         {
-
             timer += Time.deltaTime;
             if (timer >= transitionDelay)
             {
-
                 moved += deplacement * Mathf.Sign(distance);
                 pos.y += deplacement * Mathf.Sign(distance);
                 timer = 0;
@@ -440,21 +436,25 @@ public class HUDManager : MonoBehaviour
 
                 transitionScreen.transform.localPosition = pos;
             }
+
             yield return null;
         }
     }
 
     private GameObject GetChildObject(childs child)
     {
-        if (child == childs.bek) {
+        if (child == childs.bek)
+        {
             return bek;
         }
 
-        if (child == childs.ace) {
+        if (child == childs.ace)
+        {
             return ace;
         }
 
-        if (child == childs.cal) {
+        if (child == childs.cal)
+        {
             return cal;
         }
 
