@@ -18,6 +18,9 @@ namespace Script.Procedural_Generation
         private float nextBlinkTime = 0f;
         private float blinkInterval = 0.2f;
 
+        // Child Blinking
+        [SerializeField] public RoomObj child { get; private set; }
+
 
         public SpriteRenderer sprite { get; private set; }
         private void Awake()
