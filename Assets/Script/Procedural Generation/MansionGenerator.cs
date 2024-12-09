@@ -240,6 +240,6 @@ namespace Script.Procedural_Generation
         Storage = 7,
         Study = 8,
         Toilet = 9,
-        VoidRoom = 10,
+        Void = 10,
     }
 }

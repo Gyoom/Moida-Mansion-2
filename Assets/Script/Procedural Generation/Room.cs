@@ -14,7 +14,11 @@ namespace Script.Procedural_Generation
 
         public void DisplayRoom()
         {
-            HUDManager.Instance.DisplayStaticText(Type.ToString(), -1, childs.none);
+            if (Type != RoomType.DefaultRoom)
+            {
+                HUDManager.Instance.DisplayStaticText(Type.ToString(), -1, childs.none);
+            }
+            
             foreach (var roomObj in ObjInRoom)
             {
                 roomObj.gameObject.SetActive(true);
