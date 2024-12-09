@@ -41,6 +41,11 @@ namespace Script.Procedural_Generation
             }
         }
 
+        public void SetGameObjectActive(bool value)
+        {
+            gameObject.SetActive(value);
+        }
+
         public void SetObjBlinking()
         {
             isBlinking = true;

@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Script;
+using Script.Procedural_Generation;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Monster : MonoBehaviour
 {
@@ -15,6 +18,9 @@ public class Monster : MonoBehaviour
     private bool monsterFollow;
     private int amountRoomFollow = 3;
     private int amountLeftRoomFollow = 0;
+    
+    // Monster Position 
+    private List<RoomObj> possibleOBJ = new List<RoomObj>();
 
     private void Start()
     {
@@ -31,25 +37,41 @@ public class Monster : MonoBehaviour
         }
         else Destroy(gameObject);
     }
-
-
+    
     private void MonsterAppear()
     {
         // TODO : Get the player room location 
         // TODO : Spawn in a random possible monster location 
         
         Debug.Log($"Monster just appear in room {MansionManager.Instance.CurrentPlayerRoom()}");
+        DisplayMonster();
     }
 
     private void MonsterFollowPlayer()
     {
         if(!monsterFollow) return;
         amountLeftRoomFollow--;
+        foreach (var obj in possibleOBJ)
+        {
+            obj.SetGameObjectActive(false);
+        }
+        
         if (amountLeftRoomFollow >= 0)
         {
             Debug.Log($"Monster Follow you in room {MansionManager.Instance.CurrentPlayerRoom()}");
+            DisplayMonster();
         }
         else monsterFollow = false;
+    }
+
+    private void DisplayMonster()
+    {
+        if(possibleOBJ.Count != 0) possibleOBJ.Clear();
+        
+        possibleOBJ.AddRange(MansionManager.Instance.RoomsData[(int)MansionManager.Instance.CurrentPlayerRoom().Type].PossibleMonsterInRoom);
+        
+        int randomPosition = Random.Range(0, possibleOBJ.Count);
+        possibleOBJ[randomPosition].SetGameObjectActive(true);
     }
     
     private void MonsterLogic()

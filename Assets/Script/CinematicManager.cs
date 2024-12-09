@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
@@ -6,12 +7,14 @@ using UnityEngine.Rendering.UI;
 public class CinematicManager : MonoBehaviour
 {
     [SerializeField] bool active = false;
+    [SerializeField] private GameObject mainRoom;
 
     [Header("Intro")]
-    [SerializeField] private GameObject room;
-    [SerializeField] private float atlasFadeDuration = 1f;
     [SerializeField] private GameObject introRooms;
+    [SerializeField] private float atlasFadeDuration = 1f;
     [SerializeField] private float blinkSpeed = 0.5f;
+    [SerializeField] private float monsterSpeed = 1f;
+    [SerializeField] private List<GameObject> monster;
 
     private HUDManager hud;
     private bool loop = true;
@@ -22,7 +25,7 @@ public class CinematicManager : MonoBehaviour
     {
         if (!active) yield break;
 
-        room.SetActive(false);
+        mainRoom.SetActive(false);
 
         PlayerController.instance.OnStartGeneration += onStartGame;
 
@@ -37,6 +40,7 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayStaticText("MOIDA MANSION", 2f, childs.none);
         introRooms.SetActive(true);
+        StartCoroutine(MonsterDisplay());
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText("BY", 2f, childs.none);
@@ -49,15 +53,8 @@ public class CinematicManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
-
-        do
-        {
-            hud.upStairs.SetActive(!hud.upStairs.activeSelf);
-
-            yield return new WaitForSeconds(blinkSpeed);
-        } while (loop); 
-
-
+        
+        StartCoroutine(BlinkHUD());
     }
 
     IEnumerator AtlasFading()
@@ -81,10 +78,50 @@ public class CinematicManager : MonoBehaviour
         hud.atlas.SetActive(false);
     }
 
+    IEnumerator MonsterDisplay()
+    {
+        int previousIndex = 0;
+        bool display = true;
+        do
+        {
+            if (display)
+            {
+                monster[previousIndex].SetActive(false);
+                display = false;
+            }
+            else {
+                if (previousIndex == 0)
+                {
+                    monster[1].SetActive(true);
+                    previousIndex = 1;
+                }
+                else 
+                {
+                    monster[0].SetActive(true);
+                    previousIndex = 0;
+                }
+                display = true;
+            }
+
+            yield return new WaitForSeconds(monsterSpeed);
+        } while (loop);
+    }
+
+    IEnumerator BlinkHUD()
+    {
+        do
+        {
+            hud.upStairs.SetActive(!hud.upStairs.activeSelf);
+
+            yield return new WaitForSeconds(blinkSpeed);
+        } while (loop);
+
+    }
+
     private void onStartGame() { 
         hud.scrollingText.SetActive(false);
         introRooms.SetActive(false);
-        room.SetActive(true);
+        mainRoom.SetActive(true);
         loop = false;
     }
 }
