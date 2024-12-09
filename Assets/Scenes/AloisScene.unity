@@ -749,7 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_canBeSearch: 0
   CanContainKid: 0
-  isBlinking: 0
+  isBlinking: 1
 --- !u!212 &140576593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2389,7 +2389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &393700078
 Transform:
   m_ObjectHideFlags: 0
@@ -2403,7 +2403,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1026566512}
+  m_Father: {fileID: 1839519446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &393700079
 MonoBehaviour:
@@ -2419,7 +2419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_canBeSearch: 0
   CanContainKid: 0
-  isBlinking: 0
+  isBlinking: 1
 --- !u!212 &393700080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6793,7 +6793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &951312176
 Transform:
   m_ObjectHideFlags: 0
@@ -6807,7 +6807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1026566512}
+  m_Father: {fileID: 2084115379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &951312177
 MonoBehaviour:
@@ -6823,7 +6823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_canBeSearch: 0
   CanContainKid: 0
-  isBlinking: 0
+  isBlinking: 1
 --- !u!212 &951312178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7586,8 +7586,6 @@ Transform:
   - {fileID: 1263023850}
   - {fileID: 1839519446}
   - {fileID: 2084115379}
-  - {fileID: 393700078}
-  - {fileID: 951312176}
   - {fileID: 1513715367}
   - {fileID: 2018668264}
   - {fileID: 338131334}
@@ -13219,7 +13217,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 393700078}
   m_Father: {fileID: 1026566512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1839519447
@@ -13234,7 +13233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canBeSearch: 0
+  m_canBeSearch: 1
   CanContainKid: 0
   isBlinking: 0
 --- !u!212 &1839519448
@@ -13356,6 +13355,10 @@ MonoBehaviour:
     PossibleObjInRoom:
     - {fileID: 1252576003}
     - {fileID: 1681401784}
+    - {fileID: 1839519447}
+    - {fileID: 2084115380}
+    - {fileID: 393700079}
+    - {fileID: 951312177}
   - RoomName: Kitchen
     PossibleObjInRoom:
     - {fileID: 1979993745}
@@ -15674,7 +15677,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 951312176}
   m_Father: {fileID: 1026566512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2084115380
@@ -15689,7 +15693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731dbb877c8a534597b65d580c411d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canBeSearch: 0
+  m_canBeSearch: 1
   CanContainKid: 0
   isBlinking: 0
 --- !u!212 &2084115381
@@ -16350,9 +16354,9 @@ SceneRoots:
   - {fileID: 199571909}
   - {fileID: 605495402}
   - {fileID: 6938203414607337939}
+  - {fileID: 1842180386}
   - {fileID: 215338894}
   - {fileID: 316323302}
   - {fileID: 228464762}
   - {fileID: 1026566512}
   - {fileID: 1883353217}
-  - {fileID: 1842180386}

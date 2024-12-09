@@ -14,9 +14,21 @@ namespace Script.Procedural_Generation
         public bool CanContainKid;
         private InteractiveObj m_objToGive;
 
+
+        public SpriteRenderer sprite { get; private set; }
+        private void Awake()
+        {
+            sprite = GetComponent<SpriteRenderer>();
+        }
+
         public bool GetCanBeSearch()
         {
             return m_canBeSearch;
+        }
+
+        public void SetSpriteVisible()
+        { 
+            sprite.enabled = true;
         }
 
         // Set on room initialisation 
@@ -33,7 +45,7 @@ namespace Script.Procedural_Generation
         public void SearchOBJ()
         {
             if(!m_canBeSearch) return; // Just security
-            gameObject.SetActive(true);
+            sprite.enabled = true;
             
             switch (DoContain)
             {
@@ -56,14 +68,14 @@ namespace Script.Procedural_Generation
         }
 
         [SerializeField] private bool isBlinking;
-        private float blinkInterval = 0.2f; 
-        private float nextBlinkTime = 0f; 
+        private float nextBlinkTime = 0f;
+        private float blinkInterval = 0.2f;
         private void SearchBlinkingOBJ()
         {
             if(!isBlinking) return;
             if (Time.time >= nextBlinkTime)
             {
-                gameObject.SetActive(!gameObject.activeSelf);
+                sprite.enabled = !sprite.enabled;
                 nextBlinkTime = Time.time + blinkInterval;
             }
         }

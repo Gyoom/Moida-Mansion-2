@@ -40,8 +40,6 @@ public class PlayerController : Actor
         
         Debug.Log($"Try Move Right !");
         
-        //TODO : Draw the room you at, update position on array 
-        
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToRight);
 //        SoundManager.Instance.SpawnAudio3D(transform.position, 1);
         allObjsToSearch.Clear();
@@ -71,7 +69,7 @@ public class PlayerController : Actor
         timeToWaitMonster = maxTimeToWaitMonster;
         
         if(objToSearch != null && allObjsToSearch.Count != 0)
-            objToSearch.gameObject.SetActive(true); // security to ensure blink
+            objToSearch.sprite.enabled = true; // security to ensure blink
         
         
         foreach (var obj in MansionManager.Instance.CurrentPlayerRoom().ObjInRoom)
@@ -129,9 +127,10 @@ public class PlayerController : Actor
     {
         if (Time.time >= nextBlinkTime)
         {
-            objToSearch.gameObject.SetActive(!objToSearch.gameObject.activeSelf);
+            objToSearch.sprite.enabled = !objToSearch.sprite.enabled;
             nextBlinkTime = Time.time + blinkInterval;
         }
+        //else objToSearch.sprite.enabled = true;
     }
 
     private void MonsterLogic()

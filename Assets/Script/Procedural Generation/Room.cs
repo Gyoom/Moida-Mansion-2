@@ -17,6 +17,7 @@ namespace Script.Procedural_Generation
             foreach (var roomObj in ObjInRoom)
             {
                 roomObj.gameObject.SetActive(true);
+                roomObj.SetSpriteVisible();
             }
         }
 
