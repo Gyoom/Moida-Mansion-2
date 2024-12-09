@@ -36,8 +36,6 @@ namespace Script
 
         public void MovePlayerInMansion(PlayerMove move)
         {
-            CurrentPlayerRoom().HideRoom();
-
             switch (move)
             {
                 case PlayerMove.ToLeft:
@@ -64,6 +62,7 @@ namespace Script
         {
             if (CurrentPlayerRoom().HasLeftDoor)
             {
+                CurrentPlayerRoom().HideRoom();
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x - 1, m_playerPosInMansion.y);
                 HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
@@ -75,6 +74,7 @@ namespace Script
         {
             if (CurrentPlayerRoom().HasRightDoor)
             {
+                CurrentPlayerRoom().HideRoom();
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x + 1, m_playerPosInMansion.y);
                 HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
@@ -91,6 +91,7 @@ namespace Script
         {
             if (CurrentPlayerRoom().HasStairsDown)
             {
+                CurrentPlayerRoom().HideRoom();
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y - 1);
                 HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();
@@ -98,6 +99,7 @@ namespace Script
             }
             else if (CurrentPlayerRoom().HasStairsUp)
             {
+                CurrentPlayerRoom().HideRoom();
                 m_playerPosInMansion = new Vector2Int(m_playerPosInMansion.x, m_playerPosInMansion.y + 1);
                 HUDManager.Instance.OnMoveTransition += CurrentPlayerRoom().DisplayRoom;
                 LogPlayerPos();

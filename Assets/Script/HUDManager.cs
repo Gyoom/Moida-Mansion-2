@@ -3,8 +3,6 @@ using Script;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
-using Random = UnityEngine.Random;
 
 public class HUDManager : MonoBehaviour
 {
@@ -14,27 +12,27 @@ public class HUDManager : MonoBehaviour
     
     [Header("Starting")]
 
-    [SerializeField] private GameObject atlas;
+    public GameObject atlas;
 
     [SerializeField] private float fadeDuration = 1f;
     
     [Header("Mansion - HUD")]
-    [SerializeField] private GameObject map;
-    [SerializeField] private GameObject key;
-    [SerializeField] private GameObject codeParent;
-    [SerializeField] private GameObject arrowLeft;
-    [SerializeField] private GameObject upStairs;
-    [SerializeField] private GameObject search;
-    [SerializeField] private GameObject downStairs;
-    [SerializeField] private GameObject arrowRight;
-    [SerializeField] private GameObject dot;
-    [SerializeField] private GameObject ace;
-    [SerializeField] private GameObject bek;
-    [SerializeField] private GameObject cal;
+    public GameObject map;
+    public GameObject key;
+    public GameObject codeParent;
+    public GameObject arrowLeft;
+    public GameObject upStairs;
+    public GameObject search;
+    public GameObject downStairs;
+    public GameObject arrowRight;
+    public GameObject dot;
+    public GameObject ace;
+    public GameObject bek;
+    public GameObject cal;
 
     [Header("Texting")]
-    [SerializeField] private GameObject scrollingText;
-    [SerializeField] private GameObject staticText;
+    public  GameObject scrollingText;
+    public GameObject staticText;
 
     [Header("Backgrounds")]
     [SerializeField] private GameObject transitionX;
@@ -57,14 +55,8 @@ public class HUDManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
 
-    IEnumerator Start()
-    {
         // initial state
-        atlas.SetActive(true);
-
-        
         map.SetActive(false);
         key.SetActive(false);
         foreach (Transform code in codeParent.transform)
@@ -94,15 +86,6 @@ public class HUDManager : MonoBehaviour
             d.gameObject.SetActive(false);
         }
         cal.SetActive(false);
-        
-        
-        yield return StartCoroutine(ToOutside());
-        
-
-        ace.SetActive(true);
-        bek.SetActive(true);
-        cal.SetActive(true);
-
     }
 
 
@@ -115,31 +98,6 @@ public class HUDManager : MonoBehaviour
             //DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }
-    }
-
-
-    // Game state Transitions ------------------------------------------------------------------------
-
-    IEnumerator ToOutside() {
- 
-        yield return new WaitForSeconds(1f);
-
-        float time = 0;
-        Color currentColor = atlas.GetComponent<SpriteRenderer>().color;
-        float startAlpha = currentColor.a;
-
-        while (time < fadeDuration)
-        {
-
-            currentColor.a = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
-            atlas.GetComponent<SpriteRenderer>().color = currentColor;
-
-            time += Time.deltaTime;
-            yield return null;
-        }
-        atlas.SetActive(false);
-
-        //gameState = GameState.Outside;
     }
 
     // HUD Update ---------------------------------------------------------------------------------------------
@@ -284,7 +242,8 @@ public class HUDManager : MonoBehaviour
         scrollingText.SetActive(true);
         scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
   
-        StartCoroutine(stopScrolling(scrollingText, duration, child));
+        if (duration > 0)
+            StartCoroutine(stopScrolling(scrollingText, duration, child));
 
         GameObject childObject = GetChildObject(child);
         if (childObject != null) {
@@ -299,7 +258,8 @@ public class HUDManager : MonoBehaviour
     {
         staticText.SetActive(true);
         staticText.GetComponent<TextMeshProUGUI>().text = text;
-        StartCoroutine(stopScrolling(staticText, duration, child));
+        if (duration > 0)
+            StartCoroutine(stopScrolling(staticText, duration, child));
     }
 
     // Room change update -----------------------------------------------------------------------------------
@@ -369,6 +329,9 @@ public class HUDManager : MonoBehaviour
         // call change room function
         OnMoveTransition?.Invoke();
         OnMoveTransition = null;
+
+
+
 
         loop = true;
         moved = 0;
