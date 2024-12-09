@@ -13,6 +13,10 @@ namespace Script.Procedural_Generation
         private string m_containDescription;
         public bool CanContainKid;
         private InteractiveObj m_objToGive;
+        
+        [SerializeField] private bool isBlinking;
+        private float nextBlinkTime = 0f;
+        private float blinkInterval = 0.2f;
 
 
         public SpriteRenderer sprite { get; private set; }
@@ -29,6 +33,11 @@ namespace Script.Procedural_Generation
         public void SetSpriteVisible()
         { 
             sprite.enabled = true;
+        }
+
+        public void SetObjIsBlinking()
+        {
+            isBlinking = true;
         }
 
         // Set on room initialisation 
@@ -66,10 +75,7 @@ namespace Script.Procedural_Generation
         {
             SearchBlinkingOBJ();
         }
-
-        [SerializeField] private bool isBlinking;
-        private float nextBlinkTime = 0f;
-        private float blinkInterval = 0.2f;
+        
         private void SearchBlinkingOBJ()
         {
             if(!isBlinking) return;
