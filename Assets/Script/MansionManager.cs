@@ -31,6 +31,8 @@ namespace Script
             m_mansionMatrix[generator.EntranceColumnIndex, 1].DisplayRoom(); // Display Entrance
             m_playerPosInMansion = new Vector2Int(generator.EntranceColumnIndex, 1);
             Debug.Log("Currently in: " + CurrentPlayerRoom());
+            HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
+            HUDManager.Instance.updateInputs();
         }
 
         public void MovePlayerInMansion(PlayerMove move)
@@ -51,6 +53,8 @@ namespace Script
             }
             
             CurrentPlayerRoom().DisplayRoom();
+            HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
+            HUDManager.Instance.updateInputs();
         }
 
         public Room CurrentPlayerRoom()
