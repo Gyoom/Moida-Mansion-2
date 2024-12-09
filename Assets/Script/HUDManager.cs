@@ -111,11 +111,6 @@ public class HUDManager : MonoBehaviour
             DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartCoroutine(ToMansion());
-        }
     }
 
 
@@ -141,16 +136,6 @@ public class HUDManager : MonoBehaviour
         atlas.SetActive(false);
 
         gameState = GameState.Outside;
-    }
-
-    IEnumerator ToMansion()
-    {
-
-        yield return new WaitForSeconds(0.1f);
-
-        UpdateMap(true, debugPos);
-
-        gameState = GameState.Mansion;
     }
 
     // HUD Update ---------------------------------------------------------------------------------------------
