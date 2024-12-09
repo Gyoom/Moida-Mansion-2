@@ -44,6 +44,7 @@ public class PlayerController : Actor
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToRight);
 //        SoundManager.Instance.SpawnAudio3D(transform.position, 1);
+        allObjsToSearch.Clear();
     }
 
     public override void MoveLeft()
@@ -54,6 +55,7 @@ public class PlayerController : Actor
         Debug.Log($"Try MoveLeft !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
+        allObjsToSearch.Clear();
     }
 
     
@@ -68,7 +70,7 @@ public class PlayerController : Actor
         timeToWait = maxTimeToWait;
         timeToWaitMonster = maxTimeToWaitMonster;
         
-        if(objToSearch != null)
+        if(objToSearch != null && allObjsToSearch.Count != 0)
             objToSearch.gameObject.SetActive(true); // security to ensure blink
         
         
@@ -94,12 +96,11 @@ public class PlayerController : Actor
     {
         isSearching = false;
         stepAmount++;
-        
-        // TODO : get the position of where it lead 
 
         Debug.Log($"Try TakeStair !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
+        allObjsToSearch.Clear();
     }
 
 
