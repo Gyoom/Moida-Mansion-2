@@ -2058,7 +2058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &311133005
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16532,6 +16532,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026566511}
     - target: {fileID: 771678315063785368, guid: 616649a0fd9cf084b8689e961a050399, type: 3}
+      propertyPath: mainRoom
+      value: 
+      objectReference: {fileID: 1026566511}
+    - target: {fileID: 771678315063785368, guid: 616649a0fd9cf084b8689e961a050399, type: 3}
       propertyPath: blinkSpeed
       value: 0.3
       objectReference: {fileID: 0}
@@ -16539,6 +16543,10 @@ PrefabInstance:
       propertyPath: introRooms
       value: 
       objectReference: {fileID: 891912208}
+    - target: {fileID: 771678315063785368, guid: 616649a0fd9cf084b8689e961a050399, type: 3}
+      propertyPath: monsterSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 771678315063785368, guid: 616649a0fd9cf084b8689e961a050399, type: 3}
       propertyPath: monster.Array.size
       value: 2

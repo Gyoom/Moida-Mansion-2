@@ -40,6 +40,7 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayStaticText("MOIDA MANSION", 2f, childs.none);
         introRooms.SetActive(true);
+        StartCoroutine(MonsterDisplay());
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText("BY", 2f, childs.none);
@@ -53,7 +54,6 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
         
-        StartCoroutine(MonsterDisplay());
         StartCoroutine(BlinkHUD());
     }
 
