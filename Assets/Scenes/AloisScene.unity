@@ -13434,9 +13434,15 @@ MonoBehaviour:
     - {fileID: 759356377}
     - {fileID: 1364161726}
     - {fileID: 1842508458}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Default
     PossibleObjInRoom:
     - {fileID: 728592427}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Dressing
     PossibleObjInRoom:
     - {fileID: 1979993745}
@@ -13447,6 +13453,9 @@ MonoBehaviour:
     - {fileID: 728592427}
     - {fileID: 1681401784}
     - {fileID: 556298025}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Entrance
     PossibleObjInRoom:
     - {fileID: 1252576003}
@@ -13455,6 +13464,9 @@ MonoBehaviour:
     - {fileID: 2084115380}
     - {fileID: 393700079}
     - {fileID: 951312177}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Kitchen
     PossibleObjInRoom:
     - {fileID: 1979993745}
@@ -13469,6 +13481,9 @@ MonoBehaviour:
     - {fileID: 2130430986}
     - {fileID: 4368796}
     - {fileID: 713212644}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Laboratory
     PossibleObjInRoom:
     - {fileID: 1979993745}
@@ -13479,6 +13494,9 @@ MonoBehaviour:
     - {fileID: 556298025}
     - {fileID: 647900300}
     - {fileID: 1842508458}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Library
     PossibleObjInRoom:
     - {fileID: 1226856636}
@@ -13487,6 +13505,9 @@ MonoBehaviour:
     - {fileID: 728592427}
     - {fileID: 794536368}
     - {fileID: 647900300}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Storage
     PossibleObjInRoom:
     - {fileID: 1329683599}
@@ -13494,6 +13515,9 @@ MonoBehaviour:
     - {fileID: 728592427}
     - {fileID: 1842508458}
     - {fileID: 1364161726}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Study
     PossibleObjInRoom:
     - {fileID: 1554710889}
@@ -13503,6 +13527,9 @@ MonoBehaviour:
     - {fileID: 728592427}
     - {fileID: 1681401784}
     - {fileID: 556298025}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Toilet
     PossibleObjInRoom:
     - {fileID: 2041809316}
@@ -13515,8 +13542,12 @@ MonoBehaviour:
     - {fileID: 4368796}
     - {fileID: 1842508458}
     - {fileID: 936306320}
+    PossibleMonsterInRoom:
+    - {fileID: 619304626}
+    - {fileID: 930024059}
   - RoomName: Void
     PossibleObjInRoom: []
+    PossibleMonsterInRoom: []
 --- !u!4 &1842180386
 Transform:
   m_ObjectHideFlags: 0
@@ -16320,6 +16351,10 @@ PrefabInstance:
       propertyPath: scrollingText
       value: 
       objectReference: {fileID: 143381646}
+    - target: {fileID: 3936240566871453157, guid: 7e737fa8842d9eb4d98463959473233b, type: 3}
+      propertyPath: transitionSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3936240566871453157, guid: 7e737fa8842d9eb4d98463959473233b, type: 3}
       propertyPath: scrollingTextScript
       value: 

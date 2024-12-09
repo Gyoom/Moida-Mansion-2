@@ -8,5 +8,6 @@ namespace Script.Procedural_Generation
     {
         public string RoomName;
         public List<RoomObj> PossibleObjInRoom = new List<RoomObj>();
+        public List<RoomObj> PossibleMonsterInRoom = new List<RoomObj>();
     }
 }
