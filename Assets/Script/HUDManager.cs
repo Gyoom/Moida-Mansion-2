@@ -98,7 +98,8 @@ public class HUDManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            CinematicManager.Instance.PlayerDeath();
+            string[] a = { "AAA", "BBB" };
+            CinematicManager.Instance.FoundChild(childs.ace, a);
             //DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }

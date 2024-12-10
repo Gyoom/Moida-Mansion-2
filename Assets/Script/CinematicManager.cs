@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 
 public class CinematicManager : MonoBehaviour
@@ -25,6 +26,9 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private GameObject dotRoomStep1;
     [SerializeField] private GameObject dotRoomStep2;
     [SerializeField] private GameObject dotRoomStep3;
+
+    [Header("Child")]
+    [SerializeField] private GameObject childRoom;
 
     [Header("Outro - win")]
     public Action OnOutroFinish;
@@ -53,6 +57,7 @@ public class CinematicManager : MonoBehaviour
         IntroBlinkCoroutine = BlinkHUD();
 
         Monster.Instance.OnMonsterKilling = PlayerDeath;
+        //PlayerController.instance.fo
 
         StartCoroutine(IntroCoroutine);
     }
@@ -192,6 +197,52 @@ public class CinematicManager : MonoBehaviour
         mainRoom.SetActive(true);
 
         hud.search.SetActive(true);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Outro - Death
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void FoundChild(childs child, string[] dialogue) {
+        StartCoroutine(ChildCinematic(child, dialogue));        
+    }
+
+    private IEnumerator ChildCinematic(childs child, string[] dialogue) { 
+        PlayerController.instance.canInput = false;
+
+        yield return new WaitForSeconds(0.5f);
+        mainRoom.SetActive(false);
+        childRoom.SetActive(true);
+
+        string name = "";
+        GameObject invChild = null;
+        switch (child) { 
+            case childs.ace:
+                name = "ACE";
+                invChild = hud.ace;
+                break;
+            case childs.bek:
+                name = "BEK";
+                invChild = hud.bek;
+                break;
+            case childs.cal:
+                name = "CAL";
+                invChild = hud.cal;
+                break;
+        };
+        invChild.SetActive(true);
+        hud.DisplayStaticText("RESCUED " + name + "!", 2f, childs.none);
+        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < dialogue.Length; i++)
+        {
+            hud.DisplayStaticText(dialogue[i], 2f, child);
+            yield return StartCoroutine(Blink(invChild, 2f));
+        }
+
+        mainRoom.SetActive(true);
+        childRoom.SetActive(false);
+        PlayerController.instance.canInput = true;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
