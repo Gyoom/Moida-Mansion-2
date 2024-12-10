@@ -155,11 +155,13 @@ public class CinematicManager : MonoBehaviour
         StopCoroutine(IntroBlinkCoroutine);
         StopCoroutine(IntroCoroutine);
 
-        Debug.Log("Stop");
-        hud.scrollingText.SetActive(false);
-        hud.staticText.SetActive(false);
+        hud.atlas.SetActive(false);
+        hud.StopDisplayScrollingText();
+        hud.StopDisplayStaticText();
         introRooms.SetActive(false);
         mainRoom.SetActive(true);
+
+        hud.search.SetActive(true);
 
     }
 

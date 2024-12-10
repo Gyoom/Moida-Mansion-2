@@ -45,6 +45,9 @@ public class HUDManager : MonoBehaviour
 
     public Action OnMoveTransition;
 
+    private Coroutine StaticTextCoroutine;
+    private Coroutine ScrollingTextCoroutine;
+
     //[Header("Debug")]
     //[SerializeField] private Vector2 debugPos;
     //[SerializeField] private GameState gameState = GameState.Starting;
@@ -95,7 +98,7 @@ public class HUDManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            StartCoroutine(CinematicManager.Instance.ExitMansion());
+            DisplaySearchingText();
             //DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }
@@ -180,6 +183,8 @@ public class HUDManager : MonoBehaviour
         key.SetActive(has);
     }
 
+    // Inventory get/set -----------------------------------------------------------------------------
+
     public void hasDot(bool has)
     {
         dot.SetActive(has);
@@ -200,7 +205,8 @@ public class HUDManager : MonoBehaviour
         cal.SetActive(has);
     }
 
-    private IEnumerator stopScrolling(GameObject text, float duration, childs child)
+    // Texting ---------------------------------------------------------------------------------------
+    private IEnumerator removeText(GameObject text, float duration, childs child)
     {
         yield return new WaitForSeconds(duration);
 
@@ -216,14 +222,49 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    // Static
+    public void StopDisplayStaticText()
+    {
+        if (StaticTextCoroutine != null)
+            StopCoroutine(StaticTextCoroutine);
+
+        staticText.SetActive(false);
+    }
+
+    public void DisplayStaticText(string text, float duration, childs child)
+    {
+        if(StaticTextCoroutine != null)
+            StopCoroutine(StaticTextCoroutine);
+
+        staticText.SetActive(true);
+        staticText.GetComponent<TextMeshProUGUI>().text = text;
+        if (duration > 0)
+            StaticTextCoroutine = StartCoroutine(removeText(staticText, duration, child));
+    }
+
+    // Scrolling
+    public void StopDisplayScrollingText()
+    {
+        if (ScrollingTextCoroutine != null)
+            StopCoroutine(ScrollingTextCoroutine);
+        
+        scrollingText.SetActive(false);
+    }
+
     public void DisplayScrollingText(string text, float duration, childs child)
     {
+        if (ScrollingTextCoroutine != null)
+            StopCoroutine(ScrollingTextCoroutine);
+
+        // active text
         scrollingText.SetActive(true);
         scrollingText.GetComponent<ScrollingText>().UpdateClones(text);
 
+        // program the end of displaying
         if (duration > 0)
-            StartCoroutine(stopScrolling(scrollingText, duration, child));
+            ScrollingTextCoroutine =  StartCoroutine(removeText(scrollingText, duration, child));
 
+        // if child speak, display dots
         GameObject childObject = GetChildObject(child);
         if (childObject != null)
         {
@@ -234,12 +275,59 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    public void DisplayStaticText(string text, float duration, childs child)
+    // Static - Searching
+    private IEnumerator UpdateSearching(GameObject text, float totalDuration)
     {
+        float currentDuration = totalDuration / 10;
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "#EARCHING";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "##ARCHING";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "###RCHING";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "####CHING";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "#####HING";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "######ING";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "#######NG";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "########G";
+
+        yield return new WaitForSeconds(currentDuration);
+        staticText.GetComponent<TextMeshProUGUI>().text = "#########";
+
+        yield return new WaitForSeconds(currentDuration);
+        text.SetActive(false);
+    }
+
+    public void stopDisplaySearchingText()
+    {
+        if (StaticTextCoroutine != null)
+            StopCoroutine(StaticTextCoroutine);
+
+        staticText.SetActive(false);
+
+    }
+
+    public void DisplaySearchingText(float totalDuration = 5f) {
+        if (StaticTextCoroutine != null)
+            StopCoroutine(StaticTextCoroutine);
+
         staticText.SetActive(true);
-        staticText.GetComponent<TextMeshProUGUI>().text = text;
-        if (duration > 0)
-            StartCoroutine(stopScrolling(staticText, duration, child));
+        staticText.GetComponent<TextMeshProUGUI>().text = "SEARCHING";
+        
+        StaticTextCoroutine = StartCoroutine(UpdateSearching(staticText, totalDuration));
     }
 
     // Room change update -----------------------------------------------------------------------------------
