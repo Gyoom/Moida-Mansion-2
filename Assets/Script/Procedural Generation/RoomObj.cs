@@ -51,11 +51,11 @@ namespace Script.Procedural_Generation
             return m_canBeSearch;
         }
 
-        public void SetSpriteVisible()
+        public void SetSpriteVisible(bool value = true)
         {
             if (sprite != null)
             {
-                sprite.enabled = true;
+                sprite.enabled = value;
             }
         }
 
@@ -109,6 +109,7 @@ namespace Script.Procedural_Generation
                             Debug.Log($"You receive {m_objToGive}");
                             HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
                             PlayerController.instance.OnFoundChild(m_objToGive);
+                            RemoveContainedChild();
                         }
                         else
                         {
@@ -133,6 +134,14 @@ namespace Script.Procedural_Generation
             }
         }
 
+        private void RemoveContainedChild()
+        {
+            m_objToGive.kid = Childs.none;
+            m_objToGive.kidRoom = null;
+            noise.SetObjBlinking(false);
+            noise.SetSpriteVisible(false);
+        }
+        
         private void Update()
         {
             SearchBlinkingOBJ();
