@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Procedural_Generation
 {
@@ -23,6 +24,21 @@ namespace Script.Procedural_Generation
 
 
         public SpriteRenderer sprite { get; private set; }
+
+        [SerializeField] private bool m_isButton;
+        private bool m_isActivated;
+
+        public bool IsActivated
+        {
+            get => m_isActivated;
+
+            set
+            {
+                m_isActivated = value;
+                MansionManager.Instance.ActivatedButtons++;
+            }
+        }
+        
         private void Awake()
         {
             sprite = GetComponent<SpriteRenderer>();
