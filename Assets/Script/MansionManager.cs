@@ -38,7 +38,7 @@ namespace Script
 
         public void MovePlayerInMansion(PlayerMove move)
         {
-            HUDManager.Instance.DisplayStaticText(string.Empty, -1, childs.none);
+            HUDManager.Instance.DisplayStaticText(string.Empty, -1, Childs.none);
 
             switch (move)
             {
@@ -55,6 +55,11 @@ namespace Script
 
             HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
             HUDManager.Instance.UpdateInputs(CurrentPlayerRoom());
+
+            if (CurrentPlayerRoom().Type == RoomType.Entrance && HUDManager.Instance.dot.activeSelf)
+            {
+                CinematicManager.Instance.ExitMansion();
+            }
         }
 
         public Room CurrentPlayerRoom()

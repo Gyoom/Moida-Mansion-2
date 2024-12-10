@@ -17,7 +17,7 @@ namespace Script.Procedural_Generation
         {
             if (Type != RoomType.DefaultRoom)
             {
-                HUDManager.Instance.DisplayStaticText(Type.ToString(), -1, childs.none);
+                HUDManager.Instance.DisplayStaticText(Type.ToString(), -1, Childs.none);
             }
             
             foreach (var roomObj in ObjInRoom)

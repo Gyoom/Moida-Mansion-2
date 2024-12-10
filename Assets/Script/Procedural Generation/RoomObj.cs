@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Script.Procedural_Generation
 {
@@ -90,13 +88,13 @@ namespace Script.Procedural_Generation
                     
                     if(m_objToGive == null)break;
                     Debug.Log($"You receive {m_objToGive}");
-                    HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, childs.none);
+                    HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, Childs.none);
                     PlayerController.instance.OnFoundChild(m_objToGive, m_objToGive.dialogue);
                     break;
                 
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
-                    HUDManager.Instance.DisplayStaticText($"Nothing", 5, childs.none);
+                    HUDManager.Instance.DisplayStaticText($"Nothing", 5, Childs.none);
                     break;
             }
         }

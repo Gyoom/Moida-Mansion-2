@@ -128,7 +128,7 @@ public class PlayerController : Actor
         }
         index++;
         
-        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
+        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, Childs.none);
         HUDManager.Instance.DisplaySearchingText(maxTimeToWait);
     }
 
