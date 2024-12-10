@@ -55,6 +55,11 @@ namespace Script
 
             HUDManager.Instance.UpdateMap(true, m_playerPosInMansion);
             HUDManager.Instance.UpdateInputs(CurrentPlayerRoom());
+
+            if (CurrentPlayerRoom().Type == RoomType.Entrance && HUDManager.Instance.dot.activeSelf)
+            {
+                CinematicManager.Instance.ExitMansion();
+            }
         }
 
         public Room CurrentPlayerRoom()
