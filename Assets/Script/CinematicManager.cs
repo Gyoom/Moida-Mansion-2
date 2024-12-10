@@ -212,7 +212,12 @@ public class CinematicManager : MonoBehaviour
         PlayerController.instance.canInput = false;
 
         Childs child = o.kid;
-        List<string> dialogue = o.dialogue;
+        List<string> dialogue = new List<string>();
+        dialogue.Add("WE HAVE TO FIND DOT!     \t");
+        foreach (string item in o.dialogue)
+        {
+            dialogue.Add(item);
+        }
 
         yield return new WaitForSeconds(0.5f);
         mainRoom.SetActive(false);
@@ -243,8 +248,8 @@ public class CinematicManager : MonoBehaviour
 
         for (int i = 0; i < dialogue.Count; i++)
         {
-            hud.DisplayStaticText(dialogue[i], 2f, child);
-            yield return StartCoroutine(Blink(invChild, 2f));
+            hud.DisplayScrollingText(dialogue[i], 3f, child);
+            yield return new WaitForSeconds(3f);
         }
 
         hud.activeChilds.Add(child);
@@ -258,7 +263,13 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void ClickButton()
     {
-        StartCoroutine(ButtonCinematic());
+        if (MansionManager.Instance.ActivatedButtons == 3)
+        {
+            FoundDot();
+        } else 
+        { 
+            StartCoroutine(ButtonCinematic()); 
+        }
     }
 
     private IEnumerator ButtonCinematic()
@@ -270,11 +281,11 @@ public class CinematicManager : MonoBehaviour
             Childs child = hud.activeChilds[0];
             GameObject childGO;
 
-            hud.DisplayStaticText("Nothing happen", 2f, Childs.none);
+            hud.DisplayStaticText("Nothing?", 2f, Childs.none);
             yield return new WaitForSeconds(2f);
 
-            hud.DisplayStaticText("I will stay to press", 2f, child);
-            yield return new WaitForSeconds(2f);
+            hud.DisplayScrollingText("I'll stay here and hold       \t", 3f, child);
+            yield return new WaitForSeconds(3f);
 
             switch (child)
             {
@@ -296,11 +307,6 @@ public class CinematicManager : MonoBehaviour
 
             hud.activeChilds.RemoveAt(0);
             MansionManager.Instance.ActivatedButtons += 1;
-
-            if (MansionManager.Instance.ActivatedButtons == 4)
-            {
-                FoundDot();
-            }
         }
         else
         {
@@ -327,6 +333,10 @@ public class CinematicManager : MonoBehaviour
         dotRoom.SetActive(true);
         dotRoomStep1.SetActive(true);
         PlayerController.instance.canInput = true;
+
+        hud.ace.SetActive(true);
+        hud.bek.SetActive(true);
+        hud.cal.SetActive(true);
 
         // Room blink
         yield return new WaitForSeconds(1f);
@@ -385,6 +395,9 @@ public class CinematicManager : MonoBehaviour
 
         mainRoom.SetActive(false);
         introRooms.SetActive(true);
+
+        hud.StopDisplayScrollingText();
+        hud.StopDisplayStaticText();
 
         hud.DisplayStaticText("YOU ESCAPED !", 2f, Childs.none);
         yield return new WaitForSeconds(2f);

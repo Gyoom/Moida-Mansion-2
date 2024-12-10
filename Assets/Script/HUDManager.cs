@@ -238,6 +238,17 @@ public class HUDManager : MonoBehaviour
 
         staticText.SetActive(true);
         staticText.GetComponent<TextMeshProUGUI>().text = text;
+
+        // if child speak, display dots
+        GameObject childObject = GetChildObject(child);
+        if (childObject != null)
+        {
+            for (int i = 0; i < childObject.transform.childCount; i++)
+            {
+                childObject.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
         if (duration > 0)
             StaticTextCoroutine = StartCoroutine(removeText(staticText, duration, child));
     }
