@@ -259,18 +259,26 @@ namespace Script.Procedural_Generation
                     2 => Childs.bek,
                     _ => Childs.none
                 };
-
+                
                 if (!PutKidIntoContainer(mansionMatrix[kidPos.x, kidPos.y], kid)) i--;
             }
         }
 
         private bool PutKidIntoContainer(Room room, Childs kid)
         {
+            if (room.HasChildInRoom) return false;
+            
             foreach (var roomObj in room.ObjInRoom)
             {
                 if (roomObj.CanContainKid && !roomObj.DoContain)
                 {
-                    roomObj.SetWhatObjContain("Enfant récupéré", new InteractiveObj { kid = kid });
+                    roomObj.SetWhatObjContain("Enfant récupéré", new InteractiveObj
+                    {
+                        kid = kid ,
+                        kidRoom = room
+                    });
+                    room.HasChildInRoom = true;
+                    Debug.Log("PutKidIntoContainer");
                     return true;
                 }
             }

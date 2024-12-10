@@ -15,28 +15,5 @@ public class SearchTest : MonoBehaviour
     {
         instance = this;
     }
-
-
-    public RoomObj GetAObjToSearch()
-    {
-        RoomObj objToReturn;
-        int maxIndex = objToSearch.Count;
-
-        if (index < maxIndex)
-        {
-            objToReturn = objToSearch[index];
-        }
-        else
-        {
-            index = 0;
-            objToReturn = objToSearch[index];
-        }
-        
-        if(index == 1) objToSearch[index].SetWhatObjContain("Un super cadeau", null);
-
-        index++;
-        return objToReturn;
-
-    }
     
 }

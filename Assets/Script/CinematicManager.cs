@@ -14,43 +14,44 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] bool active = false;
     [SerializeField] private GameObject mainRoom;
 
-    [Header("Intro")]
-    [SerializeField] private GameObject introRooms;
+    [Header("Intro")] [SerializeField] private GameObject introRooms;
     [SerializeField] private float atlasFadeDuration = 1f;
     [SerializeField] private float blinkSpeed = 0.5f;
     [SerializeField] private float monsterSpeed = 1f;
     [SerializeField] private List<GameObject> monster;
 
-    [Header("Dot")]
-    [SerializeField] private GameObject dotRoom;
+    [Header("Dot")] [SerializeField] private GameObject dotRoom;
     [SerializeField] private GameObject dotRoomStep1;
     [SerializeField] private GameObject dotRoomStep2;
     [SerializeField] private GameObject dotRoomStep3;
 
-    [Header("Child")]
-    [SerializeField] private GameObject childRoom;
+    [Header("Child")] [SerializeField] private GameObject childRoom;
 
-    [Header("Outro - win")]
-    public Action OnOutroFinish;
+    [Header("Outro - win")] public Action OnOutroFinish;
 
     private HUDManager hud;
+
     private bool loop = true;
+
     // coroutine
     private IEnumerator IntroCoroutine;
     private IEnumerator IntroAtlasCoroutine;
     private IEnumerator IntroMonsterCoroutine;
     private IEnumerator IntroBlinkCoroutine;
 
-    [Header("Outro - dead")]
-    [SerializeField] private GameObject monsterRoom;
+    [Header("Outro - dead")] [SerializeField]
+    private GameObject monsterRoom;
+
     [SerializeField] private GameObject hand;
     [SerializeField] private GameObject blood;
 
-    private void Awake() { 
+    private void Awake()
+    {
         Instance = this;
     }
 
-    void Start() {
+    void Start()
+    {
         IntroCoroutine = Intro();
         IntroAtlasCoroutine = AtlasFading();
         IntroMonsterCoroutine = MonsterDisplay();
@@ -71,17 +72,14 @@ public class CinematicManager : MonoBehaviour
             toBlink.SetActive(!toBlink.activeSelf);
             yield return new WaitForSeconds(blinkDuration);
         }
-
     }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Intro
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     IEnumerator Intro()
     {
-
         if (!active) yield break;
 
         mainRoom.SetActive(false);
@@ -89,7 +87,7 @@ public class CinematicManager : MonoBehaviour
         PlayerController.instance.OnStartGeneration += onStartGame;
 
         hud = HUDManager.Instance;
-        
+
         hud.atlas.SetActive(true);
 
         yield return StartCoroutine(IntroAtlasCoroutine);
@@ -112,13 +110,12 @@ public class CinematicManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, Childs.none);
-        
+
         StartCoroutine(IntroBlinkCoroutine);
     }
 
     IEnumerator AtlasFading()
     {
-
         yield return new WaitForSeconds(1f);
 
         float time = 0;
@@ -127,13 +124,13 @@ public class CinematicManager : MonoBehaviour
 
         while (time < atlasFadeDuration)
         {
-
             currentColor.a = Mathf.Lerp(startAlpha, 0, time / atlasFadeDuration);
             hud.atlas.GetComponent<SpriteRenderer>().color = currentColor;
 
             time += Time.deltaTime;
             yield return null;
         }
+
         hud.atlas.SetActive(false);
     }
 
@@ -153,17 +150,19 @@ public class CinematicManager : MonoBehaviour
                 monster[previousIndex].SetActive(false);
                 display = false;
             }
-            else {
+            else
+            {
                 if (previousIndex == 0)
                 {
                     monster[1].SetActive(true);
                     previousIndex = 1;
                 }
-                else 
+                else
                 {
                     monster[0].SetActive(true);
                     previousIndex = 0;
                 }
+
                 display = true;
             }
 
@@ -179,11 +178,10 @@ public class CinematicManager : MonoBehaviour
 
             yield return new WaitForSeconds(blinkSpeed);
         } while (loop);
-
     }
 
-    private void onStartGame() {
-
+    private void onStartGame()
+    {
         loop = false;
         StopCoroutine(IntroAtlasCoroutine);
         StopCoroutine(IntroMonsterCoroutine);
@@ -202,12 +200,13 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Child
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void FoundChild(Script.Procedural_Generation.InteractiveObj o) {
-        StartCoroutine(ChildCinematic(o));        
+    public void FoundChild(Script.Procedural_Generation.InteractiveObj o)
+    {
+        StartCoroutine(ChildCinematic(o));
     }
 
-    private IEnumerator ChildCinematic(Script.Procedural_Generation.InteractiveObj o) { 
+    private IEnumerator ChildCinematic(Script.Procedural_Generation.InteractiveObj o)
+    {
         PlayerController.instance.canInput = false;
 
         Childs child = o.kid;
@@ -219,7 +218,8 @@ public class CinematicManager : MonoBehaviour
 
         string name = "";
         GameObject invChild = null;
-        switch (child) { 
+        switch (child)
+        {
             case Childs.ace:
                 name = "ACE";
                 invChild = hud.ace;
@@ -232,7 +232,9 @@ public class CinematicManager : MonoBehaviour
                 name = "CAL";
                 invChild = hud.cal;
                 break;
-        };
+        }
+
+        ;
         invChild.SetActive(true);
         hud.DisplayStaticText("RESCUED " + name + "!", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
@@ -251,12 +253,13 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Button
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void ClickButton() {
+    public void ClickButton()
+    {
         StartCoroutine(ButtonCinematic());
     }
 
-    private IEnumerator ButtonCinematic() {
+    private IEnumerator ButtonCinematic()
+    {
         PlayerController.instance.canInput = false;
 
         if (hud.activeChilds.Count > 0)
@@ -284,7 +287,9 @@ public class CinematicManager : MonoBehaviour
                     childGO = hud.cal;
                     childGO.SetActive(false);
                     break;
-            };
+            }
+
+            ;
 
             hud.activeChilds.RemoveAt(0);
             MansionManager.Instance.ActivatedButtons += 1;
@@ -293,12 +298,11 @@ public class CinematicManager : MonoBehaviour
             {
                 FoundDot();
             }
-
         }
         else
         {
             hud.DisplayStaticText("Nothing happen", 2f, Childs.none);
-            yield return new WaitForSeconds(2f); 
+            yield return new WaitForSeconds(2f);
         }
 
 
@@ -308,12 +312,13 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Dot
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     public void FoundDot()
     {
         StartCoroutine(DotCinematic());
     }
-    private IEnumerator DotCinematic() { 
+
+    private IEnumerator DotCinematic()
+    {
         PlayerController.instance.canInput = false;
         mainRoom.SetActive(false);
         dotRoom.SetActive(true);
@@ -346,7 +351,6 @@ public class CinematicManager : MonoBehaviour
         yield return StartCoroutine(Blink(hud.dot, 2f));
 
         hud.DisplayScrollingText("LET'S GET OUT OF HERE!    \t", 6f, Childs.none);
-
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -357,7 +361,8 @@ public class CinematicManager : MonoBehaviour
         StartCoroutine(OutroCinematic());
     }
 
-    public IEnumerator OutroCinematic() {
+    public IEnumerator OutroCinematic()
+    {
         PlayerController.instance.canInput = false;
 
         hud.map.SetActive(false);
@@ -383,26 +388,26 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayStaticText("RESCUED ALL!", 3f, Childs.none);
         yield return StartCoroutine(InventoryBlink(3f));
-        
+
 
         hud.DisplayStaticText(
-             "MOVES : " + PlayerController.instance.stepAmount, 
-             2f, 
-             Childs.none
+            "MOVES : " + PlayerController.instance.stepAmount,
+            2f,
+            Childs.none
         );
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText(
-             "SEARCHES : " + PlayerController.instance.searchAmount,
-             2f,
-             Childs.none
+            "SEARCHES : " + PlayerController.instance.searchAmount,
+            2f,
+            Childs.none
         );
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText(
-             "ATTACKED : ??",
-             2f,
-             Childs.none
+            "ATTACKED : ??",
+            2f,
+            Childs.none
         );
         yield return new WaitForSeconds(2f);
 
@@ -419,25 +424,22 @@ public class CinematicManager : MonoBehaviour
         introRooms.SetActive(false);
         mainRoom.SetActive(true);
 
-        while (true) {
-
+        while (true)
+        {
             for (int j = 0; j < 4; j++)
             {
                 for (int i = 0; i < 3; i++)
                 {
-
                     rooms[j, i].DisplayRoom();
                     yield return new WaitForSeconds(5f);
                     rooms[j, i].HideRoom();
                 }
             }
-           
         }
-
-
     }
 
-    IEnumerator InventoryBlink(float totalDuration) {
+    IEnumerator InventoryBlink(float totalDuration)
+    {
         float blinkDuration = totalDuration / 6;
 
         for (int i = 0; i < 6; i++)
@@ -455,18 +457,18 @@ public class CinematicManager : MonoBehaviour
 
             yield return new WaitForSeconds(delay);
         } while (loop);
-
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Outro - Death
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void PlayerDeath() {
+    public void PlayerDeath()
+    {
         StartCoroutine(DeathCinematic());
     }
 
-    private IEnumerator DeathCinematic() {
+    private IEnumerator DeathCinematic()
+    {
         PlayerController.instance.resetScene = true;
         mainRoom.SetActive(false);
         monsterRoom.SetActive(true);

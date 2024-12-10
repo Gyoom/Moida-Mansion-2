@@ -12,6 +12,7 @@ namespace Script.Procedural_Generation
         [HideInInspector] public Door RightDoor;
         [HideInInspector] public Door LeftDoor;
         [HideInInspector] public bool HasButton;
+        [HideInInspector] public bool HasChildInRoom;
 
         public void DisplayRoom()
         {
