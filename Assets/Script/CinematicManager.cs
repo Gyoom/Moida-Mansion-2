@@ -19,6 +19,12 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private float monsterSpeed = 1f;
     [SerializeField] private List<GameObject> monster;
 
+    [Header("Dot")]
+    [SerializeField] private GameObject dotRoom;
+    [SerializeField] private GameObject dotRoom1;
+    [SerializeField] private GameObject dotRoom2;
+    [SerializeField] private GameObject dotRoom3;
+
     [Header("Outro")]
     public Action OnOutroFinish;
 
@@ -162,6 +168,58 @@ public class CinematicManager : MonoBehaviour
         mainRoom.SetActive(true);
 
         hud.search.SetActive(true);
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Dot
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public IEnumerator FoundDot() { 
+        PlayerController.instance.canInput = false;
+        mainRoom.SetActive(false);
+        dotRoom.SetActive(true);
+        dotRoom1.SetActive(true);
+        PlayerController.instance.canInput = true;
+
+        // Room blink
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(Blink(dotRoom1, 1f));
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(Blink(dotRoom1, 1f));
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(Blink(dotRoom1, 1f));
+
+        dotRoom1.SetActive(false);
+        dotRoom2.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        // display dot
+        dotRoom3.SetActive(true);
+        yield return StartCoroutine(Blink(dotRoom3, 3f));
+
+        hud.DisplayStaticText("IT'S DOT!", 3f, childs.none);
+        yield return new WaitForSeconds(3f);
+
+        // return to gameloop
+        hud.hasDot(true);
+        dotRoom.SetActive(false);
+        mainRoom.SetActive(true);
+
+        yield return StartCoroutine(Blink(hud.dot, 2f));
+
+        hud.DisplayScrollingText("LET'S GET OUT OF HERE!    \t", 6f, childs.none);
+
+    }
+
+    public IEnumerator Blink(GameObject toBlink, float totalDuration)
+    {
+        float blinkDuration = totalDuration / 6;
+
+        for (int i = 0; i < 6; i++)
+        {
+            toBlink.SetActive(!toBlink.activeSelf);
+            yield return new WaitForSeconds(blinkDuration);
+        }
 
     }
 
