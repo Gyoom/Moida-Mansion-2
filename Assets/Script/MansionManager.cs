@@ -38,7 +38,7 @@ namespace Script
 
         public void MovePlayerInMansion(PlayerMove move)
         {
-            HUDManager.Instance.DisplayStaticText(string.Empty, -1, childs.none);
+            HUDManager.Instance.DisplayStaticText(string.Empty, -1, Childs.none);
 
             switch (move)
             {
