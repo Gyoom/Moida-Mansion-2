@@ -87,26 +87,26 @@ namespace Script.Procedural_Generation
 
         private void GenerateStairs(Room[,] mansionMatrix)
         {
-            GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos1).HasStairsUp = true;
-            mansionMatrix[roomPos1.x, roomPos1.y + 1].HasStairsDown = true;
+            GetRoomWithoutStairsInCollum(1, mansionMatrix, out int indexInFloor).HasStairsUp = true;
+            mansionMatrix[indexInFloor, 2].HasStairsDown = true;
 
-            GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos2).HasStairsDown = true;
-            mansionMatrix[roomPos2.x, roomPos2.y - 1].HasStairsUp = true;
+            GetRoomWithoutStairsInCollum(1, mansionMatrix, out int indexInFloor2).HasStairsDown = true;
+            mansionMatrix[indexInFloor2, 0].HasStairsUp = true;
 
             m_isComplexMansion = Random.Range(0, 3);
 
             switch (m_isComplexMansion)
             {
                 case 1:
-                    Room room = GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos3);
-                    Room roomBelow = mansionMatrix[roomPos3.x, roomPos3.y - 1];
+                    Room room = GetRoomWithoutStairsInCollum(1, mansionMatrix, out int indexInFloor3);
+                    Room roomBelow = mansionMatrix[indexInFloor3, 0];
 
                     room.HasStairsDown = true;
                     roomBelow.HasStairsUp = true;
                     break;
                 case 2:
-                    Room room4 = GetRoomWithoutStairsInCollum(1, mansionMatrix, out Vector2Int roomPos4);
-                    Room roomOver = mansionMatrix[roomPos4.x, roomPos4.y + 1];
+                    Room room4 = GetRoomWithoutStairsInCollum(1, mansionMatrix, out int indexInFloor4);
+                    Room roomOver = mansionMatrix[indexInFloor4, 2];
 
                     room4.HasStairsUp = true;
                     roomOver.HasStairsDown = true;
@@ -114,10 +114,10 @@ namespace Script.Procedural_Generation
             }
         }
 
-        private Room GetRoomWithoutStairsInCollum(int floorIndex, Room[,] mansionMatrix, out Vector2Int roomPos)
+        private Room GetRoomWithoutStairsInCollum(int floorIndex, Room[,] mansionMatrix, out int roomIndexInFloor)
         {
             int startValue = Random.Range(0, 4);
-            roomPos = new Vector2Int(0, floorIndex);
+            roomIndexInFloor = 0;
 
             for (int i = startValue; i < startValue + 4; i++)
             {
@@ -126,7 +126,7 @@ namespace Script.Procedural_Generation
                 if (index > 3) index = i - 4;
 
                 Room room = mansionMatrix[index, floorIndex];
-                roomPos = new Vector2Int(i, floorIndex);
+                roomIndexInFloor = index;
                 Room roomOver;
                 Room roomBelow;
 

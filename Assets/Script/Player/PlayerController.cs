@@ -130,9 +130,9 @@ public class PlayerController : Actor
         if(!canInput) return;
         if (!startInput)
         {
-            MansionManager.Instance.StartGame();
             ChangeStartingInput(true);
             OnStartGeneration?.Invoke();
+            MansionManager.Instance.StartGame();
         }
         else
         {
