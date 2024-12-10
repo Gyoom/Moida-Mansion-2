@@ -27,7 +27,7 @@ public class PlayerController : Actor
     private int maxTimeToWait = 5;
 
     private RoomObj objToSearch;
-    private bool resetScene;
+    public bool resetScene;
     
     private void Awake()
     {
@@ -45,6 +45,7 @@ public class PlayerController : Actor
 
     public override void MoveRight()
     {
+        if(!canInput) return;
         if (resetScene)
         {
             SceneManager.LoadScene(0);
