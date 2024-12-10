@@ -88,6 +88,7 @@ public class PlayerController : Actor
         if(!canInput) return;
         
         Debug.Log($"Try Search !");
+        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
         isSearching = true;
         searchAmount++;
         timeToWait = maxTimeToWait;
