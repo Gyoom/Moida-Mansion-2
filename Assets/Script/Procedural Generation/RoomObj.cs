@@ -74,10 +74,12 @@ namespace Script.Procedural_Generation
                     
                     if(m_objToGive == null)break;
                     Debug.Log($"You receive {m_objToGive}");
+                    HUDManager.Instance.DisplayStaticText($"You receive {m_objToGive}", 5, childs.none);
                     break;
                 
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
+                    HUDManager.Instance.DisplayStaticText($"{gameObject.name} contain Nothing", 5, childs.none);
                     break;
             }
         }

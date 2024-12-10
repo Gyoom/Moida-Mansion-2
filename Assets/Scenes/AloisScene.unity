@@ -1244,6 +1244,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2206910b00e98db48baebc57ea108974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterAppear: 0
+  timeToWaitMonster: 0
+  maxTimeToWaitMonster: 2
+  monsterFollow: 0
+  amountRoomFollow: 3
+  amountLeftRoomFollow: 0
+  state: 0
 --- !u!1 &215338892
 GameObject:
   m_ObjectHideFlags: 0
