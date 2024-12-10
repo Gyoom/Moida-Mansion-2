@@ -12,20 +12,34 @@ namespace Script.Procedural_Generation
         public bool DoContain { get; private set; }
         private string m_containDescription;
         public bool CanContainKid;
-        private InteractiveObj m_objToGive;
+        public InteractiveObj m_objToGive;
         
         [SerializeField] private bool isBlinking;
         private float nextBlinkTime = 0f;
         private float blinkInterval = 0.2f;
 
         // Child Blinking
-        public RoomObj child;
+        public RoomObj noise;
 
 
         public SpriteRenderer sprite { get; private set; }
         private void Awake()
         {
             sprite = GetComponent<SpriteRenderer>();
+        }
+
+        private void OnEnable()
+        {
+            if(noise == null) return;
+            if(!m_objToGive.IsKid) return;
+            noise.SetObjBlinking();
+        }
+
+        private void OnDisable()
+        {
+            if(noise == null) return;
+            if(!m_objToGive.IsKid) return;
+            noise.SetObjBlinking(false);
         }
 
         public bool GetCanBeSearch()
@@ -46,9 +60,9 @@ namespace Script.Procedural_Generation
             gameObject.SetActive(value);
         }
 
-        public void SetObjBlinking()
+        public void SetObjBlinking(bool value = true)
         {
-            isBlinking = true;
+            isBlinking = value;
         }
 
         // Set on room initialisation 
@@ -75,7 +89,10 @@ namespace Script.Procedural_Generation
                     if(m_objToGive == null)break;
                     Debug.Log($"You receive {m_objToGive}");
                     HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, childs.none);
-                    PlayerController.instance.OnFoundChild(m_objToGive, m_objToGive.dialogue);
+                    PlayerController.instance.OnFoundChild(m_objToGive);
+                    
+                    if(!m_objToGive.IsKid) break;
+                    noise.SetObjBlinking(false);
                     break;
                 
                 default:
