@@ -15,11 +15,13 @@ namespace Script.Procedural_Generation
         private int m_isComplexMansion;
 
         private const int NumberOfKids = 3;
+        private const int ButtonCountToPlace = 4;
 
         public void GenerateMansion(Room[,] mansionMatrix)
         {
             GenerateEntrance(mansionMatrix);
             GenerateOtherRooms(mansionMatrix);
+            GenerateButtons(mansionMatrix);
             GenerateStairs(mansionMatrix);
             GenerateDoors(mansionMatrix);
 
@@ -54,6 +56,23 @@ namespace Script.Procedural_Generation
                     SetRoomType(ref room, roomTypeIndex);
                     room.name = room.Type.ToString();
                     room.ObjInRoom.AddRange(MansionManager.Instance.RoomsData[(int)room.Type].PossibleObjInRoom);
+                }
+            }
+        }
+
+        private void GenerateButtons(Room[,] mansionMatrix)
+        {
+            for (int i = 0; i < ButtonCountToPlace; i++)
+            {
+                Room room = mansionMatrix[Random.Range(0, 2), Random.Range(0, 3)];
+                if (room.Type != RoomType.Entrance && !room.HasButton)
+                {
+                    room.HasButton = true;
+                    room.HasButton = true;
+                }
+                else
+                {
+                    i--;
                 }
             }
         }
@@ -233,17 +252,25 @@ namespace Script.Procedural_Generation
             {
                 Vector2Int kidPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
 
-                if (!PutKidIntoContainer(mansionMatrix[kidPos.x, kidPos.y])) i--;
+                Childs kid = i switch
+                {
+                    0 => Childs.cal,
+                    1 => Childs.ace,
+                    2 => Childs.bek,
+                    _ => Childs.none
+                };
+
+                if (!PutKidIntoContainer(mansionMatrix[kidPos.x, kidPos.y], kid)) i--;
             }
         }
 
-        private bool PutKidIntoContainer(Room room)
+        private bool PutKidIntoContainer(Room room, Childs kid)
         {
             foreach (var roomObj in room.ObjInRoom)
             {
                 if (roomObj.CanContainKid && !roomObj.DoContain)
                 {
-                    roomObj.SetWhatObjContain("Enfant récupéré", new InteractiveObj { IsKid = true });
+                    roomObj.SetWhatObjContain("Enfant récupéré", new InteractiveObj { kid = kid });
                     return true;
                 }
             }

@@ -3,6 +3,7 @@ using Script;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class HUDManager : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class HUDManager : MonoBehaviour
 
     private Coroutine StaticTextCoroutine;
     private Coroutine ScrollingTextCoroutine;
+
+    public List<childs> activeChilds;
 
     //[Header("Debug")]
     //[SerializeField] private Vector2 debugPos;
@@ -98,7 +101,8 @@ public class HUDManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            CinematicManager.Instance.PlayerDeath();
+            string[] a = { "AAA", "BBB" };
+            CinematicManager.Instance.FoundChild(childs.ace, a);
             //DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }
@@ -206,7 +210,7 @@ public class HUDManager : MonoBehaviour
     }
 
     // Texting ---------------------------------------------------------------------------------------
-    private IEnumerator removeText(GameObject text, float duration, childs child)
+    private IEnumerator removeText(GameObject text, float duration, Childs child)
     {
         yield return new WaitForSeconds(duration);
 
@@ -231,7 +235,7 @@ public class HUDManager : MonoBehaviour
         staticText.SetActive(false);
     }
 
-    public void DisplayStaticText(string text, float duration, childs child)
+    public void DisplayStaticText(string text, float duration, Childs child)
     {
         if(StaticTextCoroutine != null)
             StopCoroutine(StaticTextCoroutine);
@@ -251,7 +255,7 @@ public class HUDManager : MonoBehaviour
         scrollingText.SetActive(false);
     }
 
-    public void DisplayScrollingText(string text, float duration, childs child)
+    public void DisplayScrollingText(string text, float duration, Childs child)
     {
         if (ScrollingTextCoroutine != null)
             StopCoroutine(ScrollingTextCoroutine);
@@ -513,19 +517,19 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    private GameObject GetChildObject(childs child)
+    private GameObject GetChildObject(Childs child)
     {
-        if (child == childs.bek)
+        if (child == Childs.bek)
         {
             return bek;
         }
 
-        if (child == childs.ace)
+        if (child == Childs.ace)
         {
             return ace;
         }
 
-        if (child == childs.cal)
+        if (child == Childs.cal)
         {
             return cal;
         }
@@ -542,7 +546,7 @@ public enum GameState
     Ending
 }
 
-public enum childs
+public enum Childs
 {
     ace,
     bek,

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 
 public class CinematicManager : MonoBehaviour
@@ -25,6 +26,9 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private GameObject dotRoomStep1;
     [SerializeField] private GameObject dotRoomStep2;
     [SerializeField] private GameObject dotRoomStep3;
+
+    [Header("Child")]
+    [SerializeField] private GameObject childRoom;
 
     [Header("Outro - win")]
     public Action OnOutroFinish;
@@ -53,6 +57,7 @@ public class CinematicManager : MonoBehaviour
         IntroBlinkCoroutine = BlinkHUD();
 
         Monster.Instance.OnMonsterKilling = PlayerDeath;
+        PlayerController.instance.OnFoundChild = FoundChild;
 
         StartCoroutine(IntroCoroutine);
     }
@@ -89,24 +94,24 @@ public class CinematicManager : MonoBehaviour
 
         yield return StartCoroutine(IntroAtlasCoroutine);
 
-        hud.DisplayStaticText("BEWARE OF", 2f, childs.none);
+        hud.DisplayStaticText("BEWARE OF", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
 
-        hud.DisplayStaticText("MOIDA MANSION", 2f, childs.none);
+        hud.DisplayStaticText("MOIDA MANSION", 2f, Childs.none);
         introRooms.SetActive(true);
         StartCoroutine(IntroMonsterCoroutine);
         yield return new WaitForSeconds(2f);
 
-        hud.DisplayStaticText("BY", 2f, childs.none);
+        hud.DisplayStaticText("BY", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
 
-        hud.DisplayScrollingText("GUILL - PIERRE - ALOIS - \t", 3f, childs.none);
+        hud.DisplayScrollingText("GUILL - PIERRE - ALOIS - \t", 3f, Childs.none);
         yield return new WaitForSeconds(3f);
 
-        hud.DisplayStaticText("1.0.0", 2f, childs.none);
+        hud.DisplayStaticText("1.0.0", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
 
-        hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, childs.none);
+        hud.DisplayScrollingText("RESCUE YOUR FRIENDS!     \t", -1f, Childs.none);
         
         StartCoroutine(IntroBlinkCoroutine);
     }
@@ -195,6 +200,112 @@ public class CinematicManager : MonoBehaviour
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Child
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void FoundChild(Script.Procedural_Generation.InteractiveObj o) {
+        StartCoroutine(ChildCinematic(o));        
+    }
+
+    private IEnumerator ChildCinematic(Script.Procedural_Generation.InteractiveObj o) { 
+        PlayerController.instance.canInput = false;
+
+        childs child = o.IsKid;
+        string[] dialogue = o.dialogue;
+
+        yield return new WaitForSeconds(0.5f);
+        mainRoom.SetActive(false);
+        childRoom.SetActive(true);
+
+        string name = "";
+        GameObject invChild = null;
+        switch (child) { 
+            case childs.ace:
+                name = "ACE";
+                invChild = hud.ace;
+                break;
+            case childs.bek:
+                name = "BEK";
+                invChild = hud.bek;
+                break;
+            case childs.cal:
+                name = "CAL";
+                invChild = hud.cal;
+                break;
+        };
+        invChild.SetActive(true);
+        hud.DisplayStaticText("RESCUED " + name + "!", 2f, childs.none);
+        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < dialogue.Length; i++)
+        {
+            hud.DisplayStaticText(dialogue[i], 2f, child);
+            yield return StartCoroutine(Blink(invChild, 2f));
+        }
+
+        mainRoom.SetActive(true);
+        childRoom.SetActive(false);
+        PlayerController.instance.canInput = true;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Button
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void ClickButton() {
+        StartCoroutine(ButtonCinematic());
+    }
+
+    private IEnumerator ButtonCinematic() {
+        PlayerController.instance.canInput = false;
+
+        if (hud.activeChilds.Count > 0)
+        {
+            childs child = hud.activeChilds[0];
+            GameObject childGO;
+
+            hud.DisplayStaticText("Nothing happen", 2f, childs.none);
+            yield return new WaitForSeconds(2f);
+
+            hud.DisplayStaticText("I will stay to press", 2f, child);
+            yield return new WaitForSeconds(2f);
+
+            switch (child)
+            {
+                case childs.ace:
+                    childGO = hud.ace;
+                    childGO.SetActive(false);
+                    break;
+                case childs.bek:
+                    childGO = hud.bek;
+                    childGO.SetActive(false);
+                    break;
+                case childs.cal:
+                    childGO = hud.cal;
+                    childGO.SetActive(false);
+                    break;
+            };
+
+            hud.activeChilds.RemoveAt(0);
+            MansionManager.Instance.ActivatedButtons += 1;
+
+            if (MansionManager.Instance.ActivatedButtons == 4)
+            {
+                FoundDot();
+            }
+
+        }
+        else
+        {
+            hud.DisplayStaticText("Nothing happen", 2f, childs.none);
+            yield return new WaitForSeconds(2f); 
+        }
+
+
+        PlayerController.instance.canInput = true;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Dot
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -224,7 +335,7 @@ public class CinematicManager : MonoBehaviour
         dotRoomStep3.SetActive(true);
         yield return StartCoroutine(Blink(dotRoomStep3, 3f));
 
-        hud.DisplayStaticText("IT'S DOT!", 3f, childs.none);
+        hud.DisplayStaticText("IT'S DOT!", 3f, Childs.none);
         yield return new WaitForSeconds(3f);
 
         // return to gameloop
@@ -234,7 +345,7 @@ public class CinematicManager : MonoBehaviour
 
         yield return StartCoroutine(Blink(hud.dot, 2f));
 
-        hud.DisplayScrollingText("LET'S GET OUT OF HERE!    \t", 6f, childs.none);
+        hud.DisplayScrollingText("LET'S GET OUT OF HERE!    \t", 6f, Childs.none);
 
     }
 
@@ -267,37 +378,37 @@ public class CinematicManager : MonoBehaviour
         mainRoom.SetActive(false);
         introRooms.SetActive(true);
 
-        hud.DisplayStaticText("YOU ESCAPED !", 2f, childs.none);
+        hud.DisplayStaticText("YOU ESCAPED !", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
 
-        hud.DisplayStaticText("RESCUED ALL!", 3f, childs.none);
+        hud.DisplayStaticText("RESCUED ALL!", 3f, Childs.none);
         yield return StartCoroutine(InventoryBlink(3f));
         
 
         hud.DisplayStaticText(
              "MOVES : " + PlayerController.instance.stepAmount, 
              2f, 
-             childs.none
+             Childs.none
         );
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText(
              "SEARCHES : " + PlayerController.instance.searchAmount,
              2f,
-             childs.none
+             Childs.none
         );
         yield return new WaitForSeconds(2f);
 
         hud.DisplayStaticText(
              "ATTACKED : ??",
              2f,
-             childs.none
+             Childs.none
         );
         yield return new WaitForSeconds(2f);
 
         hud.inventory.SetActive(false);
 
-        hud.DisplayStaticText("CONGRATS!", -1f, childs.none);
+        hud.DisplayStaticText("CONGRATS!", -1f, Childs.none);
         loop = true;
         StartCoroutine(ArrowBlink(blinkSpeed));
         OnOutroFinish?.Invoke();
@@ -388,17 +499,17 @@ public class CinematicManager : MonoBehaviour
         yield return StartCoroutine(Blink(hand, 1f));
 
         yield return new WaitForSeconds(1f);
-        hud.DisplayStaticText("YOU'VE", 2f, childs.none);
+        hud.DisplayStaticText("YOU'VE", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
-        hud.DisplayStaticText("BEEN", 2f, childs.none);
+        hud.DisplayStaticText("BEEN", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
-        hud.DisplayStaticText("MOIDA'D", 10f, childs.none);
+        hud.DisplayStaticText("MOIDA'D", 10f, Childs.none);
         yield return StartCoroutine(Blink(hud.staticText, 1f));
         yield return StartCoroutine(Blink(hud.staticText, 1f));
         yield return StartCoroutine(Blink(hud.staticText, 1f));
         yield return new WaitForSeconds(1f);
 
-        hud.DisplayStaticText("TRY AGAIN!", -1f, childs.none);
+        hud.DisplayStaticText("TRY AGAIN!", -1f, Childs.none);
         yield return new WaitForSeconds(1f);
 
         hud.arrowRight.SetActive(true);
