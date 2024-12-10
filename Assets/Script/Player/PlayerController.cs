@@ -28,6 +28,8 @@ public class PlayerController : Actor
 
     private RoomObj objToSearch;
     public bool resetScene;
+
+    public Action<InteractiveObj, string[]> OnFoundChild;
     
     private void Awake()
     {
