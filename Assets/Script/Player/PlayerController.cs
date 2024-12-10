@@ -100,7 +100,6 @@ public class PlayerController : Actor
         if(!startInput) return;
         if(!canInput) return;
         
-        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
         isSearching = true;
         searchAmount++;
         timeToWait = maxTimeToWait;
@@ -126,6 +125,9 @@ public class PlayerController : Actor
             objToSearch = allObjsToSearch[index];
         }
         index++;
+        
+        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
+        HUDManager.Instance.DisplaySearchingText(maxTimeToWait);
     }
 
     public override void TakeStair()
