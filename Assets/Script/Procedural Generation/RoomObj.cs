@@ -102,7 +102,14 @@ namespace Script.Procedural_Generation
                 
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
-                    HUDManager.Instance.DisplayStaticText($"Nothing", 5, m_objToGive.kid);
+                    if (m_objToGive != null)
+                    {
+                        HUDManager.Instance.DisplayStaticText($"Nothing", 5, m_objToGive.kid);
+                    }
+                    else
+                    {
+                        HUDManager.Instance.DisplayStaticText($"Nothing", 5, Childs.none);
+                    }
                     break;
             }
         }
