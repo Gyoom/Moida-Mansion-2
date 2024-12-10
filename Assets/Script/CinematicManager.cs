@@ -254,6 +254,7 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void ClickButton() {
+        Debug.Log("Click Button");
         StartCoroutine(ButtonCinematic());
     }
 
