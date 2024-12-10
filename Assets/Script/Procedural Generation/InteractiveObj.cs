@@ -4,7 +4,7 @@ namespace Script.Procedural_Generation
 {
     public class InteractiveObj
     {
-        public Childs kid;
+        public Childs kid = Childs.none;
         public string[] dialogue;
     }
 }

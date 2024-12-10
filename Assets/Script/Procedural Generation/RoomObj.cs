@@ -12,7 +12,8 @@ namespace Script.Procedural_Generation
         public bool DoContain { get; private set; }
         private string m_containDescription;
         public bool CanContainKid;
-        public InteractiveObj m_objToGive;
+        public bool isBtn;
+        private InteractiveObj m_objToGive;
         
         [SerializeField] private bool isBlinking;
         private float nextBlinkTime = 0f;
@@ -31,14 +32,14 @@ namespace Script.Procedural_Generation
         private void OnEnable()
         {
             if(noise == null) return;
-            if(m_objToGive.kid != Childs.none) return;
+            if(m_objToGive.kid == Childs.none) return;
             noise.SetObjBlinking();
         }
 
         private void OnDisable()
         {
             if(noise == null) return;
-            if(m_objToGive.kid != Childs.none) return;
+            if(m_objToGive.kid == Childs.none) return;
             noise.SetObjBlinking(false);
         }
 
@@ -87,12 +88,16 @@ namespace Script.Procedural_Generation
                     //Debug.Log($"{gameObject.name} contain {m_containDescription}");
                     
                     if(m_objToGive == null)break;
-                    Debug.Log($"You receive {m_objToGive}");
-                    HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
-                    PlayerController.instance.OnFoundChild(m_objToGive);
-                    
-                    if(m_objToGive.kid != Childs.none) break;
-                    noise.SetObjBlinking(false);
+                    if (isBtn)
+                    {
+                        PlayerController.instance.OnClickBtn?.Invoke();
+                    }
+                    else
+                    {
+                        Debug.Log($"You receive {m_objToGive}");
+                        HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
+                        PlayerController.instance.OnFoundChild(m_objToGive);
+                    }
                     break;
                 
                 default:
