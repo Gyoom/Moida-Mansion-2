@@ -7,14 +7,14 @@ namespace Script.Procedural_Generation
     {
         // Search
         [SerializeField] private bool m_canBeSearch;
-        
+
         // Contain
         public bool DoContain { get; private set; }
         private string m_containDescription;
         public bool CanContainKid;
         public bool isBtn;
         private InteractiveObj m_objToGive;
-        
+
         [SerializeField] private bool isBlinking;
         private float nextBlinkTime = 0f;
         private float blinkInterval = 0.2f;
@@ -24,6 +24,7 @@ namespace Script.Procedural_Generation
 
 
         public SpriteRenderer sprite { get; private set; }
+
         private void Awake()
         {
             sprite = GetComponent<SpriteRenderer>();
@@ -31,15 +32,17 @@ namespace Script.Procedural_Generation
 
         private void OnEnable()
         {
-            if(noise == null) return;
-            if(m_objToGive.kid == Childs.none) return;
-            noise.SetObjBlinking();
+            if (noise == null) return;
+            if (m_objToGive == null) return;
+            if (m_objToGive.kid != Childs.none && m_objToGive.kidRoom == MansionManager.Instance.CurrentPlayerRoom())
+            {
+                noise.SetObjBlinking();
+            }
         }
 
         private void OnDisable()
         {
-            if(noise == null) return;
-            if(m_objToGive.kid == Childs.none) return;
+            if (noise == null) return;
             noise.SetObjBlinking(false);
         }
 
@@ -79,27 +82,42 @@ namespace Script.Procedural_Generation
         /// </summary>
         public void SearchOBJ()
         {
-            if(!m_canBeSearch) return; // Just security
+            if (!m_canBeSearch) return; // Just security
             sprite.enabled = true;
-            
+
+            if (isBtn)
+            {
+                PlayerController.instance.OnClickBtn?.Invoke();
+                return;
+            }
+
             switch (DoContain)
             {
                 case true:
                     //Debug.Log($"{gameObject.name} contain {m_containDescription}");
-                    
-                    if(m_objToGive == null)break;
+
+                    if (m_objToGive == null) break;
                     if (isBtn)
                     {
                         PlayerController.instance.OnClickBtn?.Invoke();
                     }
                     else
                     {
-                        Debug.Log($"You receive {m_objToGive}");
-                        HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
-                        PlayerController.instance.OnFoundChild(m_objToGive);
+                        if (m_objToGive.kid != Childs.none &&
+                            m_objToGive.kidRoom == MansionManager.Instance.CurrentPlayerRoom())
+                        {
+                            Debug.Log($"You receive {m_objToGive}");
+                            HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
+                            PlayerController.instance.OnFoundChild(m_objToGive);
+                        }
+                        else
+                        {
+                            HUDManager.Instance.DisplayStaticText($"Nothing", 5, Childs.none);
+                        }
                     }
+
                     break;
-                
+
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
                     if (m_objToGive != null)
@@ -110,6 +128,7 @@ namespace Script.Procedural_Generation
                     {
                         HUDManager.Instance.DisplayStaticText($"Nothing", 5, Childs.none);
                     }
+
                     break;
             }
         }
@@ -118,10 +137,10 @@ namespace Script.Procedural_Generation
         {
             SearchBlinkingOBJ();
         }
-        
+
         private void SearchBlinkingOBJ()
         {
-            if(!isBlinking) return;
+            if (!isBlinking) return;
             if (Time.time >= nextBlinkTime)
             {
                 sprite.enabled = !sprite.enabled;
