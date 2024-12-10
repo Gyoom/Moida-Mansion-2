@@ -2,6 +2,7 @@ using Script;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -21,11 +22,11 @@ public class CinematicManager : MonoBehaviour
 
     [Header("Dot")]
     [SerializeField] private GameObject dotRoom;
-    [SerializeField] private GameObject dotRoom1;
-    [SerializeField] private GameObject dotRoom2;
-    [SerializeField] private GameObject dotRoom3;
+    [SerializeField] private GameObject dotRoomStep1;
+    [SerializeField] private GameObject dotRoomStep2;
+    [SerializeField] private GameObject dotRoomStep3;
 
-    [Header("Outro")]
+    [Header("Outro - win")]
     public Action OnOutroFinish;
 
     private HUDManager hud;
@@ -35,6 +36,11 @@ public class CinematicManager : MonoBehaviour
     private IEnumerator IntroAtlasCoroutine;
     private IEnumerator IntroMonsterCoroutine;
     private IEnumerator IntroBlinkCoroutine;
+
+    [Header("Outro - dead")]
+    [SerializeField] private GameObject monsterRoom;
+    [SerializeField] private GameObject hand;
+    [SerializeField] private GameObject blood;
 
     private void Awake() { 
         Instance = this;
@@ -46,14 +52,28 @@ public class CinematicManager : MonoBehaviour
         IntroMonsterCoroutine = MonsterDisplay();
         IntroBlinkCoroutine = BlinkHUD();
 
+        Monster.Instance.OnMonsterKilling = PlayerDeath;
+
         StartCoroutine(IntroCoroutine);
+    }
+
+    public IEnumerator Blink(GameObject toBlink, float totalDuration)
+    {
+        float blinkDuration = totalDuration / 6;
+
+        for (int i = 0; i < 6; i++)
+        {
+            toBlink.SetActive(!toBlink.activeSelf);
+            yield return new WaitForSeconds(blinkDuration);
+        }
+
     }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Intro
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     IEnumerator Intro()
     {
 
@@ -175,27 +195,31 @@ public class CinematicManager : MonoBehaviour
     /// Dot
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public IEnumerator FoundDot() { 
+    public void FoundDot()
+    {
+        StartCoroutine(DotCinematic());
+    }
+    private IEnumerator DotCinematic() { 
         PlayerController.instance.canInput = false;
         mainRoom.SetActive(false);
         dotRoom.SetActive(true);
-        dotRoom1.SetActive(true);
+        dotRoomStep1.SetActive(true);
         PlayerController.instance.canInput = true;
 
         // Room blink
         yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(Blink(dotRoom1, 1f));
+        yield return StartCoroutine(Blink(dotRoomStep1, 1f));
         yield return new WaitForSeconds(0.5f);
-        yield return StartCoroutine(Blink(dotRoom1, 1f));
+        yield return StartCoroutine(Blink(dotRoomStep1, 1f));
         yield return new WaitForSeconds(0.5f);
-        yield return StartCoroutine(Blink(dotRoom1, 1f));
+        yield return StartCoroutine(Blink(dotRoomStep1, 1f));
 
-        dotRoom1.SetActive(false);
-        dotRoom2.SetActive(true);
+        dotRoomStep1.SetActive(false);
+        dotRoomStep2.SetActive(true);
         yield return new WaitForSeconds(1f);
         // display dot
-        dotRoom3.SetActive(true);
-        yield return StartCoroutine(Blink(dotRoom3, 3f));
+        dotRoomStep3.SetActive(true);
+        yield return StartCoroutine(Blink(dotRoomStep3, 3f));
 
         hud.DisplayStaticText("IT'S DOT!", 3f, childs.none);
         yield return new WaitForSeconds(3f);
@@ -211,23 +235,15 @@ public class CinematicManager : MonoBehaviour
 
     }
 
-    public IEnumerator Blink(GameObject toBlink, float totalDuration)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Outro - Victory
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void ExitMansion()
     {
-        float blinkDuration = totalDuration / 6;
-
-        for (int i = 0; i < 6; i++)
-        {
-            toBlink.SetActive(!toBlink.activeSelf);
-            yield return new WaitForSeconds(blinkDuration);
-        }
-
+        StartCoroutine(OutroCinematic());
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /// Outro
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public IEnumerator ExitMansion() {
+    public IEnumerator OutroCinematic() {
         PlayerController.instance.canInput = false;
 
         hud.map.SetActive(false);
@@ -280,7 +296,7 @@ public class CinematicManager : MonoBehaviour
 
         hud.DisplayStaticText("CONGRATS!", -1f, childs.none);
         loop = true;
-        StartCoroutine(ArrowBlink());
+        StartCoroutine(ArrowBlink(blinkSpeed));
         OnOutroFinish?.Invoke();
 
         yield return new WaitForSeconds(2f);
@@ -317,14 +333,74 @@ public class CinematicManager : MonoBehaviour
         }
     }
 
-    IEnumerator ArrowBlink()
+    IEnumerator ArrowBlink(float delay)
     {
         do
         {
             hud.arrowRight.SetActive(!hud.arrowRight.activeSelf);
 
-            yield return new WaitForSeconds(blinkSpeed);
+            yield return new WaitForSeconds(delay);
         } while (loop);
 
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Outro - Death
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void PlayerDeath() {
+        StartCoroutine(DeathCinematic());
+    }
+
+    private IEnumerator DeathCinematic() {
+        PlayerController.instance.canInput = false;
+        mainRoom.SetActive(false);
+        monsterRoom.SetActive(true);
+        hand.SetActive(true);
+        // remove hud
+        hud.StopDisplayScrollingText();
+        hud.StopDisplayStaticText();
+        hud.inventory.SetActive(false);
+        hud.map.SetActive(false);
+        hud.key.SetActive(false);
+        hud.codeParent.SetActive(false);
+        hud.arrowLeft.SetActive(false);
+        hud.upStairs.SetActive(false);
+        hud.search.SetActive(false);
+        hud.downStairs.SetActive(false);
+        hud.arrowRight.SetActive(false);
+        // displaying
+        yield return StartCoroutine(Blink(hand, 1f));
+        yield return StartCoroutine(Blink(hand, 1f));
+        yield return StartCoroutine(Blink(hand, 1f));
+
+        monsterRoom.SetActive(false);
+        blood.SetActive(true);
+
+        StartCoroutine(Blink(blood, 1f));
+        yield return StartCoroutine(Blink(hand, 1f));
+        StartCoroutine(Blink(blood, 1f));
+        yield return StartCoroutine(Blink(hand, 1f));
+        StartCoroutine(Blink(blood, 1f));
+        yield return StartCoroutine(Blink(hand, 1f));
+
+        yield return new WaitForSeconds(1f);
+        hud.DisplayStaticText("YOU'VE", 2f, childs.none);
+        yield return new WaitForSeconds(2f);
+        hud.DisplayStaticText("BEEN", 2f, childs.none);
+        yield return new WaitForSeconds(2f);
+        hud.DisplayStaticText("MOIDA'D", 10f, childs.none);
+        yield return StartCoroutine(Blink(hud.staticText, 1f));
+        yield return StartCoroutine(Blink(hud.staticText, 1f));
+        yield return StartCoroutine(Blink(hud.staticText, 1f));
+        yield return new WaitForSeconds(1f);
+
+        hud.DisplayStaticText("TRY AGAIN!", -1f, childs.none);
+        yield return new WaitForSeconds(1f);
+
+        hud.arrowRight.SetActive(true);
+        PlayerController.instance.canInput = true;
+        loop = true;
+        StartCoroutine(ArrowBlink(0.3f));
     }
 }
