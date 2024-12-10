@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script;
 using Script.Procedural_Generation;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Monster : MonoBehaviour
@@ -32,7 +33,9 @@ public class Monster : MonoBehaviour
     // Monster position 
     [SerializeField] private bool isStillInSameRoom;
     [field: SerializeField] public MonsterPosition state { get; private set; }
-    private List<RoomObj> possibleOBJ = new List<RoomObj>();
+    [SerializeField] private List<RoomObj> doorStair = new List<RoomObj>();
+    [SerializeField] private List<RoomObj> other = new List<RoomObj>();
+    private List<RoomObj> monsterPos = new List<RoomObj>();
     private int indexPossibleOBJ;
 
     
@@ -56,6 +59,7 @@ public class Monster : MonoBehaviour
     
     private void MonsterAppear()
     {
+        if(MansionManager.Instance.CurrentPlayerRoom().Type == RoomType.Void) return;
         if(isStillInSameRoom) Chazing();
         else
         {
@@ -67,11 +71,12 @@ public class Monster : MonoBehaviour
     private void MonsterFollowPlayer()
     {
         if(!monsterFollow) return;
+        if(MansionManager.Instance.CurrentPlayerRoom().Type == RoomType.Void) return;
         
         isStillInSameRoom = false;
         amountLeftRoomFollow--;
         
-        foreach (var obj in possibleOBJ)
+        foreach (var obj in monsterPos)
         {
             obj.SetGameObjectActive(false);
         }
@@ -91,21 +96,38 @@ public class Monster : MonoBehaviour
 
     private void DisplayMonster()
     {
-        if(possibleOBJ.Count != 0) possibleOBJ.Clear();
-        if(MansionManager.Instance.CurrentPlayerRoom().Type == RoomType.Void) return;
+        if(monsterPos.Count != 0)
+            monsterPos[indexPossibleOBJ].SetGameObjectActive(false);
+        monsterPos.Clear();
 
-        possibleOBJ.AddRange(MansionManager.Instance.RoomsData[(int)MansionManager.Instance.CurrentPlayerRoom().Type].PossibleMonsterInRoom);
-        possibleOBJ[indexPossibleOBJ].SetGameObjectActive(false);
+        var rightDoor = MansionManager.Instance.CurrentPlayerRoom().RightDoor != null;
+        var leftDoor = MansionManager.Instance.CurrentPlayerRoom().LeftDoor != null;
+        var stairs = MansionManager.Instance.CurrentPlayerRoom().HasStairsDown ||
+                     MansionManager.Instance.CurrentPlayerRoom().HasStairsUp;
         
-        indexPossibleOBJ = Random.Range(0, possibleOBJ.Count);
-        possibleOBJ[indexPossibleOBJ].SetGameObjectActive(true);
+        if (rightDoor && leftDoor)
+        {
+            monsterPos.Add(doorStair[0]);
+            monsterPos.Add(doorStair[1]);
+        }
+        if (stairs && rightDoor || stairs && leftDoor)
+        {
+            monsterPos.Add(doorStair[2]);
+        }
         
-        ChangeState(possibleOBJ[indexPossibleOBJ].name);
+        // add other position
+        monsterPos.AddRange(other);
+        
+        indexPossibleOBJ = Random.Range(0, monsterPos.Count);
+        monsterPos[indexPossibleOBJ].SetGameObjectActive(true);
+        
+        ChangeState(monsterPos[indexPossibleOBJ].name);
         isStillInSameRoom = true;
     }
 
     public void Chazing()
     {
+        if(MansionManager.Instance.CurrentPlayerRoom().Type == RoomType.Void) return;
         isChazing = true;
         timeBeforeKilling = maxTimeBeforeKilling;
         Debug.Log($"The Monsta");

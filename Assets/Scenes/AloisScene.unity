@@ -1253,6 +1253,14 @@ MonoBehaviour:
   maxTimeBeforeKilling: 2
   isStillInSameRoom: 0
   <state>k__BackingField: 0
+  doorStair:
+  - {fileID: 619304626}
+  - {fileID: 930024059}
+  - {fileID: 1712619171}
+  other:
+  - {fileID: 1632458236}
+  - {fileID: 1106130755}
+  - {fileID: 1202362349}
 --- !u!1 &215338892
 GameObject:
   m_ObjectHideFlags: 0
