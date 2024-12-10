@@ -3,6 +3,7 @@ using Script;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class HUDManager : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class HUDManager : MonoBehaviour
 
     private Coroutine StaticTextCoroutine;
     private Coroutine ScrollingTextCoroutine;
+
+    public List<childs> activeChilds;
 
     //[Header("Debug")]
     //[SerializeField] private Vector2 debugPos;

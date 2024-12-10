@@ -57,7 +57,7 @@ public class CinematicManager : MonoBehaviour
         IntroBlinkCoroutine = BlinkHUD();
 
         Monster.Instance.OnMonsterKilling = PlayerDeath;
-        //PlayerController.instance.fo
+        PlayerController.instance.OnFoundChild = FoundChild;
 
         StartCoroutine(IntroCoroutine);
     }
@@ -200,15 +200,18 @@ public class CinematicManager : MonoBehaviour
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /// Outro - Death
+    /// Child
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void FoundChild(childs child, string[] dialogue) {
-        StartCoroutine(ChildCinematic(child, dialogue));        
+    public void FoundChild(Script.Procedural_Generation.InteractiveObj o) {
+        StartCoroutine(ChildCinematic(o));        
     }
 
-    private IEnumerator ChildCinematic(childs child, string[] dialogue) { 
+    private IEnumerator ChildCinematic(Script.Procedural_Generation.InteractiveObj o) { 
         PlayerController.instance.canInput = false;
+
+        childs child = o.IsKid;
+        string[] dialogue = o.dialogue;
 
         yield return new WaitForSeconds(0.5f);
         mainRoom.SetActive(false);
@@ -242,6 +245,63 @@ public class CinematicManager : MonoBehaviour
 
         mainRoom.SetActive(true);
         childRoom.SetActive(false);
+        PlayerController.instance.canInput = true;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Button
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void ClickButton() {
+        StartCoroutine(ButtonCinematic());
+    }
+
+    private IEnumerator ButtonCinematic() {
+        PlayerController.instance.canInput = false;
+
+        if (hud.activeChilds.Count > 0)
+        {
+            childs child = hud.activeChilds[0];
+            GameObject childGO;
+
+            hud.DisplayStaticText("Nothing happen", 2f, childs.none);
+            yield return new WaitForSeconds(2f);
+
+            hud.DisplayStaticText("I will stay to press", 2f, child);
+            yield return new WaitForSeconds(2f);
+
+            switch (child)
+            {
+                case childs.ace:
+                    childGO = hud.ace;
+                    childGO.SetActive(false);
+                    break;
+                case childs.bek:
+                    childGO = hud.bek;
+                    childGO.SetActive(false);
+                    break;
+                case childs.cal:
+                    childGO = hud.cal;
+                    childGO.SetActive(false);
+                    break;
+            };
+
+            hud.activeChilds.RemoveAt(0);
+            MansionManager.Instance.ActivatedButtons += 1;
+
+            if (MansionManager.Instance.ActivatedButtons == 4)
+            {
+                FoundDot();
+            }
+
+        }
+        else
+        {
+            hud.DisplayStaticText("Nothing happen", 2f, childs.none);
+            yield return new WaitForSeconds(2f); 
+        }
+
+
         PlayerController.instance.canInput = true;
     }
 
