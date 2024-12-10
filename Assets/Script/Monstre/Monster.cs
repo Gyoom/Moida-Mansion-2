@@ -196,6 +196,7 @@ public class Monster : MonoBehaviour
         }
         
         timeBeforeKilling -= Time.deltaTime;
+        HUDManager.Instance.DisplayStaticText($"The Monsta", 5, Childs.none);
 
         if (timeBeforeKilling >= 0) return;
         isChazing = false;
