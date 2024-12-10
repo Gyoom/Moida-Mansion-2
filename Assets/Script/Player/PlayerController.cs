@@ -52,10 +52,15 @@ public class PlayerController : Actor
         }
         if(!startInput) return;
         
+        // if going in same direction than monster
+        if ((int)Monster.Instance.state == (int)MansionManager.PlayerMove.ToRight)
+        {
+            Monster.Instance.Chazing();
+            return;
+        }
+        
         stepAmount++;
         isSearching = false;
-        
-        Debug.Log($"Try Move Right !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToRight);
 //        SoundManager.Instance.SpawnAudio3D(transform.position, 1);
@@ -68,10 +73,15 @@ public class PlayerController : Actor
         if(!startInput) return;
         if(!canInput) return;
         
+        // if going in same direction than monster
+        if ((int)Monster.Instance.state == (int)MansionManager.PlayerMove.ToLeft)
+        {
+            Monster.Instance.Chazing();
+            return;
+        }
+        
         stepAmount++;
         isSearching = false;
-        
-        Debug.Log($"Try MoveLeft !");
         
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
         allObjsToSearch.Clear();
@@ -87,7 +97,6 @@ public class PlayerController : Actor
         if(!startInput) return;
         if(!canInput) return;
         
-        Debug.Log($"Try Search !");
         HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
         isSearching = true;
         searchAmount++;
@@ -127,10 +136,15 @@ public class PlayerController : Actor
         }
         else
         {
+            // if going in same direction than monster
+            if ((int)Monster.Instance.state == (int)MansionManager.PlayerMove.TakeStairs)
+            {
+                Monster.Instance.Chazing();
+                return;
+            }
+            
             isSearching = false;
             stepAmount++;
-
-            Debug.Log($"Try TakeStair !");
         
             MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
             allObjsToSearch.Clear();

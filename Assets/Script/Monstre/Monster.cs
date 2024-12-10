@@ -22,27 +22,20 @@ public class Monster : MonoBehaviour
 
     [Space]
     // Monster State
-    public Action OnMonsterChazing;
+     public Action OnMonsterChazing;
     [SerializeField] private bool isChazing;
     [SerializeField] private float maxTimeBeforeKilling = 2;
     private float timeBeforeKilling = 2;
     public Action OnMonsterKilling;
-    
+
     [Space]
     // Monster position 
-    [SerializeField]private MonsterPosition state;
+    [SerializeField] private bool isStillInSameRoom;
+    [field: SerializeField] public MonsterPosition state { get; private set; }
     private List<RoomObj> possibleOBJ = new List<RoomObj>();
     private int indexPossibleOBJ;
 
-    private void Start()
-    {
-        PlayerController.instance.OnSearchBegin += () => timeToWaitMonster = maxTimeToWaitMonster;
-        PlayerController.instance.OnSearchEnded += () => monsterAppear = true;
-        PlayerController.instance.OnPlayerMove += MonsterFollowPlayer;
-        
-        ChangeState("Monster_1");
-    }
-
+    
     private void Awake()
     {
         if (Instance == null)
@@ -52,19 +45,32 @@ public class Monster : MonoBehaviour
         else Destroy(gameObject);
     }
     
+    private void Start()
+    {
+        PlayerController.instance.OnSearchBegin += () => timeToWaitMonster = maxTimeToWaitMonster;
+        PlayerController.instance.OnSearchEnded += () => monsterAppear = true;
+        PlayerController.instance.OnPlayerMove += MonsterFollowPlayer;
+        
+        ChangeState("Monster_1");
+    }
+    
     private void MonsterAppear()
     {
-        // TODO : Get the player room location 
-        // TODO : Spawn in a random possible monster location 
-        
-        Debug.Log($"Monster just appear in room {MansionManager.Instance.CurrentPlayerRoom()}");
-        DisplayMonster();
+        if(isStillInSameRoom) Chazing();
+        else
+        {
+            Debug.Log($"Monster just appear in room {MansionManager.Instance.CurrentPlayerRoom()}");
+            DisplayMonster();
+        }
     }
 
     private void MonsterFollowPlayer()
     {
         if(!monsterFollow) return;
+        
+        isStillInSameRoom = false;
         amountLeftRoomFollow--;
+        
         foreach (var obj in possibleOBJ)
         {
             obj.SetGameObjectActive(false);
@@ -79,6 +85,7 @@ public class Monster : MonoBehaviour
         {
             monsterFollow = false;
             monsterAppear = false;
+            state = MonsterPosition.Other;
         }
     }
 
@@ -87,23 +94,17 @@ public class Monster : MonoBehaviour
         if(possibleOBJ.Count != 0) possibleOBJ.Clear();
         if(MansionManager.Instance.CurrentPlayerRoom().Type == RoomType.Void) return;
 
-        if (monsterFollow)
-        {
-            Chazing();
-        }
-        else
-        {
-            possibleOBJ.AddRange(MansionManager.Instance.RoomsData[(int)MansionManager.Instance.CurrentPlayerRoom().Type].PossibleMonsterInRoom);
-            possibleOBJ[indexPossibleOBJ].SetGameObjectActive(false);
+        possibleOBJ.AddRange(MansionManager.Instance.RoomsData[(int)MansionManager.Instance.CurrentPlayerRoom().Type].PossibleMonsterInRoom);
+        possibleOBJ[indexPossibleOBJ].SetGameObjectActive(false);
         
-            indexPossibleOBJ = Random.Range(0, possibleOBJ.Count);
-            possibleOBJ[indexPossibleOBJ].SetGameObjectActive(true);
+        indexPossibleOBJ = Random.Range(0, possibleOBJ.Count);
+        possibleOBJ[indexPossibleOBJ].SetGameObjectActive(true);
         
-            ChangeState(possibleOBJ[indexPossibleOBJ].name);
-        }
+        ChangeState(possibleOBJ[indexPossibleOBJ].name);
+        isStillInSameRoom = true;
     }
 
-    private void Chazing()
+    public void Chazing()
     {
         isChazing = true;
         timeBeforeKilling = maxTimeBeforeKilling;
@@ -160,7 +161,7 @@ public class Monster : MonoBehaviour
         if(!isChazing) return;
         timeBeforeKilling -= Time.deltaTime;
 
-        if (!(timeBeforeKilling <= 0)) return;
+        if (timeBeforeKilling >= 0) return;
         isChazing = false;
             
         OnMonsterKilling?.Invoke();
@@ -176,8 +177,8 @@ public class Monster : MonoBehaviour
 
 public enum MonsterPosition
 {
-    RightDoor,
     LeftDoor,
+    RightDoor,
     Stair,
     Other
 }
