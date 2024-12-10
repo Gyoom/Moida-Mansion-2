@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem.HID;
 
 
 public class CinematicManager : MonoBehaviour
@@ -211,7 +212,7 @@ public class CinematicManager : MonoBehaviour
         PlayerController.instance.canInput = false;
 
         Childs child = o.kid;
-        string[] dialogue = o.dialogue;
+        List<string> dialogue = o.dialogue;
 
         yield return new WaitForSeconds(0.5f);
         mainRoom.SetActive(false);
@@ -240,12 +241,13 @@ public class CinematicManager : MonoBehaviour
         hud.DisplayStaticText("RESCUED " + name + "!", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
 
-        for (int i = 0; i < dialogue.Length; i++)
+        for (int i = 0; i < dialogue.Count; i++)
         {
             hud.DisplayStaticText(dialogue[i], 2f, child);
             yield return StartCoroutine(Blink(invChild, 2f));
         }
 
+        hud.activeChilds.Add(child);
         mainRoom.SetActive(true);
         childRoom.SetActive(false);
         PlayerController.instance.canInput = true;
@@ -256,7 +258,6 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void ClickButton()
     {
-        Debug.Log("Click button");
         StartCoroutine(ButtonCinematic());
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.Numerics;
 
 namespace Script.Procedural_Generation
 {
@@ -6,6 +7,6 @@ namespace Script.Procedural_Generation
     {
         public Childs kid = Childs.none;
         public Room kidRoom; 
-        public string[] dialogue;
+        public List<string> dialogue = new List<string>();
     }
 }
