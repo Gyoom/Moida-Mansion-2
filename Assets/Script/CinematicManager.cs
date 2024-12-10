@@ -210,7 +210,7 @@ public class CinematicManager : MonoBehaviour
     private IEnumerator ChildCinematic(Script.Procedural_Generation.InteractiveObj o) { 
         PlayerController.instance.canInput = false;
 
-        childs child = o.IsKid;
+        Childs child = o.kid;
         string[] dialogue = o.dialogue;
 
         yield return new WaitForSeconds(0.5f);
@@ -220,21 +220,21 @@ public class CinematicManager : MonoBehaviour
         string name = "";
         GameObject invChild = null;
         switch (child) { 
-            case childs.ace:
+            case Childs.ace:
                 name = "ACE";
                 invChild = hud.ace;
                 break;
-            case childs.bek:
+            case Childs.bek:
                 name = "BEK";
                 invChild = hud.bek;
                 break;
-            case childs.cal:
+            case Childs.cal:
                 name = "CAL";
                 invChild = hud.cal;
                 break;
         };
         invChild.SetActive(true);
-        hud.DisplayStaticText("RESCUED " + name + "!", 2f, childs.none);
+        hud.DisplayStaticText("RESCUED " + name + "!", 2f, Childs.none);
         yield return new WaitForSeconds(2f);
 
         for (int i = 0; i < dialogue.Length; i++)
@@ -261,10 +261,10 @@ public class CinematicManager : MonoBehaviour
 
         if (hud.activeChilds.Count > 0)
         {
-            childs child = hud.activeChilds[0];
+            Childs child = hud.activeChilds[0];
             GameObject childGO;
 
-            hud.DisplayStaticText("Nothing happen", 2f, childs.none);
+            hud.DisplayStaticText("Nothing happen", 2f, Childs.none);
             yield return new WaitForSeconds(2f);
 
             hud.DisplayStaticText("I will stay to press", 2f, child);
@@ -272,15 +272,15 @@ public class CinematicManager : MonoBehaviour
 
             switch (child)
             {
-                case childs.ace:
+                case Childs.ace:
                     childGO = hud.ace;
                     childGO.SetActive(false);
                     break;
-                case childs.bek:
+                case Childs.bek:
                     childGO = hud.bek;
                     childGO.SetActive(false);
                     break;
-                case childs.cal:
+                case Childs.cal:
                     childGO = hud.cal;
                     childGO.SetActive(false);
                     break;
@@ -297,7 +297,7 @@ public class CinematicManager : MonoBehaviour
         }
         else
         {
-            hud.DisplayStaticText("Nothing happen", 2f, childs.none);
+            hud.DisplayStaticText("Nothing happen", 2f, Childs.none);
             yield return new WaitForSeconds(2f); 
         }
 

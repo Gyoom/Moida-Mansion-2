@@ -49,7 +49,7 @@ public class HUDManager : MonoBehaviour
     private Coroutine StaticTextCoroutine;
     private Coroutine ScrollingTextCoroutine;
 
-    public List<childs> activeChilds;
+    public List<Childs> activeChilds;
 
     //[Header("Debug")]
     //[SerializeField] private Vector2 debugPos;
@@ -99,12 +99,9 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
+        .. debug
         if (Input.GetMouseButtonDown(1))
         {
-            string[] a = { "AAA", "BBB" };
-            CinematicManager.Instance.FoundChild(childs.ace, a);
-            //DisplayScrollingText("Hello    \t", 10, childs.bek);
-            //DisplayStaticText("Hello    \t", 15);
         }
     }
 
