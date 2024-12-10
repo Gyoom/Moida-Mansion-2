@@ -98,7 +98,7 @@ public class HUDManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            DisplaySearchingText();
+            StartCoroutine(CinematicManager.Instance.FoundDot());
             //DisplayScrollingText("Hello    \t", 10, childs.bek);
             //DisplayStaticText("Hello    \t", 15);
         }

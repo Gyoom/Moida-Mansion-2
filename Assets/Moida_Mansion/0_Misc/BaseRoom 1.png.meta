@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 4fa4c6aeb88cce94daf5718717712965
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7601836354042702112
+    second: BaseRoom_0
+  - first:
+      213: 4772050596728707728
+    second: BaseRoom_1
+  - first:
+      213: -8701914244862022578
+    second: BaseRoom_2
+  - first:
+      213: 8443673816225813446
+    second: BaseRoom_3
+  - first:
+      213: -2257393889770103997
+    second: BaseRoom_4
+  - first:
+      213: 2201497585336690250
+    second: BaseRoom_5
+  - first:
+      213: -1218225998427199408
+    second: BaseRoom_6
+  - first:
+      213: -7408151739547344893
+    second: BaseRoom_7
+  - first:
+      213: -4129087180903704032
+    second: BaseRoom_8
+  - first:
+      213: -2976286854236832197
+    second: BaseRoom_9
+  - first:
+      213: -7956192868310613493
+    second: BaseRoom_10
+  - first:
+      213: -5979353685768983952
+    second: BaseRoom_11
+  - first:
+      213: -3439971844811849715
+    second: BaseRoom_12
+  - first:
+      213: -9076943554917809273
+    second: BaseRoom_13
+  - first:
+      213: 1443945365374361745
+    second: BaseRoom_14
+  - first:
+      213: -3232980780782504107
+    second: BaseRoom_15
+  - first:
+      213: -3076999424898069563
+    second: BaseRoom_16
+  - first:
+      213: -3211876882489503707
+    second: BaseRoom_17
+  - first:
+      213: 304780065318133867
+    second: BaseRoom_18
+  - first:
+      213: 5289781920336285863
+    second: BaseRoom_19
+  - first:
+      213: 4539356391994138707
+    second: BaseRoom_20
+  - first:
+      213: 2455746962248192901
+    second: BaseRoom_21
+  - first:
+      213: 2229039736281879701
+    second: BaseRoom_22
+  - first:
+      213: -1836496343986195219
+    second: BaseRoom_23
+  - first:
+      213: -5844256738815352438
+    second: BaseRoom_24
+  - first:
+      213: 338148202353030264
+    second: BaseRoom_25
+  - first:
+      213: -4745871623160314442
+    second: BaseRoom_26
+  - first:
+      213: 1596646550088381173
+    second: BaseRoom_27
+  - first:
+      213: 773562481282183899
+    second: BaseRoom_28
+  - first:
+      213: 5514046937392375683
+    second: BaseRoom_29
+  - first:
+      213: 7314769140127498875
+    second: BaseRoom_30
+  - first:
+      213: 7230886103827730848
+    second: BaseRoom_31
+  - first:
+      213: 178812680562263986
+    second: BaseRoom_32
+  - first:
+      213: 3838620855893454044
+    second: BaseRoom_33
+  - first:
+      213: 3433784669836621386
+    second: BaseRoom_34
+  - first:
+      213: -8088693481598105323
+    second: BaseRoom_35
+  - first:
+      213: 873982566384109925
+    second: BaseRoom_36
+  - first:
+      213: 1816833590572932950
+    second: BaseRoom_37
+  - first:
+      213: -1685240078081703575
+    second: BaseRoom_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BaseRoom_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 412
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029ad5343e52f7960800000000000000
+      internalID: 7601836354042702112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 395
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a943cfbbab93240800000000000000
+      internalID: 4772050596728707728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_2
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 413
+        width: 124
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c661959179c3780800000000000000
+      internalID: -8701914244862022578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_3
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 396
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3186f6994fd2570800000000000000
+      internalID: 8443673816225813446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_4
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 359
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b9d1aa7302ca0e0800000000000000
+      internalID: -2257393889770103997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 393
+        width: 33
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a46afdbc36a4d8e10800000000000000
+      internalID: 2201497585336690250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_6
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 393
+        width: 50
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058e99ba8edf71fe0800000000000000
+      internalID: -1218225998427199408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_7
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 393
+        width: 59
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300a6123e35f03990800000000000000
+      internalID: -7408151739547344893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_8
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 393
+        width: 33
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a9d97f51982b6c0800000000000000
+      internalID: -4129087180903704032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 393
+        width: 22
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e7c8700ea12b6d0800000000000000
+      internalID: -2976286854236832197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_10
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 393
+        width: 69
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0289df6dbce59190800000000000000
+      internalID: -7956192868310613493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_11
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 393
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a2155b081150da0800000000000000
+      internalID: -5979353685768983952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_12
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 393
+        width: 25
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0005a835d3c240d0800000000000000
+      internalID: -3439971844811849715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_13
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 393
+        width: 46
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7834ad2bde7380280800000000000000
+      internalID: -9076943554917809273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_14
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 358
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190e532d8ace90410800000000000000
+      internalID: 1443945365374361745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_15
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 317
+        width: 6
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5573bc3eb152223d0800000000000000
+      internalID: -3232980780782504107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_16
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 276
+        width: 7
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb8ed0635d4c45d0800000000000000
+      internalID: -3076999424898069563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_17
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 236
+        width: 7
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5209cec1efe1d63d0800000000000000
+      internalID: -3211876882489503707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_18
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 109
+        width: 86
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6068e7cadbca3400800000000000000
+      internalID: 304780065318133867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_19
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 165
+        width: 9
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a09dec41a4196940800000000000000
+      internalID: 5289781920336285863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_20
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 140
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350a5b586980ffe30800000000000000
+      internalID: 4539356391994138707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_21
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 110
+        width: 46
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5835c0fd9d0941220800000000000000
+      internalID: 2455746962248192901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 110
+        width: 36
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594df4784d32fee10800000000000000
+      internalID: 2229039736281879701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_23
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 110
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de436692e447386e0800000000000000
+      internalID: -1836496343986195219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_24
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 110
+        width: 35
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a816ab2d57705eea0800000000000000
+      internalID: -5844256738815352438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_25
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 110
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87470ba9ff751b400800000000000000
+      internalID: 338148202353030264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_26
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 110
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b54ce747e6432eb0800000000000000
+      internalID: -4745871623160314442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_27
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 109
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2fed1f39d682610800000000000000
+      internalID: 1596646550088381173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_28
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 110
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2f46c6afe3cba00800000000000000
+      internalID: 773562481282183899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_29
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 110
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3876a129974d58c40800000000000000
+      internalID: 5514046937392375683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_30
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 110
+        width: 34
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b720a4317c7438560800000000000000
+      internalID: 7314769140127498875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_31
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 110
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1d5fdb994495460800000000000000
+      internalID: 7230886103827730848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_32
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 110
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7cf328f254b7200800000000000000
+      internalID: 178812680562263986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_33
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 114
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc6fee9455854530800000000000000
+      internalID: 3838620855893454044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_34
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 92
+        width: 47
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a463bc8d6f047af20800000000000000
+      internalID: 3433784669836621386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_35
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 91
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519c35c52203fbf80800000000000000
+      internalID: -8088693481598105323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_36
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 99
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56985397382012c00800000000000000
+      internalID: 873982566384109925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_37
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 69
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65fd81e4680b63910800000000000000
+      internalID: 1816833590572932950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseRoom_38
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 69
+        width: 48
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96140b8e313dc98e0800000000000000
+      internalID: -1685240078081703575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BaseRoom_0: 7601836354042702112
+      BaseRoom_1: 4772050596728707728
+      BaseRoom_10: -7956192868310613493
+      BaseRoom_11: -5979353685768983952
+      BaseRoom_12: -3439971844811849715
+      BaseRoom_13: -9076943554917809273
+      BaseRoom_14: 1443945365374361745
+      BaseRoom_15: -3232980780782504107
+      BaseRoom_16: -3076999424898069563
+      BaseRoom_17: -3211876882489503707
+      BaseRoom_18: 304780065318133867
+      BaseRoom_19: 5289781920336285863
+      BaseRoom_2: -8701914244862022578
+      BaseRoom_20: 4539356391994138707
+      BaseRoom_21: 2455746962248192901
+      BaseRoom_22: 2229039736281879701
+      BaseRoom_23: -1836496343986195219
+      BaseRoom_24: -5844256738815352438
+      BaseRoom_25: 338148202353030264
+      BaseRoom_26: -4745871623160314442
+      BaseRoom_27: 1596646550088381173
+      BaseRoom_28: 773562481282183899
+      BaseRoom_29: 5514046937392375683
+      BaseRoom_3: 8443673816225813446
+      BaseRoom_30: 7314769140127498875
+      BaseRoom_31: 7230886103827730848
+      BaseRoom_32: 178812680562263986
+      BaseRoom_33: 3838620855893454044
+      BaseRoom_34: 3433784669836621386
+      BaseRoom_35: -8088693481598105323
+      BaseRoom_36: 873982566384109925
+      BaseRoom_37: 1816833590572932950
+      BaseRoom_38: -1685240078081703575
+      BaseRoom_4: -2257393889770103997
+      BaseRoom_5: 2201497585336690250
+      BaseRoom_6: -1218225998427199408
+      BaseRoom_7: -7408151739547344893
+      BaseRoom_8: -4129087180903704032
+      BaseRoom_9: -2976286854236832197
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
