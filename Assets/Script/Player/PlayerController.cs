@@ -58,6 +58,7 @@ public class PlayerController : Actor
             Monster.Instance.Chazing();
             return;
         }
+        Monster.Instance.PlayerIsFleeing();
         
         stepAmount++;
         isSearching = false;
@@ -79,6 +80,7 @@ public class PlayerController : Actor
             Monster.Instance.Chazing();
             return;
         }
+        Monster.Instance.PlayerIsFleeing();
         
         stepAmount++;
         isSearching = false;
@@ -142,6 +144,7 @@ public class PlayerController : Actor
                 Monster.Instance.Chazing();
                 return;
             }
+            Monster.Instance.PlayerIsFleeing();
             
             isSearching = false;
             stepAmount++;

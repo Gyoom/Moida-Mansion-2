@@ -20,6 +20,7 @@ public class Monster : MonoBehaviour
     [SerializeField]private bool monsterFollow;
     [SerializeField]private int amountRoomFollow = 3;
     [SerializeField]private int amountLeftRoomFollow = 0;
+    private bool isfleeing;
 
     [Space]
     // Monster State
@@ -91,6 +92,7 @@ public class Monster : MonoBehaviour
             monsterFollow = false;
             monsterAppear = false;
             state = MonsterPosition.Other;
+            isfleeing = false;
         }
     }
 
@@ -178,9 +180,21 @@ public class Monster : MonoBehaviour
         amountLeftRoomFollow = amountRoomFollow;
     }
 
+    public void PlayerIsFleeing()
+    {
+        isChazing = false;
+        isfleeing = true;
+    }
+
     private void MonsterChazingTimer()
     {
         if(!isChazing) return;
+        if(isfleeing)
+        {
+            isfleeing = false;
+            return;
+        }
+        
         timeBeforeKilling -= Time.deltaTime;
 
         if (timeBeforeKilling >= 0) return;
