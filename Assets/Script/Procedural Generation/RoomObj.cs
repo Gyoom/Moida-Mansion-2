@@ -70,16 +70,16 @@ namespace Script.Procedural_Generation
             switch (DoContain)
             {
                 case true:
-                    Debug.Log($"{gameObject.name} contain {m_containDescription}");
+                    //Debug.Log($"{gameObject.name} contain {m_containDescription}");
                     
                     if(m_objToGive == null)break;
                     Debug.Log($"You receive {m_objToGive}");
-                    HUDManager.Instance.DisplayStaticText($"You receive {m_objToGive}", 5, childs.none);
+                    HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, childs.none);
                     break;
                 
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
-                    HUDManager.Instance.DisplayStaticText($"{gameObject.name} contain Nothing", 5, childs.none);
+                    HUDManager.Instance.DisplayStaticText($"Nothing", 5, childs.none);
                     break;
             }
         }
