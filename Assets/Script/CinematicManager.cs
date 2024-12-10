@@ -134,9 +134,13 @@ public class CinematicManager : MonoBehaviour
 
     IEnumerator MonsterDisplay()
     {
-        yield return new WaitForSeconds(monsterSpeed);
+        monster[0].SetActive(true);
+        monster[1].SetActive(false);
         int previousIndex = 0;
         bool display = true;
+
+        yield return new WaitForSeconds(monsterSpeed);
+
         do
         {
             if (display)
@@ -188,7 +192,6 @@ public class CinematicManager : MonoBehaviour
         mainRoom.SetActive(true);
 
         hud.search.SetActive(true);
-
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -353,7 +356,7 @@ public class CinematicManager : MonoBehaviour
     }
 
     private IEnumerator DeathCinematic() {
-        PlayerController.instance.canInput = false;
+        PlayerController.instance.resetScene = true;
         mainRoom.SetActive(false);
         monsterRoom.SetActive(true);
         hand.SetActive(true);
@@ -399,7 +402,6 @@ public class CinematicManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         hud.arrowRight.SetActive(true);
-        PlayerController.instance.canInput = true;
         loop = true;
         StartCoroutine(ArrowBlink(0.3f));
     }

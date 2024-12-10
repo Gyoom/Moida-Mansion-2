@@ -27,7 +27,7 @@ public class PlayerController : Actor
     private int maxTimeToWait = 5;
 
     private RoomObj objToSearch;
-    private bool resetScene;
+    public bool resetScene;
     
     private void Awake()
     {
@@ -45,6 +45,7 @@ public class PlayerController : Actor
 
     public override void MoveRight()
     {
+        if(!canInput) return;
         if (resetScene)
         {
             SceneManager.LoadScene(0);
@@ -58,6 +59,7 @@ public class PlayerController : Actor
             Monster.Instance.Chazing();
             return;
         }
+        Monster.Instance.PlayerIsFleeing();
         
         stepAmount++;
         isSearching = false;
@@ -79,6 +81,7 @@ public class PlayerController : Actor
             Monster.Instance.Chazing();
             return;
         }
+        Monster.Instance.PlayerIsFleeing();
         
         stepAmount++;
         isSearching = false;
@@ -97,7 +100,6 @@ public class PlayerController : Actor
         if(!startInput) return;
         if(!canInput) return;
         
-        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
         isSearching = true;
         searchAmount++;
         timeToWait = maxTimeToWait;
@@ -123,6 +125,9 @@ public class PlayerController : Actor
             objToSearch = allObjsToSearch[index];
         }
         index++;
+        
+        HUDManager.Instance.DisplayStaticText($"Next ?", 2f, childs.none);
+        HUDManager.Instance.DisplaySearchingText(maxTimeToWait);
     }
 
     public override void TakeStair()
@@ -142,6 +147,7 @@ public class PlayerController : Actor
                 Monster.Instance.Chazing();
                 return;
             }
+            Monster.Instance.PlayerIsFleeing();
             
             isSearching = false;
             stepAmount++;
