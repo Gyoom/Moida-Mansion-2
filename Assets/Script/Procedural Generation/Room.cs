@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Script.Procedural_Generation
 {
@@ -12,6 +11,7 @@ namespace Script.Procedural_Generation
         [HideInInspector] public bool HasStairsDown;
         [HideInInspector] public Door RightDoor;
         [HideInInspector] public Door LeftDoor;
+        [HideInInspector] public bool HasButton;
 
         public void DisplayRoom()
         {
@@ -87,6 +87,11 @@ namespace Script.Procedural_Generation
             {
                 ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[2]);
                 ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[3]);
+            }
+
+            if (HasButton)
+            {
+                ObjInRoom.Add(MansionManager.Instance.CommonRoomObj[5]);
             }
         }
 

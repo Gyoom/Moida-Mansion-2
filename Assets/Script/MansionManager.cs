@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Script.Procedural_Generation;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script
 {
@@ -16,6 +17,8 @@ namespace Script
         [Space] public List<RoomObj> CommonRoomObj = new List<RoomObj>();
 
         [Space] public List<RoomData> RoomsData = new List<RoomData>();
+         
+        public int ActivatedButtons;
 
         private void Awake()
         {
@@ -36,7 +39,7 @@ namespace Script
         public void MovePlayerInMansion(PlayerMove move)
         {
             HUDManager.Instance.DisplayStaticText(string.Empty, -1, childs.none);
-            
+
             switch (move)
             {
                 case PlayerMove.ToLeft:
@@ -87,7 +90,7 @@ namespace Script
         {
             Debug.Log($"Moved to {CurrentPlayerRoom()}, new player pos : {m_playerPosInMansion}");
         }
-        
+
         private void TakeStairs()
         {
             if (CurrentPlayerRoom().HasStairsDown)

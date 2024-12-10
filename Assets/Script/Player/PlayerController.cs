@@ -28,6 +28,8 @@ public class PlayerController : Actor
 
     private RoomObj objToSearch;
     public bool resetScene;
+
+    public Action<InteractiveObj, string[]> OnFoundChild;
     
     private void Awake()
     {
@@ -135,9 +137,9 @@ public class PlayerController : Actor
         if(!canInput) return;
         if (!startInput)
         {
-            MansionManager.Instance.StartGame();
             ChangeStartingInput(true);
             OnStartGeneration?.Invoke();
+            MansionManager.Instance.StartGame();
         }
         else
         {
