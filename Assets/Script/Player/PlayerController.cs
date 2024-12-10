@@ -71,7 +71,6 @@ public class PlayerController : Actor
 //        SoundManager.Instance.SpawnAudio3D(transform.position, 1);
         allObjsToSearch.Clear();
         OnPlayerMove?.Invoke();
-        OnClickBtn?.Invoke();
     }
 
     public override void MoveLeft()
@@ -93,7 +92,6 @@ public class PlayerController : Actor
         MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.ToLeft);
         allObjsToSearch.Clear();
         OnPlayerMove?.Invoke();
-        OnClickBtn?.Invoke();
     }
 
     
@@ -133,7 +131,6 @@ public class PlayerController : Actor
         
         HUDManager.Instance.DisplayStaticText($"Next ?", 2f, Childs.none);
         HUDManager.Instance.DisplaySearchingText(maxTimeToWait);
-        OnClickBtn?.Invoke();
     }
 
     public override void TakeStair()
@@ -161,7 +158,6 @@ public class PlayerController : Actor
             MansionManager.Instance.MovePlayerInMansion(MansionManager.PlayerMove.TakeStairs);
             allObjsToSearch.Clear();
             OnPlayerMove?.Invoke();
-            OnClickBtn?.Invoke();
         }
     }
 
