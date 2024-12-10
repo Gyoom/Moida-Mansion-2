@@ -59,6 +59,7 @@ public class CinematicManager : MonoBehaviour
 
         Monster.Instance.OnMonsterKilling = PlayerDeath;
         PlayerController.instance.OnFoundChild = FoundChild;
+        PlayerController.instance.OnClickBtn = ClickButton;
 
         StartCoroutine(IntroCoroutine);
     }
@@ -255,6 +256,7 @@ public class CinematicManager : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void ClickButton()
     {
+        Debug.Log("Click button");
         StartCoroutine(ButtonCinematic());
     }
 
