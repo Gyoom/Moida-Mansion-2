@@ -107,7 +107,7 @@ namespace Script.Procedural_Generation
                             m_objToGive.kidRoom == MansionManager.Instance.CurrentPlayerRoom())
                         {
                             Debug.Log($"You receive {m_objToGive}");
-                            HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
+                            //HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
                             PlayerController.instance.OnFoundChild(m_objToGive);
                         }
                         else
