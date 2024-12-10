@@ -31,14 +31,14 @@ namespace Script.Procedural_Generation
         private void OnEnable()
         {
             if(noise == null) return;
-            if(!m_objToGive.IsKid) return;
+            if(m_objToGive.kid != Childs.none) return;
             noise.SetObjBlinking();
         }
 
         private void OnDisable()
         {
             if(noise == null) return;
-            if(!m_objToGive.IsKid) return;
+            if(m_objToGive.kid != Childs.none) return;
             noise.SetObjBlinking(false);
         }
 
@@ -88,16 +88,16 @@ namespace Script.Procedural_Generation
                     
                     if(m_objToGive == null)break;
                     Debug.Log($"You receive {m_objToGive}");
-                    HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, childs.none);
+                    HUDManager.Instance.DisplayStaticText($"{m_objToGive}", 5, m_objToGive.kid);
                     PlayerController.instance.OnFoundChild(m_objToGive);
                     
-                    if(!m_objToGive.IsKid) break;
+                    if(m_objToGive.kid != Childs.none) break;
                     noise.SetObjBlinking(false);
                     break;
                 
                 default:
                     Debug.Log($"{gameObject.name} contain Nothing");
-                    HUDManager.Instance.DisplayStaticText($"Nothing", 5, childs.none);
+                    HUDManager.Instance.DisplayStaticText($"Nothing", 5, m_objToGive.kid);
                     break;
             }
         }

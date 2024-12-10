@@ -99,7 +99,6 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
-        .. debug
         if (Input.GetMouseButtonDown(1))
         {
         }
